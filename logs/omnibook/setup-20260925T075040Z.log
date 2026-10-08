@@ -1,0 +1,29 @@
+[setup] 2026-09-25T07:50:40Z host omnibook model name	: Intel(R) Core(TM) Ultra 7 258V
+Note: switching to '1ab7e5ad2d4e7295c94c3b966a3e0b70fa365865'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+[setup] 2026-09-25T07:50:51Z llama.cpp 1ab7e5a 2026-09-25 08:22:43 +0300 CUDA: fuse RMS_NORM + SCALE into one kernel (#29393)
+[setup] 2026-09-25T07:53:21Z llama-bench and llama-server built
+[setup] gcc -march=native defines (AVX512F/AVXVNNI/AVXNECONVERT): 2
+[setup] 2026-09-25T07:53:21Z convert Qwen3.5-0.8B
+[setup] 2026-09-25T07:53:31Z Qwen3.5-0.8B gguf: 1516744672 bytes
+[setup] 2026-09-25T07:53:31Z convert Qwen3.5-2B
+[setup] 2026-09-25T07:53:41Z Qwen3.5-2B gguf: 3775709152 bytes
+[setup] 2026-09-25T07:53:41Z convert Qwen3.5-4B
+[setup] 2026-09-25T07:53:59Z Qwen3.5-4B gguf: 8424393600 bytes
+[setup] 2026-09-25T07:57:15Z vllm installed: 0.30.0 2.13.0+cpu
+[setup] 2026-09-25T07:57:15Z done

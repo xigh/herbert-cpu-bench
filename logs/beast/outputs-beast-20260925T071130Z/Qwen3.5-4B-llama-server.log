@@ -1,0 +1,10 @@
+0.00.000.160 I srv  llama_server: initializing ...
+0.00.001.279 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.001.483 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.003.009 I srv    load_model: loading model '/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf'
+0.00.595.019 I cmn          init: llama threadpool init, n_threads = 12
+0.01.011.847 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 1024, kv_unified = 'false'
+0.01.014.406 I srv  llama_server: model loaded
+0.01.014.411 I srv  llama_server: listening on http://127.0.0.1:18080
+0.02.022.887 W srv    operator(): got exception: {"error":{"code":500,"message":"[json.exception.parse_error.101] parse error at line 1, column 12: syntax error while parsing value - unexpected ','; expected '[', '{', or a literal","type":"server_error"}}
+0.02.023.788 I srv    operator(): operator(): cleaning up before exit...

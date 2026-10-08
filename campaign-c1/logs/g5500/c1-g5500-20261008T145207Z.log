@@ -1,0 +1,661 @@
+## 2026-10-08T14:53:53Z host G5500 · Microsoft Windows 11 Pro 10.0.26200 · AMD Ryzen 5 5500GT with Radeon Graphics         (6 cores, 12 logical)
+power scheme Balanced · memory 31 GiB · DDR 2133 MT/s · load 4%
+processes (top CPU time): GalaxyClient:237s GOG Galaxy Notifications Renderer:20s explorer:16s
+versions: herbert da677c921db1b025 probe c2f5454c731e4894 llama 8fe035a7a4fa51ae (load_backend: loaded RPC backend from C:\Users\zexig\bench-engines\llama-win\ggml-rpc.dll) vllm - vllm-zen - openvino -
+config MODELS=Qwen3.5-0.8B Qwen3.5-2B Qwen3.5-4B ARMS=herbert:6 llama:6 herbert:1 llama:1 PROBE_THREADS=1 2 4 6 REPS=5 NICE=0 MDIR=C:\Users\zexig\models REF=-
+gguf Qwen3.5-0.8B 1516744672 bytes
+gguf Qwen3.5-2B 3775709152 bytes
+gguf Qwen3.5-4B 8424393600 bytes
+# 2026-10-08T14:54:06Z idle 99.3% load 0% top GalaxyClient:238s GOG Galaxy Notifications Renderer:20s explorer:16s
+== probe Qwen3.5-0.8B t=1,2,4,6 rep 1 load 0% 14:54:08 procs>5%: (windows: load% of the package; top GalaxyClient:238s GOG Galaxy Notifications Renderer:20s explorer:16s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1719 GB/s=24.99
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1689 GB/s=25.42
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1690 GB/s=25.42
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1693 GB/s=25.38
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1694 GB/s=25.35
+[probe-bw] threads=1 best=25.42 median=25.38 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1385 GB/s=31.01
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1387 GB/s=30.96
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1384 GB/s=31.03
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1384 GB/s=31.04
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1383 GB/s=31.05
+[probe-bw] threads=2 best=31.05 median=31.03 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1381 GB/s=31.10
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1389 GB/s=30.92
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1382 GB/s=31.09
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1390 GB/s=30.89
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1382 GB/s=31.07
+[probe-bw] threads=4 best=31.10 median=31.07 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1421 GB/s=30.23
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1418 GB/s=30.28
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1420 GB/s=30.26
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1426 GB/s=30.13
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1425 GB/s=30.14
+[probe-bw] threads=6 best=30.28 median=30.23 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 1 arm h
+powershell.exe : Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_run-win.ps1:8 char:1
++ & powershell -NoProfile -ExecutionPolicy Bypass -File "$S\_c1-win.ps1 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Method invocati... named 'Split'.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:54:22Z idle 99.3% load 4% top GalaxyClient:238s GOG Galaxy Notifications Renderer:20s explorer:16s
+== probe Qwen3.5-0.8B t=1,2,4,6 rep 2 load 1% 14:54:25 procs>5%: (windows: load% of the package; top GalaxyClient:238s GOG Galaxy Notifications Renderer:20s explorer:16s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2145 GB/s=20.03
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1847 GB/s=23.26
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1698 GB/s=25.30
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1694 GB/s=25.35
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1691 GB/s=25.40
+[probe-bw] threads=1 best=25.40 median=25.30 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1384 GB/s=31.03
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1385 GB/s=31.01
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1384 GB/s=31.03
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1388 GB/s=30.95
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1383 GB/s=31.05
+[probe-bw] threads=2 best=31.05 median=31.03 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1387 GB/s=30.97
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1385 GB/s=31.02
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1386 GB/s=31.00
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1380 GB/s=31.12
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1386 GB/s=30.99
+[probe-bw] threads=4 best=31.12 median=31.00 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1426 GB/s=30.11
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1419 GB/s=30.28
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1420 GB/s=30.25
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1420 GB/s=30.25
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1421 GB/s=30.23
+[probe-bw] threads=6 best=30.28 median=30.25 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 2 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:54:39Z idle 99.2% load 0% top GalaxyClient:239s GOG Galaxy Notifications Renderer:20s explorer:16s
+== probe Qwen3.5-0.8B t=1,2,4,6 rep 3 load 0% 14:54:41 procs>5%: (windows: load% of the package; top GalaxyClient:239s GOG Galaxy Notifications Renderer:20s explorer:16s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2128 GB/s=20.18
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1804 GB/s=23.81
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1707 GB/s=25.16
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1700 GB/s=25.27
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1696 GB/s=25.32
+[probe-bw] threads=1 best=25.32 median=25.16 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1381 GB/s=31.11
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1382 GB/s=31.08
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1387 GB/s=30.97
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1382 GB/s=31.07
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1379 GB/s=31.13
+[probe-bw] threads=2 best=31.13 median=31.08 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1383 GB/s=31.06
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1387 GB/s=30.96
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1381 GB/s=31.10
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1381 GB/s=31.10
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1387 GB/s=30.97
+[probe-bw] threads=4 best=31.10 median=31.06 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1418 GB/s=30.28
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1421 GB/s=30.23
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1418 GB/s=30.28
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1429 GB/s=30.06
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1418 GB/s=30.28
+[probe-bw] threads=6 best=30.28 median=30.28 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 3 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:54:56Z idle 99.3% load 5% top GalaxyClient:240s GOG Galaxy Notifications Renderer:20s explorer:16s
+== probe Qwen3.5-0.8B t=1,2,4,6 rep 4 load 0% 14:54:58 procs>5%: (windows: load% of the package; top GalaxyClient:240s GOG Galaxy Notifications Renderer:20s explorer:16s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2179 GB/s=19.71
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1827 GB/s=23.50
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1752 GB/s=24.52
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1743 GB/s=24.64
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1754 GB/s=24.49
+[probe-bw] threads=1 best=24.64 median=24.49 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1391 GB/s=30.87
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1407 GB/s=30.52
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1385 GB/s=31.01
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1379 GB/s=31.14
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1382 GB/s=31.08
+[probe-bw] threads=2 best=31.14 median=31.01 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1384 GB/s=31.03
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1382 GB/s=31.09
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1382 GB/s=31.08
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1383 GB/s=31.05
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1384 GB/s=31.03
+[probe-bw] threads=4 best=31.09 median=31.05 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1427 GB/s=30.10
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1420 GB/s=30.25
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1424 GB/s=30.16
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1423 GB/s=30.19
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1420 GB/s=30.24
+[probe-bw] threads=6 best=30.25 median=30.19 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 4 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:55:13Z idle 91.4% < 97%: waiting
+# 2026-10-08T14:55:35Z idle 99.1% load 0% top GalaxyClient:241s GOG Galaxy Notifications Renderer:20s explorer:17s
+== probe Qwen3.5-0.8B t=1,2,4,6 rep 5 load 0% 14:55:37 procs>5%: (windows: load% of the package; top GalaxyClient:241s GOG Galaxy Notifications Renderer:20s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2083 GB/s=20.62
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1709 GB/s=25.13
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1693 GB/s=25.37
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1691 GB/s=25.39
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1692 GB/s=25.38
+[probe-bw] threads=1 best=25.39 median=25.37 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1396 GB/s=30.77
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1383 GB/s=31.05
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1377 GB/s=31.18
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1379 GB/s=31.14
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1383 GB/s=31.05
+[probe-bw] threads=2 best=31.18 median=31.05 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1382 GB/s=31.08
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1385 GB/s=31.01
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1378 GB/s=31.16
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1394 GB/s=30.80
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1382 GB/s=31.08
+[probe-bw] threads=4 best=31.16 median=31.08 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1418 GB/s=30.29
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1418 GB/s=30.28
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1419 GB/s=30.26
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1422 GB/s=30.21
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1421 GB/s=30.21
+[probe-bw] threads=6 best=30.29 median=30.26 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 5 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:55:51Z idle 99.4% load 0% top GalaxyClient:242s GOG Galaxy Notifications Renderer:20s explorer:17s
+== probe Qwen3.5-2B t=1,2,4,6 rep 1 load 4% 14:55:53 procs>5%: (windows: load% of the package; top GalaxyClient:242s GOG Galaxy Notifications Renderer:20s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2121 GB/s=20.25
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1868 GB/s=23.00
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1749 GB/s=24.55
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1738 GB/s=24.71
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1702 GB/s=25.23
+[probe-bw] threads=1 best=25.23 median=24.55 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1384 GB/s=31.03
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1381 GB/s=31.11
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1378 GB/s=31.16
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1377 GB/s=31.19
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1389 GB/s=30.92
+[probe-bw] threads=2 best=31.19 median=31.11 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1385 GB/s=31.02
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1386 GB/s=30.99
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1382 GB/s=31.07
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1390 GB/s=30.90
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1387 GB/s=30.97
+[probe-bw] threads=4 best=31.07 median=30.99 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1422 GB/s=30.21
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1427 GB/s=30.11
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1422 GB/s=30.20
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1419 GB/s=30.26
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1419 GB/s=30.26
+[probe-bw] threads=6 best=30.26 median=30.21 GB/s
+## exit 0
+### model Qwen3.5-2B rep 1 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:56:08Z idle 99.2% load 2% top GalaxyClient:243s GOG Galaxy Notifications Renderer:20s explorer:17s
+== probe Qwen3.5-2B t=1,2,4,6 rep 2 load 5% 14:56:10 procs>5%: (windows: load% of the package; top GalaxyClient:243s GOG Galaxy Notifications Renderer:20s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2113 GB/s=20.32
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1720 GB/s=24.97
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1702 GB/s=25.23
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1688 GB/s=25.45
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1689 GB/s=25.42
+[probe-bw] threads=1 best=25.45 median=25.23 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1391 GB/s=30.88
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1378 GB/s=31.17
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1376 GB/s=31.21
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1382 GB/s=31.07
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1382 GB/s=31.08
+[probe-bw] threads=2 best=31.21 median=31.08 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1381 GB/s=31.10
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1388 GB/s=30.95
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1383 GB/s=31.05
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1388 GB/s=30.95
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1381 GB/s=31.10
+[probe-bw] threads=4 best=31.10 median=31.05 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1420 GB/s=30.25
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1420 GB/s=30.26
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1420 GB/s=30.25
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1417 GB/s=30.32
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1421 GB/s=30.22
+[probe-bw] threads=6 best=30.32 median=30.25 GB/s
+## exit 0
+### model Qwen3.5-2B rep 2 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:56:25Z idle 98.3% load 3% top GalaxyClient:243s GOG Galaxy Notifications Renderer:20s explorer:17s
+== probe Qwen3.5-2B t=1,2,4,6 rep 3 load 0% 14:56:27 procs>5%: (windows: load% of the package; top GalaxyClient:243s GOG Galaxy Notifications Renderer:20s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2080 GB/s=20.65
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1752 GB/s=24.52
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1698 GB/s=25.30
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1693 GB/s=25.37
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1700 GB/s=25.26
+[probe-bw] threads=1 best=25.37 median=25.26 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1386 GB/s=31.00
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1380 GB/s=31.12
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1390 GB/s=30.89
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1377 GB/s=31.19
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1391 GB/s=30.88
+[probe-bw] threads=2 best=31.19 median=31.00 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1390 GB/s=30.90
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1378 GB/s=31.18
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1380 GB/s=31.12
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1381 GB/s=31.09
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1381 GB/s=31.10
+[probe-bw] threads=4 best=31.18 median=31.10 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1418 GB/s=30.28
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1428 GB/s=30.08
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1424 GB/s=30.16
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1421 GB/s=30.22
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1418 GB/s=30.28
+[probe-bw] threads=6 best=30.28 median=30.22 GB/s
+## exit 0
+### model Qwen3.5-2B rep 3 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:56:41Z idle 99.1% load 0% top GalaxyClient:243s GOG Galaxy Notifications Renderer:20s explorer:17s
+== probe Qwen3.5-2B t=1,2,4,6 rep 4 load 0% 14:56:44 procs>5%: (windows: load% of the package; top GalaxyClient:243s GOG Galaxy Notifications Renderer:20s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2092 GB/s=20.53
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1721 GB/s=24.95
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1691 GB/s=25.40
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1685 GB/s=25.48
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1687 GB/s=25.46
+[probe-bw] threads=1 best=25.48 median=25.40 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1387 GB/s=30.97
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1379 GB/s=31.15
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1375 GB/s=31.24
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1374 GB/s=31.25
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1379 GB/s=31.15
+[probe-bw] threads=2 best=31.25 median=31.15 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1384 GB/s=31.04
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1385 GB/s=31.01
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1384 GB/s=31.04
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1393 GB/s=30.82
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1387 GB/s=30.97
+[probe-bw] threads=4 best=31.04 median=31.01 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1418 GB/s=30.28
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1420 GB/s=30.25
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1419 GB/s=30.27
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1421 GB/s=30.23
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1419 GB/s=30.28
+[probe-bw] threads=6 best=30.28 median=30.27 GB/s
+## exit 0
+### model Qwen3.5-2B rep 4 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:56:58Z idle 99.3% load 2% top GalaxyClient:244s GOG Galaxy Notifications Renderer:20s explorer:17s
+== probe Qwen3.5-2B t=1,2,4,6 rep 5 load 3% 14:57:00 procs>5%: (windows: load% of the package; top GalaxyClient:244s GOG Galaxy Notifications Renderer:20s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2109 GB/s=20.36
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1753 GB/s=24.50
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1757 GB/s=24.44
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1685 GB/s=25.49
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1690 GB/s=25.42
+[probe-bw] threads=1 best=25.49 median=24.50 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1376 GB/s=31.22
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1376 GB/s=31.22
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1375 GB/s=31.23
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1375 GB/s=31.24
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1385 GB/s=31.01
+[probe-bw] threads=2 best=31.24 median=31.22 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1381 GB/s=31.11
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1383 GB/s=31.06
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1382 GB/s=31.07
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1383 GB/s=31.05
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1384 GB/s=31.03
+[probe-bw] threads=4 best=31.11 median=31.06 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1421 GB/s=30.22
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1420 GB/s=30.24
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1429 GB/s=30.06
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1420 GB/s=30.24
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1421 GB/s=30.21
+[probe-bw] threads=6 best=30.24 median=30.22 GB/s
+## exit 0
+### model Qwen3.5-2B rep 5 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:57:15Z idle 99.3% load 2% top GalaxyClient:245s GOG Galaxy Notifications Renderer:21s explorer:17s
+== probe Qwen3.5-4B t=1,2,4,6 rep 1 load 3% 14:57:17 procs>5%: (windows: load% of the package; top GalaxyClient:245s GOG Galaxy Notifications Renderer:21s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2070 GB/s=20.75
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1684 GB/s=25.50
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1686 GB/s=25.48
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1693 GB/s=25.37
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1696 GB/s=25.32
+[probe-bw] threads=1 best=25.50 median=25.37 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1378 GB/s=31.17
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1386 GB/s=31.00
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1376 GB/s=31.22
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1371 GB/s=31.32
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1372 GB/s=31.31
+[probe-bw] threads=2 best=31.32 median=31.22 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1382 GB/s=31.08
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1382 GB/s=31.07
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1378 GB/s=31.16
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1387 GB/s=30.96
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1385 GB/s=31.01
+[probe-bw] threads=4 best=31.16 median=31.07 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1416 GB/s=30.33
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1417 GB/s=30.32
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1420 GB/s=30.24
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1424 GB/s=30.15
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1419 GB/s=30.27
+[probe-bw] threads=6 best=30.33 median=30.27 GB/s
+## exit 0
+### model Qwen3.5-4B rep 1 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:57:31Z idle 99.3% load 2% top GalaxyClient:245s GOG Galaxy Notifications Renderer:21s explorer:17s
+== probe Qwen3.5-4B t=1,2,4,6 rep 2 load 2% 14:57:34 procs>5%: (windows: load% of the package; top GalaxyClient:245s GOG Galaxy Notifications Renderer:21s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2056 GB/s=20.89
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1700 GB/s=25.26
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1685 GB/s=25.48
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1695 GB/s=25.33
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1686 GB/s=25.47
+[probe-bw] threads=1 best=25.48 median=25.33 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1376 GB/s=31.22
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1382 GB/s=31.09
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1373 GB/s=31.29
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1372 GB/s=31.30
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1374 GB/s=31.26
+[probe-bw] threads=2 best=31.30 median=31.26 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1389 GB/s=30.92
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1379 GB/s=31.14
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1380 GB/s=31.13
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1379 GB/s=31.14
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1378 GB/s=31.16
+[probe-bw] threads=4 best=31.16 median=31.14 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1417 GB/s=30.30
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1416 GB/s=30.33
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1425 GB/s=30.13
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1421 GB/s=30.23
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1421 GB/s=30.22
+[probe-bw] threads=6 best=30.33 median=30.23 GB/s
+## exit 0
+### model Qwen3.5-4B rep 2 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:57:48Z idle 99.2% load 0% top GalaxyClient:246s GOG Galaxy Notifications Renderer:21s explorer:17s
+== probe Qwen3.5-4B t=1,2,4,6 rep 3 load 2% 14:57:50 procs>5%: (windows: load% of the package; top GalaxyClient:246s GOG Galaxy Notifications Renderer:21s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2052 GB/s=20.93
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1738 GB/s=24.71
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1749 GB/s=24.55
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1742 GB/s=24.65
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1737 GB/s=24.73
+[probe-bw] threads=1 best=24.73 median=24.65 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1387 GB/s=30.97
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1372 GB/s=31.31
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1386 GB/s=30.98
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1377 GB/s=31.20
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1370 GB/s=31.35
+[probe-bw] threads=2 best=31.35 median=31.20 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1378 GB/s=31.17
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1381 GB/s=31.10
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1378 GB/s=31.17
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1377 GB/s=31.19
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1385 GB/s=31.01
+[probe-bw] threads=4 best=31.19 median=31.17 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1420 GB/s=30.24
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1421 GB/s=30.23
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1419 GB/s=30.27
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1426 GB/s=30.12
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1424 GB/s=30.16
+[probe-bw] threads=6 best=30.27 median=30.23 GB/s
+## exit 0
+### model Qwen3.5-4B rep 3 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:58:05Z idle 99.1% load 0% top GalaxyClient:247s GOG Galaxy Notifications Renderer:21s explorer:17s
+== probe Qwen3.5-4B t=1,2,4,6 rep 4 load 2% 14:58:07 procs>5%: (windows: load% of the package; top GalaxyClient:247s GOG Galaxy Notifications Renderer:21s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2057 GB/s=20.88
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1769 GB/s=24.28
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1721 GB/s=24.95
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1727 GB/s=24.87
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1744 GB/s=24.62
+[probe-bw] threads=1 best=24.95 median=24.62 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1390 GB/s=30.90
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1376 GB/s=31.21
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1382 GB/s=31.09
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1370 GB/s=31.35
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1368 GB/s=31.39
+[probe-bw] threads=2 best=31.39 median=31.21 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1386 GB/s=30.99
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1398 GB/s=30.72
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1383 GB/s=31.06
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1385 GB/s=31.02
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1388 GB/s=30.94
+[probe-bw] threads=4 best=31.06 median=30.99 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1423 GB/s=30.19
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1420 GB/s=30.24
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1419 GB/s=30.28
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1433 GB/s=29.97
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1422 GB/s=30.20
+[probe-bw] threads=6 best=30.28 median=30.20 GB/s
+## exit 0
+### model Qwen3.5-4B rep 4 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+# 2026-10-08T14:58:21Z idle 99.1% load 2% top GalaxyClient:248s GOG Galaxy Notifications Renderer:21s explorer:17s
+== probe Qwen3.5-4B t=1,2,4,6 rep 5 load 8% 14:58:24 procs>5%: (windows: load% of the package; top GalaxyClient:248s GOG Galaxy Notifications Renderer:21s explorer:17s)
+[probe-bw] windows logical=12 physical=6 smt=true stride=2 kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.2042 GB/s=21.03
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1763 GB/s=24.36
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1731 GB/s=24.82
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1739 GB/s=24.70
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1731 GB/s=24.81
+[probe-bw] threads=1 best=24.82 median=24.70 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1392 GB/s=30.85
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1385 GB/s=31.01
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1379 GB/s=31.15
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1372 GB/s=31.30
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1380 GB/s=31.12
+[probe-bw] threads=2 best=31.30 median=31.12 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1386 GB/s=30.99
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1386 GB/s=31.00
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1386 GB/s=30.99
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1386 GB/s=30.99
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1384 GB/s=31.04
+[probe-bw] threads=4 best=31.04 median=30.99 GB/s
+[probe-bw] threads=6 pass=0 bytes=4294966272 seconds=0.1430 GB/s=30.04
+[probe-bw] threads=6 pass=1 bytes=4294966272 seconds=0.1421 GB/s=30.23
+[probe-bw] threads=6 pass=2 bytes=4294966272 seconds=0.1417 GB/s=30.32
+[probe-bw] threads=6 pass=3 bytes=4294966272 seconds=0.1421 GB/s=30.23
+[probe-bw] threads=6 pass=4 bytes=4294966272 seconds=0.1434 GB/s=29.95
+[probe-bw] threads=6 best=30.32 median=30.23 GB/s
+## exit 0
+### model Qwen3.5-4B rep 5 arm h
+Method invocation failed because [System.Char] does not contain a method named 'Split'.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:60
++ ... in $rot) { "### model $m rep $rep arm $a"; $p = $a.Split(":"); RunArm ...
++                                                ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+ 
+Cannot index into a null array.
+At C:\Users\zexig\c1\_scripts\_c1-win.ps1:56 char:80
++ ... $rep arm $a"; $p = $a.Split(":"); RunArm $p[0] $m ([int]$p[1]) $rep }
++                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+## 2026-10-08T14:58:27Z finished

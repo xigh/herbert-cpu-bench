@@ -1,0 +1,6 @@
+[ov] openvino 2026.4.1-22982-e213a147257-releases/2026/4 genai 2026.4.1.0-3408-ab01d1771e4 props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 1.2 s, maxrss 3.18 GB
+[ids] [22969, 74593, 9056, 224731, 14091, 7072, 186173, 933, 3424, 628, 11640, 184743, 11, 324, 6, 3157, 208079, 1147, 184743, 7657, 5346, 80392, 909, 272, 225503, 1778, 205429, 909, 51790, 5346, 90209, 4755]
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour"
+[reference] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour"
+[agreement] compared 32 first_divergence none

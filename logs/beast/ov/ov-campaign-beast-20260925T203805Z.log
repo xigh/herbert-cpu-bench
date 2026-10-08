@@ -1,0 +1,1093 @@
+[ov-campaign] 2026-09-25T20:38:05Z beast model name	: AMD Ryzen 9 9900X 12-Core Processor T=12 threads=1,2,4,6,8,12,24 models=/opt3/models
+[ov-campaign] herbert 53bc98c18cb8ffa7 openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a
+[ov-campaign] ov_bench.py 6bb6d925cc985363
+[ov-campaign] Qwen3.5-0.8B IR fe305d2d200aa07e cb1e6f29595f9d1b 
+== Qwen3.5-0.8B outputs openvino threads 12 2026-09-25T20:38:06Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.6 s, maxrss 3.16 GB
+[ids] [22969, 74593, 9056, 224731, 14091, 7072, 186173, 933, 3424, 628, 11640, 184743, 11, 324, 6, 3157, 208079, 1147, 184743, 7657, 5346, 80392, 909, 272, 225503, 1778, 205429, 909, 51790, 5346, 90209, 4755]
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour"
+[reference] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour"
+[agreement] compared 32 first_divergence none
+== Qwen3.5-0.8B rep 1 herbert threads 12 load 4.12 2026-09-25T20:38:19Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.3 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.6 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.004 s
+[engine] loaded in 0.6 s, mounted in 0.42 s — 8192 positions reserved, prefill program Some((3279462, 304571, 305330)), decode program Some((3279094, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.084 s (1754.7 tok/s) · 44 generated in 1.59 s (27.60 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 1 openvino threads 1 load 4.02 2026-09-25T20:38:32Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 1}
+[ov] pipeline ready in 0.8 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 462.40 ms tpot 43.912 ms generated 64 -> prefill 320.1 tok/s decode 22.77 tok/s
+[iter 1] prompt 148 ttft 462.93 ms tpot 43.927 ms generated 64 -> prefill 319.7 tok/s decode 22.77 tok/s
+[iter 2] prompt 148 ttft 462.58 ms tpot 43.910 ms generated 64 -> prefill 319.9 tok/s decode 22.77 tok/s
+[iter 3] prompt 148 ttft 462.32 ms tpot 43.919 ms generated 64 -> prefill 320.1 tok/s decode 22.77 tok/s
+[iter 4] prompt 148 ttft 462.97 ms tpot 43.936 ms generated 64 -> prefill 319.7 tok/s decode 22.76 tok/s
+[iter 5] prompt 148 ttft 462.74 ms tpot 43.884 ms generated 64 -> prefill 319.8 tok/s decode 22.79 tok/s
+[iter 6] prompt 148 ttft 462.54 ms tpot 43.898 ms generated 64 -> prefill 320.0 tok/s decode 22.78 tok/s
+[iter 7] prompt 148 ttft 462.63 ms tpot 43.899 ms generated 64 -> prefill 319.9 tok/s decode 22.78 tok/s
+[iter 8] prompt 148 ttft 462.33 ms tpot 43.860 ms generated 64 -> prefill 320.1 tok/s decode 22.80 tok/s
+[iter 9] prompt 148 ttft 462.23 ms tpot 43.866 ms generated 64 -> prefill 320.2 tok/s decode 22.80 tok/s
+[ov-bench] prefill_median 319.96 decode_median 22.777 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 1 openvino threads 2 load 2.16 2026-09-25T20:39:26Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 2}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 270.75 ms tpot 40.884 ms generated 64 -> prefill 546.6 tok/s decode 24.46 tok/s
+[iter 1] prompt 148 ttft 270.78 ms tpot 40.871 ms generated 64 -> prefill 546.6 tok/s decode 24.47 tok/s
+[iter 2] prompt 148 ttft 270.69 ms tpot 40.980 ms generated 64 -> prefill 546.8 tok/s decode 24.40 tok/s
+[iter 3] prompt 148 ttft 271.66 ms tpot 40.674 ms generated 64 -> prefill 544.8 tok/s decode 24.59 tok/s
+[iter 4] prompt 148 ttft 271.03 ms tpot 40.928 ms generated 64 -> prefill 546.1 tok/s decode 24.43 tok/s
+[iter 5] prompt 148 ttft 270.64 ms tpot 40.945 ms generated 64 -> prefill 546.8 tok/s decode 24.42 tok/s
+[iter 6] prompt 148 ttft 270.71 ms tpot 40.988 ms generated 64 -> prefill 546.7 tok/s decode 24.40 tok/s
+[iter 7] prompt 148 ttft 271.00 ms tpot 40.929 ms generated 64 -> prefill 546.1 tok/s decode 24.43 tok/s
+[iter 8] prompt 148 ttft 270.81 ms tpot 40.865 ms generated 64 -> prefill 546.5 tok/s decode 24.47 tok/s
+[iter 9] prompt 148 ttft 270.76 ms tpot 40.947 ms generated 64 -> prefill 546.6 tok/s decode 24.42 tok/s
+[ov-bench] prefill_median 546.59 decode_median 24.433 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 1 openvino threads 4 load 1.76 2026-09-25T20:40:14Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 4}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 156.19 ms tpot 40.270 ms generated 64 -> prefill 947.5 tok/s decode 24.83 tok/s
+[iter 1] prompt 148 ttft 156.28 ms tpot 40.219 ms generated 64 -> prefill 947.0 tok/s decode 24.86 tok/s
+[iter 2] prompt 148 ttft 156.43 ms tpot 40.132 ms generated 64 -> prefill 946.1 tok/s decode 24.92 tok/s
+[iter 3] prompt 148 ttft 156.39 ms tpot 40.262 ms generated 64 -> prefill 946.4 tok/s decode 24.84 tok/s
+[iter 4] prompt 148 ttft 156.31 ms tpot 40.184 ms generated 64 -> prefill 946.8 tok/s decode 24.89 tok/s
+[iter 5] prompt 148 ttft 156.38 ms tpot 40.246 ms generated 64 -> prefill 946.4 tok/s decode 24.85 tok/s
+[iter 6] prompt 148 ttft 156.55 ms tpot 40.138 ms generated 64 -> prefill 945.4 tok/s decode 24.91 tok/s
+[iter 7] prompt 148 ttft 156.54 ms tpot 40.128 ms generated 64 -> prefill 945.4 tok/s decode 24.92 tok/s
+[iter 8] prompt 148 ttft 156.42 ms tpot 40.269 ms generated 64 -> prefill 946.2 tok/s decode 24.83 tok/s
+[iter 9] prompt 148 ttft 156.36 ms tpot 40.234 ms generated 64 -> prefill 946.5 tok/s decode 24.85 tok/s
+[ov-bench] prefill_median 946.41 decode_median 24.859 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 1 openvino threads 6 load 2.33 2026-09-25T20:41:00Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 6}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 114.84 ms tpot 40.754 ms generated 64 -> prefill 1288.8 tok/s decode 24.54 tok/s
+[iter 1] prompt 148 ttft 115.04 ms tpot 40.719 ms generated 64 -> prefill 1286.5 tok/s decode 24.56 tok/s
+[iter 2] prompt 148 ttft 114.77 ms tpot 40.777 ms generated 64 -> prefill 1289.6 tok/s decode 24.52 tok/s
+[iter 3] prompt 148 ttft 114.98 ms tpot 40.827 ms generated 64 -> prefill 1287.2 tok/s decode 24.49 tok/s
+[iter 4] prompt 148 ttft 114.86 ms tpot 40.828 ms generated 64 -> prefill 1288.5 tok/s decode 24.49 tok/s
+[iter 5] prompt 148 ttft 114.93 ms tpot 40.850 ms generated 64 -> prefill 1287.7 tok/s decode 24.48 tok/s
+[iter 6] prompt 148 ttft 114.68 ms tpot 40.814 ms generated 64 -> prefill 1290.6 tok/s decode 24.50 tok/s
+[iter 7] prompt 148 ttft 115.04 ms tpot 40.740 ms generated 64 -> prefill 1286.6 tok/s decode 24.55 tok/s
+[iter 8] prompt 148 ttft 115.03 ms tpot 40.733 ms generated 64 -> prefill 1286.6 tok/s decode 24.55 tok/s
+[iter 9] prompt 148 ttft 115.00 ms tpot 40.769 ms generated 64 -> prefill 1286.9 tok/s decode 24.53 tok/s
+[ov-bench] prefill_median 1287.48 decode_median 24.526 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 1 openvino threads 8 load 3.35 2026-09-25T20:41:46Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 8}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 115.40 ms tpot 41.536 ms generated 64 -> prefill 1282.5 tok/s decode 24.08 tok/s
+[iter 1] prompt 148 ttft 115.46 ms tpot 41.545 ms generated 64 -> prefill 1281.8 tok/s decode 24.07 tok/s
+[iter 2] prompt 148 ttft 115.23 ms tpot 41.534 ms generated 64 -> prefill 1284.4 tok/s decode 24.08 tok/s
+[iter 3] prompt 148 ttft 115.54 ms tpot 41.536 ms generated 64 -> prefill 1280.9 tok/s decode 24.08 tok/s
+[iter 4] prompt 148 ttft 114.99 ms tpot 41.537 ms generated 64 -> prefill 1287.0 tok/s decode 24.07 tok/s
+[iter 5] prompt 148 ttft 115.11 ms tpot 41.537 ms generated 64 -> prefill 1285.7 tok/s decode 24.08 tok/s
+[iter 6] prompt 148 ttft 115.53 ms tpot 41.545 ms generated 64 -> prefill 1281.1 tok/s decode 24.07 tok/s
+[iter 7] prompt 148 ttft 115.39 ms tpot 41.545 ms generated 64 -> prefill 1282.6 tok/s decode 24.07 tok/s
+[iter 8] prompt 148 ttft 115.52 ms tpot 41.547 ms generated 64 -> prefill 1281.1 tok/s decode 24.07 tok/s
+[iter 9] prompt 148 ttft 115.57 ms tpot 41.565 ms generated 64 -> prefill 1280.6 tok/s decode 24.06 tok/s
+[ov-bench] prefill_median 1282.17 decode_median 24.073 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 1 openvino threads 12 load 4.52 2026-09-25T20:42:33Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 113.76 ms tpot 42.061 ms generated 64 -> prefill 1301.0 tok/s decode 23.77 tok/s
+[iter 1] prompt 148 ttft 113.81 ms tpot 42.027 ms generated 64 -> prefill 1300.4 tok/s decode 23.79 tok/s
+[iter 2] prompt 148 ttft 113.74 ms tpot 42.008 ms generated 64 -> prefill 1301.3 tok/s decode 23.80 tok/s
+[iter 3] prompt 148 ttft 113.82 ms tpot 42.010 ms generated 64 -> prefill 1300.3 tok/s decode 23.80 tok/s
+[iter 4] prompt 148 ttft 113.93 ms tpot 42.025 ms generated 64 -> prefill 1299.0 tok/s decode 23.80 tok/s
+[iter 5] prompt 148 ttft 113.85 ms tpot 42.067 ms generated 64 -> prefill 1300.0 tok/s decode 23.77 tok/s
+[iter 6] prompt 148 ttft 113.61 ms tpot 42.024 ms generated 64 -> prefill 1302.7 tok/s decode 23.80 tok/s
+[iter 7] prompt 148 ttft 113.84 ms tpot 42.012 ms generated 64 -> prefill 1300.0 tok/s decode 23.80 tok/s
+[iter 8] prompt 148 ttft 113.82 ms tpot 42.061 ms generated 64 -> prefill 1300.3 tok/s decode 23.78 tok/s
+[iter 9] prompt 148 ttft 114.01 ms tpot 42.053 ms generated 64 -> prefill 1298.1 tok/s decode 23.78 tok/s
+[ov-bench] prefill_median 1300.28 decode_median 23.795 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 1 openvino threads 24 load 6.63 2026-09-25T20:43:20Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 24}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 113.92 ms tpot 42.222 ms generated 64 -> prefill 1299.1 tok/s decode 23.68 tok/s
+[iter 1] prompt 148 ttft 113.71 ms tpot 42.197 ms generated 64 -> prefill 1301.6 tok/s decode 23.70 tok/s
+[iter 2] prompt 148 ttft 113.61 ms tpot 42.158 ms generated 64 -> prefill 1302.7 tok/s decode 23.72 tok/s
+[iter 3] prompt 148 ttft 113.92 ms tpot 42.109 ms generated 64 -> prefill 1299.1 tok/s decode 23.75 tok/s
+[iter 4] prompt 148 ttft 113.59 ms tpot 42.131 ms generated 64 -> prefill 1302.9 tok/s decode 23.74 tok/s
+[iter 5] prompt 148 ttft 113.82 ms tpot 42.127 ms generated 64 -> prefill 1300.3 tok/s decode 23.74 tok/s
+[iter 6] prompt 148 ttft 113.76 ms tpot 42.119 ms generated 64 -> prefill 1300.9 tok/s decode 23.74 tok/s
+[iter 7] prompt 148 ttft 113.75 ms tpot 42.173 ms generated 64 -> prefill 1301.1 tok/s decode 23.71 tok/s
+[iter 8] prompt 148 ttft 114.07 ms tpot 42.160 ms generated 64 -> prefill 1297.4 tok/s decode 23.72 tok/s
+[iter 9] prompt 148 ttft 113.54 ms tpot 42.124 ms generated 64 -> prefill 1303.5 tok/s decode 23.74 tok/s
+[ov-bench] prefill_median 1301.04 decode_median 23.728 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 2 herbert threads 12 load 7.82 2026-09-25T20:44:07Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.2 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.5 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.004 s
+[engine] loaded in 0.5 s, mounted in 0.41 s — 8192 positions reserved, prefill program Some((3279462, 304571, 305330)), decode program Some((3279094, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.085 s (1749.5 tok/s) · 44 generated in 1.60 s (27.58 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 2 openvino threads 1 load 6.62 2026-09-25T20:44:20Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 1}
+[ov] pipeline ready in 0.8 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 463.25 ms tpot 44.197 ms generated 64 -> prefill 319.5 tok/s decode 22.63 tok/s
+[iter 1] prompt 148 ttft 463.22 ms tpot 44.226 ms generated 64 -> prefill 319.5 tok/s decode 22.61 tok/s
+[iter 2] prompt 148 ttft 463.25 ms tpot 44.225 ms generated 64 -> prefill 319.5 tok/s decode 22.61 tok/s
+[iter 3] prompt 148 ttft 463.34 ms tpot 44.187 ms generated 64 -> prefill 319.4 tok/s decode 22.63 tok/s
+[iter 4] prompt 148 ttft 463.06 ms tpot 44.132 ms generated 64 -> prefill 319.6 tok/s decode 22.66 tok/s
+[iter 5] prompt 148 ttft 463.45 ms tpot 44.196 ms generated 64 -> prefill 319.3 tok/s decode 22.63 tok/s
+[iter 6] prompt 148 ttft 463.24 ms tpot 44.192 ms generated 64 -> prefill 319.5 tok/s decode 22.63 tok/s
+[iter 7] prompt 148 ttft 463.71 ms tpot 44.167 ms generated 64 -> prefill 319.2 tok/s decode 22.64 tok/s
+[iter 8] prompt 148 ttft 462.88 ms tpot 44.133 ms generated 64 -> prefill 319.7 tok/s decode 22.66 tok/s
+[iter 9] prompt 148 ttft 462.70 ms tpot 44.204 ms generated 64 -> prefill 319.9 tok/s decode 22.62 tok/s
+[ov-bench] prefill_median 319.49 decode_median 22.628 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 2 openvino threads 2 load 3.09 2026-09-25T20:45:14Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 2}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 271.04 ms tpot 40.837 ms generated 64 -> prefill 546.0 tok/s decode 24.49 tok/s
+[iter 1] prompt 148 ttft 272.04 ms tpot 40.856 ms generated 64 -> prefill 544.0 tok/s decode 24.48 tok/s
+[iter 2] prompt 148 ttft 271.30 ms tpot 40.816 ms generated 64 -> prefill 545.5 tok/s decode 24.50 tok/s
+[iter 3] prompt 148 ttft 271.43 ms tpot 40.841 ms generated 64 -> prefill 545.3 tok/s decode 24.49 tok/s
+[iter 4] prompt 148 ttft 271.31 ms tpot 40.812 ms generated 64 -> prefill 545.5 tok/s decode 24.50 tok/s
+[iter 5] prompt 148 ttft 271.83 ms tpot 40.802 ms generated 64 -> prefill 544.5 tok/s decode 24.51 tok/s
+[iter 6] prompt 148 ttft 271.37 ms tpot 40.833 ms generated 64 -> prefill 545.4 tok/s decode 24.49 tok/s
+[iter 7] prompt 148 ttft 271.98 ms tpot 40.773 ms generated 64 -> prefill 544.2 tok/s decode 24.53 tok/s
+[iter 8] prompt 148 ttft 271.54 ms tpot 40.768 ms generated 64 -> prefill 545.0 tok/s decode 24.53 tok/s
+[iter 9] prompt 148 ttft 271.82 ms tpot 40.759 ms generated 64 -> prefill 544.5 tok/s decode 24.53 tok/s
+[ov-bench] prefill_median 545.15 decode_median 24.501 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 2 openvino threads 4 load 2.16 2026-09-25T20:46:02Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 4}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 156.34 ms tpot 40.093 ms generated 64 -> prefill 946.6 tok/s decode 24.94 tok/s
+[iter 1] prompt 148 ttft 156.15 ms tpot 40.416 ms generated 64 -> prefill 947.8 tok/s decode 24.74 tok/s
+[iter 2] prompt 148 ttft 156.23 ms tpot 40.416 ms generated 64 -> prefill 947.3 tok/s decode 24.74 tok/s
+[iter 3] prompt 148 ttft 156.40 ms tpot 40.273 ms generated 64 -> prefill 946.3 tok/s decode 24.83 tok/s
+[iter 4] prompt 148 ttft 156.20 ms tpot 40.177 ms generated 64 -> prefill 947.5 tok/s decode 24.89 tok/s
+[iter 5] prompt 148 ttft 156.32 ms tpot 40.375 ms generated 64 -> prefill 946.8 tok/s decode 24.77 tok/s
+[iter 6] prompt 148 ttft 156.37 ms tpot 39.981 ms generated 64 -> prefill 946.5 tok/s decode 25.01 tok/s
+[iter 7] prompt 148 ttft 156.44 ms tpot 40.281 ms generated 64 -> prefill 946.1 tok/s decode 24.83 tok/s
+[iter 8] prompt 148 ttft 156.35 ms tpot 40.061 ms generated 64 -> prefill 946.6 tok/s decode 24.96 tok/s
+[iter 9] prompt 148 ttft 156.29 ms tpot 40.127 ms generated 64 -> prefill 947.0 tok/s decode 24.92 tok/s
+[ov-bench] prefill_median 946.71 decode_median 24.860 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 2 openvino threads 6 load 2.52 2026-09-25T20:46:48Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 6}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 114.74 ms tpot 40.707 ms generated 64 -> prefill 1289.9 tok/s decode 24.57 tok/s
+[iter 1] prompt 148 ttft 114.81 ms tpot 40.663 ms generated 64 -> prefill 1289.1 tok/s decode 24.59 tok/s
+[iter 2] prompt 148 ttft 114.70 ms tpot 40.594 ms generated 64 -> prefill 1290.4 tok/s decode 24.63 tok/s
+[iter 3] prompt 148 ttft 114.82 ms tpot 40.674 ms generated 64 -> prefill 1289.0 tok/s decode 24.59 tok/s
+[iter 4] prompt 148 ttft 115.12 ms tpot 40.683 ms generated 64 -> prefill 1285.6 tok/s decode 24.58 tok/s
+[iter 5] prompt 148 ttft 115.07 ms tpot 40.700 ms generated 64 -> prefill 1286.2 tok/s decode 24.57 tok/s
+[iter 6] prompt 148 ttft 114.86 ms tpot 40.685 ms generated 64 -> prefill 1288.5 tok/s decode 24.58 tok/s
+[iter 7] prompt 148 ttft 114.86 ms tpot 40.702 ms generated 64 -> prefill 1288.5 tok/s decode 24.57 tok/s
+[iter 8] prompt 148 ttft 115.08 ms tpot 40.681 ms generated 64 -> prefill 1286.0 tok/s decode 24.58 tok/s
+[iter 9] prompt 148 ttft 114.79 ms tpot 40.737 ms generated 64 -> prefill 1289.3 tok/s decode 24.55 tok/s
+[ov-bench] prefill_median 1288.76 decode_median 24.580 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 2 openvino threads 8 load 3.44 2026-09-25T20:47:34Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 8}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 114.43 ms tpot 41.440 ms generated 64 -> prefill 1293.3 tok/s decode 24.13 tok/s
+[iter 1] prompt 148 ttft 114.59 ms tpot 41.470 ms generated 64 -> prefill 1291.5 tok/s decode 24.11 tok/s
+[iter 2] prompt 148 ttft 114.87 ms tpot 41.510 ms generated 64 -> prefill 1288.4 tok/s decode 24.09 tok/s
+[iter 3] prompt 148 ttft 114.74 ms tpot 41.536 ms generated 64 -> prefill 1289.9 tok/s decode 24.08 tok/s
+[iter 4] prompt 148 ttft 115.04 ms tpot 41.502 ms generated 64 -> prefill 1286.5 tok/s decode 24.10 tok/s
+[iter 5] prompt 148 ttft 114.83 ms tpot 41.469 ms generated 64 -> prefill 1288.9 tok/s decode 24.11 tok/s
+[iter 6] prompt 148 ttft 115.03 ms tpot 41.499 ms generated 64 -> prefill 1286.7 tok/s decode 24.10 tok/s
+[iter 7] prompt 148 ttft 114.77 ms tpot 41.456 ms generated 64 -> prefill 1289.5 tok/s decode 24.12 tok/s
+[iter 8] prompt 148 ttft 115.04 ms tpot 41.497 ms generated 64 -> prefill 1286.6 tok/s decode 24.10 tok/s
+[iter 9] prompt 148 ttft 115.05 ms tpot 41.487 ms generated 64 -> prefill 1286.4 tok/s decode 24.10 tok/s
+[ov-bench] prefill_median 1288.67 decode_median 24.101 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 2 openvino threads 12 load 4.16 2026-09-25T20:48:21Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 113.01 ms tpot 42.179 ms generated 64 -> prefill 1309.6 tok/s decode 23.71 tok/s
+[iter 1] prompt 148 ttft 113.12 ms tpot 42.135 ms generated 64 -> prefill 1308.4 tok/s decode 23.73 tok/s
+[iter 2] prompt 148 ttft 112.98 ms tpot 42.156 ms generated 64 -> prefill 1309.9 tok/s decode 23.72 tok/s
+[iter 3] prompt 148 ttft 113.12 ms tpot 42.188 ms generated 64 -> prefill 1308.4 tok/s decode 23.70 tok/s
+[iter 4] prompt 148 ttft 113.26 ms tpot 42.143 ms generated 64 -> prefill 1306.7 tok/s decode 23.73 tok/s
+[iter 5] prompt 148 ttft 113.31 ms tpot 42.177 ms generated 64 -> prefill 1306.1 tok/s decode 23.71 tok/s
+[iter 6] prompt 148 ttft 113.05 ms tpot 42.173 ms generated 64 -> prefill 1309.1 tok/s decode 23.71 tok/s
+[iter 7] prompt 148 ttft 113.10 ms tpot 42.152 ms generated 64 -> prefill 1308.6 tok/s decode 23.72 tok/s
+[iter 8] prompt 148 ttft 113.27 ms tpot 42.187 ms generated 64 -> prefill 1306.7 tok/s decode 23.70 tok/s
+[iter 9] prompt 148 ttft 113.14 ms tpot 42.201 ms generated 64 -> prefill 1308.1 tok/s decode 23.70 tok/s
+[ov-bench] prefill_median 1308.37 decode_median 23.711 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 2 openvino threads 24 load 6.34 2026-09-25T20:49:08Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 24}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 113.12 ms tpot 42.054 ms generated 64 -> prefill 1308.3 tok/s decode 23.78 tok/s
+[iter 1] prompt 148 ttft 113.52 ms tpot 42.057 ms generated 64 -> prefill 1303.7 tok/s decode 23.78 tok/s
+[iter 2] prompt 148 ttft 113.75 ms tpot 42.192 ms generated 64 -> prefill 1301.1 tok/s decode 23.70 tok/s
+[iter 3] prompt 148 ttft 113.64 ms tpot 42.124 ms generated 64 -> prefill 1302.4 tok/s decode 23.74 tok/s
+[iter 4] prompt 148 ttft 113.38 ms tpot 42.127 ms generated 64 -> prefill 1305.3 tok/s decode 23.74 tok/s
+[iter 5] prompt 148 ttft 113.67 ms tpot 42.105 ms generated 64 -> prefill 1302.0 tok/s decode 23.75 tok/s
+[iter 6] prompt 148 ttft 113.23 ms tpot 42.121 ms generated 64 -> prefill 1307.1 tok/s decode 23.74 tok/s
+[iter 7] prompt 148 ttft 113.55 ms tpot 42.133 ms generated 64 -> prefill 1303.4 tok/s decode 23.73 tok/s
+[iter 8] prompt 148 ttft 113.87 ms tpot 42.130 ms generated 64 -> prefill 1299.7 tok/s decode 23.74 tok/s
+[iter 9] prompt 148 ttft 113.63 ms tpot 42.109 ms generated 64 -> prefill 1302.5 tok/s decode 23.75 tok/s
+[ov-bench] prefill_median 1302.94 decode_median 23.740 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 3 herbert threads 12 load 7.48 2026-09-25T20:49:55Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.3 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.6 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.004 s
+[engine] loaded in 0.6 s, mounted in 0.41 s — 8192 positions reserved, prefill program Some((3279462, 304571, 305330)), decode program Some((3279094, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.085 s (1736.8 tok/s) · 44 generated in 1.59 s (27.60 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 3 openvino threads 1 load 6.64 2026-09-25T20:50:08Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 1}
+[ov] pipeline ready in 0.8 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 463.41 ms tpot 44.126 ms generated 64 -> prefill 319.4 tok/s decode 22.66 tok/s
+[iter 1] prompt 148 ttft 463.28 ms tpot 44.151 ms generated 64 -> prefill 319.5 tok/s decode 22.65 tok/s
+[iter 2] prompt 148 ttft 463.22 ms tpot 44.095 ms generated 64 -> prefill 319.5 tok/s decode 22.68 tok/s
+[iter 3] prompt 148 ttft 462.72 ms tpot 44.075 ms generated 64 -> prefill 319.8 tok/s decode 22.69 tok/s
+[iter 4] prompt 148 ttft 462.62 ms tpot 44.156 ms generated 64 -> prefill 319.9 tok/s decode 22.65 tok/s
+[iter 5] prompt 148 ttft 463.22 ms tpot 44.135 ms generated 64 -> prefill 319.5 tok/s decode 22.66 tok/s
+[iter 6] prompt 148 ttft 462.83 ms tpot 44.126 ms generated 64 -> prefill 319.8 tok/s decode 22.66 tok/s
+[iter 7] prompt 148 ttft 462.76 ms tpot 44.084 ms generated 64 -> prefill 319.8 tok/s decode 22.68 tok/s
+[iter 8] prompt 148 ttft 462.95 ms tpot 44.084 ms generated 64 -> prefill 319.7 tok/s decode 22.68 tok/s
+[iter 9] prompt 148 ttft 462.83 ms tpot 44.087 ms generated 64 -> prefill 319.8 tok/s decode 22.68 tok/s
+[ov-bench] prefill_median 319.73 decode_median 22.670 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 3 openvino threads 2 load 3.10 2026-09-25T20:51:02Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 2}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 271.40 ms tpot 40.548 ms generated 64 -> prefill 545.3 tok/s decode 24.66 tok/s
+[iter 1] prompt 148 ttft 271.34 ms tpot 40.433 ms generated 64 -> prefill 545.4 tok/s decode 24.73 tok/s
+[iter 2] prompt 148 ttft 271.15 ms tpot 40.885 ms generated 64 -> prefill 545.8 tok/s decode 24.46 tok/s
+[iter 3] prompt 148 ttft 271.00 ms tpot 40.730 ms generated 64 -> prefill 546.1 tok/s decode 24.55 tok/s
+[iter 4] prompt 148 ttft 271.02 ms tpot 40.759 ms generated 64 -> prefill 546.1 tok/s decode 24.53 tok/s
+[iter 5] prompt 148 ttft 271.31 ms tpot 40.941 ms generated 64 -> prefill 545.5 tok/s decode 24.43 tok/s
+[iter 6] prompt 148 ttft 271.23 ms tpot 40.654 ms generated 64 -> prefill 545.7 tok/s decode 24.60 tok/s
+[iter 7] prompt 148 ttft 271.52 ms tpot 40.807 ms generated 64 -> prefill 545.1 tok/s decode 24.51 tok/s
+[iter 8] prompt 148 ttft 271.66 ms tpot 40.704 ms generated 64 -> prefill 544.8 tok/s decode 24.57 tok/s
+[iter 9] prompt 148 ttft 271.44 ms tpot 40.826 ms generated 64 -> prefill 545.2 tok/s decode 24.49 tok/s
+[ov-bench] prefill_median 545.46 decode_median 24.543 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 3 openvino threads 4 load 2.21 2026-09-25T20:51:50Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 4}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 156.48 ms tpot 40.519 ms generated 64 -> prefill 945.8 tok/s decode 24.68 tok/s
+[iter 1] prompt 148 ttft 156.26 ms tpot 40.535 ms generated 64 -> prefill 947.1 tok/s decode 24.67 tok/s
+[iter 2] prompt 148 ttft 156.63 ms tpot 40.439 ms generated 64 -> prefill 944.9 tok/s decode 24.73 tok/s
+[iter 3] prompt 148 ttft 156.42 ms tpot 40.471 ms generated 64 -> prefill 946.2 tok/s decode 24.71 tok/s
+[iter 4] prompt 148 ttft 156.62 ms tpot 40.569 ms generated 64 -> prefill 945.0 tok/s decode 24.65 tok/s
+[iter 5] prompt 148 ttft 156.38 ms tpot 40.508 ms generated 64 -> prefill 946.4 tok/s decode 24.69 tok/s
+[iter 6] prompt 148 ttft 156.71 ms tpot 40.504 ms generated 64 -> prefill 944.4 tok/s decode 24.69 tok/s
+[iter 7] prompt 148 ttft 156.62 ms tpot 40.465 ms generated 64 -> prefill 944.9 tok/s decode 24.71 tok/s
+[iter 8] prompt 148 ttft 156.62 ms tpot 40.575 ms generated 64 -> prefill 945.0 tok/s decode 24.65 tok/s
+[iter 9] prompt 148 ttft 156.60 ms tpot 40.368 ms generated 64 -> prefill 945.1 tok/s decode 24.77 tok/s
+[ov-bench] prefill_median 945.04 decode_median 24.688 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 3 openvino threads 6 load 2.61 2026-09-25T20:52:37Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 6}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 114.95 ms tpot 40.512 ms generated 64 -> prefill 1287.5 tok/s decode 24.68 tok/s
+[iter 1] prompt 148 ttft 114.85 ms tpot 40.403 ms generated 64 -> prefill 1288.7 tok/s decode 24.75 tok/s
+[iter 2] prompt 148 ttft 115.02 ms tpot 40.558 ms generated 64 -> prefill 1286.7 tok/s decode 24.66 tok/s
+[iter 3] prompt 148 ttft 115.21 ms tpot 40.535 ms generated 64 -> prefill 1284.6 tok/s decode 24.67 tok/s
+[iter 4] prompt 148 ttft 114.97 ms tpot 40.460 ms generated 64 -> prefill 1287.3 tok/s decode 24.72 tok/s
+[iter 5] prompt 148 ttft 114.99 ms tpot 40.564 ms generated 64 -> prefill 1287.1 tok/s decode 24.65 tok/s
+[iter 6] prompt 148 ttft 115.03 ms tpot 40.488 ms generated 64 -> prefill 1286.6 tok/s decode 24.70 tok/s
+[iter 7] prompt 148 ttft 115.12 ms tpot 40.414 ms generated 64 -> prefill 1285.6 tok/s decode 24.74 tok/s
+[iter 8] prompt 148 ttft 115.16 ms tpot 40.461 ms generated 64 -> prefill 1285.1 tok/s decode 24.72 tok/s
+[iter 9] prompt 148 ttft 114.98 ms tpot 40.516 ms generated 64 -> prefill 1287.2 tok/s decode 24.68 tok/s
+[ov-bench] prefill_median 1286.91 decode_median 24.691 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 3 openvino threads 8 load 3.48 2026-09-25T20:53:22Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 8}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 114.03 ms tpot 41.528 ms generated 64 -> prefill 1297.9 tok/s decode 24.08 tok/s
+[iter 1] prompt 148 ttft 114.12 ms tpot 41.503 ms generated 64 -> prefill 1296.9 tok/s decode 24.09 tok/s
+[iter 2] prompt 148 ttft 114.13 ms tpot 41.537 ms generated 64 -> prefill 1296.8 tok/s decode 24.07 tok/s
+[iter 3] prompt 148 ttft 114.13 ms tpot 41.536 ms generated 64 -> prefill 1296.8 tok/s decode 24.08 tok/s
+[iter 4] prompt 148 ttft 114.20 ms tpot 41.544 ms generated 64 -> prefill 1295.9 tok/s decode 24.07 tok/s
+[iter 5] prompt 148 ttft 114.29 ms tpot 41.544 ms generated 64 -> prefill 1294.9 tok/s decode 24.07 tok/s
+[iter 6] prompt 148 ttft 114.83 ms tpot 41.562 ms generated 64 -> prefill 1288.8 tok/s decode 24.06 tok/s
+[iter 7] prompt 148 ttft 114.25 ms tpot 41.540 ms generated 64 -> prefill 1295.4 tok/s decode 24.07 tok/s
+[iter 8] prompt 148 ttft 114.21 ms tpot 41.567 ms generated 64 -> prefill 1295.9 tok/s decode 24.06 tok/s
+[iter 9] prompt 148 ttft 114.61 ms tpot 41.545 ms generated 64 -> prefill 1291.3 tok/s decode 24.07 tok/s
+[ov-bench] prefill_median 1295.91 decode_median 24.072 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 3 openvino threads 12 load 4.64 2026-09-25T20:54:09Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 112.83 ms tpot 42.119 ms generated 64 -> prefill 1311.7 tok/s decode 23.74 tok/s
+[iter 1] prompt 148 ttft 112.87 ms tpot 42.148 ms generated 64 -> prefill 1311.3 tok/s decode 23.73 tok/s
+[iter 2] prompt 148 ttft 112.99 ms tpot 42.144 ms generated 64 -> prefill 1309.9 tok/s decode 23.73 tok/s
+[iter 3] prompt 148 ttft 112.91 ms tpot 42.156 ms generated 64 -> prefill 1310.8 tok/s decode 23.72 tok/s
+[iter 4] prompt 148 ttft 112.93 ms tpot 42.153 ms generated 64 -> prefill 1310.5 tok/s decode 23.72 tok/s
+[iter 5] prompt 148 ttft 112.96 ms tpot 42.055 ms generated 64 -> prefill 1310.2 tok/s decode 23.78 tok/s
+[iter 6] prompt 148 ttft 112.74 ms tpot 42.042 ms generated 64 -> prefill 1312.8 tok/s decode 23.79 tok/s
+[iter 7] prompt 148 ttft 112.61 ms tpot 42.035 ms generated 64 -> prefill 1314.3 tok/s decode 23.79 tok/s
+[iter 8] prompt 148 ttft 113.08 ms tpot 42.043 ms generated 64 -> prefill 1308.9 tok/s decode 23.79 tok/s
+[iter 9] prompt 148 ttft 112.90 ms tpot 41.987 ms generated 64 -> prefill 1310.8 tok/s decode 23.82 tok/s
+[ov-bench] prefill_median 1310.82 decode_median 23.760 tok/s iters 10 maxrss 4.73 GB
+== Qwen3.5-0.8B rep 3 openvino threads 24 load 6.68 2026-09-25T20:54:56Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 24}
+[ov] pipeline ready in 0.7 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 113.09 ms tpot 42.163 ms generated 64 -> prefill 1308.6 tok/s decode 23.72 tok/s
+[iter 1] prompt 148 ttft 113.06 ms tpot 42.164 ms generated 64 -> prefill 1309.0 tok/s decode 23.72 tok/s
+[iter 2] prompt 148 ttft 113.21 ms tpot 42.131 ms generated 64 -> prefill 1307.3 tok/s decode 23.74 tok/s
+[iter 3] prompt 148 ttft 113.15 ms tpot 42.130 ms generated 64 -> prefill 1308.0 tok/s decode 23.74 tok/s
+[iter 4] prompt 148 ttft 113.18 ms tpot 42.061 ms generated 64 -> prefill 1307.7 tok/s decode 23.77 tok/s
+[iter 5] prompt 148 ttft 112.87 ms tpot 42.050 ms generated 64 -> prefill 1311.3 tok/s decode 23.78 tok/s
+[iter 6] prompt 148 ttft 113.04 ms tpot 42.053 ms generated 64 -> prefill 1309.2 tok/s decode 23.78 tok/s
+[iter 7] prompt 148 ttft 113.20 ms tpot 42.086 ms generated 64 -> prefill 1307.4 tok/s decode 23.76 tok/s
+[iter 8] prompt 148 ttft 112.96 ms tpot 42.193 ms generated 64 -> prefill 1310.2 tok/s decode 23.70 tok/s
+[iter 9] prompt 148 ttft 113.17 ms tpot 42.142 ms generated 64 -> prefill 1307.8 tok/s decode 23.73 tok/s
+[ov-bench] prefill_median 1308.30 decode_median 23.736 tok/s iters 10 maxrss 4.73 GB
+[ov-campaign] Qwen3.5-2B IR 9dde58a99aa19346 06e63d2f04225191 
+== Qwen3.5-2B outputs openvino threads 12 2026-09-25T20:55:36Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[ids] [22969, 74593, 9056, 224731, 401, 184743, 4755, 3424, 181349, 401, 208257, 3493, 13450, 12197, 2486, 416, 401, 628, 11640, 11, 8226, 448, 468, 909, 13067, 1778, 51790, 47080, 5229, 4755, 1668, 1588]
+[decoded] 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon'
+[reference] 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon'
+[agreement] compared 32 first_divergence none
+== Qwen3.5-2B rep 1 herbert threads 12 load 6.90 2026-09-25T20:55:51Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.2 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.009 s
+[engine] loaded in 1.2 s, mounted in 0.40 s — 8192 positions reserved, prefill program Some((2841886, 304571, 305330)), decode program Some((2841518, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 0.152 s (976.1 tok/s) · 50 generated in 4.36 s (11.47 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 1 openvino threads 1 load 5.82 2026-09-25T20:56:07Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 1}
+[ov] pipeline ready in 1.0 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 957.40 ms tpot 99.280 ms generated 64 -> prefill 154.6 tok/s decode 10.07 tok/s
+[iter 1] prompt 148 ttft 957.76 ms tpot 99.346 ms generated 64 -> prefill 154.5 tok/s decode 10.07 tok/s
+[iter 2] prompt 148 ttft 957.08 ms tpot 99.271 ms generated 64 -> prefill 154.6 tok/s decode 10.07 tok/s
+[iter 3] prompt 148 ttft 957.22 ms tpot 99.266 ms generated 64 -> prefill 154.6 tok/s decode 10.07 tok/s
+[iter 4] prompt 148 ttft 956.65 ms tpot 99.184 ms generated 64 -> prefill 154.7 tok/s decode 10.08 tok/s
+[iter 5] prompt 148 ttft 956.02 ms tpot 99.253 ms generated 64 -> prefill 154.8 tok/s decode 10.08 tok/s
+[iter 6] prompt 148 ttft 957.00 ms tpot 99.171 ms generated 64 -> prefill 154.7 tok/s decode 10.08 tok/s
+[iter 7] prompt 148 ttft 956.55 ms tpot 99.190 ms generated 64 -> prefill 154.7 tok/s decode 10.08 tok/s
+[iter 8] prompt 148 ttft 958.23 ms tpot 99.255 ms generated 64 -> prefill 154.5 tok/s decode 10.08 tok/s
+[iter 9] prompt 148 ttft 956.73 ms tpot 99.190 ms generated 64 -> prefill 154.7 tok/s decode 10.08 tok/s
+[ov-bench] prefill_median 154.64 decode_median 10.075 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 1 openvino threads 2 load 1.68 2026-09-25T20:57:55Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 2}
+[ov] pipeline ready in 0.9 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 571.71 ms tpot 91.812 ms generated 64 -> prefill 258.9 tok/s decode 10.89 tok/s
+[iter 1] prompt 148 ttft 572.10 ms tpot 91.852 ms generated 64 -> prefill 258.7 tok/s decode 10.89 tok/s
+[iter 2] prompt 148 ttft 572.69 ms tpot 91.781 ms generated 64 -> prefill 258.4 tok/s decode 10.90 tok/s
+[iter 3] prompt 148 ttft 571.90 ms tpot 91.765 ms generated 64 -> prefill 258.8 tok/s decode 10.90 tok/s
+[iter 4] prompt 148 ttft 572.25 ms tpot 91.784 ms generated 64 -> prefill 258.6 tok/s decode 10.90 tok/s
+[iter 5] prompt 148 ttft 572.04 ms tpot 91.793 ms generated 64 -> prefill 258.7 tok/s decode 10.89 tok/s
+[iter 6] prompt 148 ttft 572.51 ms tpot 91.811 ms generated 64 -> prefill 258.5 tok/s decode 10.89 tok/s
+[iter 7] prompt 148 ttft 572.46 ms tpot 91.772 ms generated 64 -> prefill 258.5 tok/s decode 10.90 tok/s
+[iter 8] prompt 148 ttft 573.01 ms tpot 91.768 ms generated 64 -> prefill 258.3 tok/s decode 10.90 tok/s
+[iter 9] prompt 148 ttft 572.83 ms tpot 91.758 ms generated 64 -> prefill 258.4 tok/s decode 10.90 tok/s
+[ov-bench] prefill_median 258.58 decode_median 10.895 tok/s iters 10 maxrss 11.34 GB
+== Qwen3.5-2B rep 1 openvino threads 4 load 1.61 2026-09-25T20:59:29Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 4}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 328.03 ms tpot 91.138 ms generated 64 -> prefill 451.2 tok/s decode 10.97 tok/s
+[iter 1] prompt 148 ttft 328.49 ms tpot 91.195 ms generated 64 -> prefill 450.5 tok/s decode 10.97 tok/s
+[iter 2] prompt 148 ttft 327.98 ms tpot 91.155 ms generated 64 -> prefill 451.2 tok/s decode 10.97 tok/s
+[iter 3] prompt 148 ttft 328.30 ms tpot 91.178 ms generated 64 -> prefill 450.8 tok/s decode 10.97 tok/s
+[iter 4] prompt 148 ttft 328.21 ms tpot 91.151 ms generated 64 -> prefill 450.9 tok/s decode 10.97 tok/s
+[iter 5] prompt 148 ttft 328.16 ms tpot 91.219 ms generated 64 -> prefill 451.0 tok/s decode 10.96 tok/s
+[iter 6] prompt 148 ttft 328.82 ms tpot 91.234 ms generated 64 -> prefill 450.1 tok/s decode 10.96 tok/s
+[iter 7] prompt 148 ttft 328.52 ms tpot 91.148 ms generated 64 -> prefill 450.5 tok/s decode 10.97 tok/s
+[iter 8] prompt 148 ttft 328.44 ms tpot 91.161 ms generated 64 -> prefill 450.6 tok/s decode 10.97 tok/s
+[iter 9] prompt 148 ttft 328.83 ms tpot 91.252 ms generated 64 -> prefill 450.1 tok/s decode 10.96 tok/s
+[ov-bench] prefill_median 450.71 decode_median 10.969 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 1 openvino threads 6 load 2.85 2026-09-25T21:01:00Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 6}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 225.28 ms tpot 91.395 ms generated 64 -> prefill 657.0 tok/s decode 10.94 tok/s
+[iter 1] prompt 148 ttft 225.04 ms tpot 91.372 ms generated 64 -> prefill 657.6 tok/s decode 10.94 tok/s
+[iter 2] prompt 148 ttft 225.20 ms tpot 91.427 ms generated 64 -> prefill 657.2 tok/s decode 10.94 tok/s
+[iter 3] prompt 148 ttft 225.04 ms tpot 91.380 ms generated 64 -> prefill 657.7 tok/s decode 10.94 tok/s
+[iter 4] prompt 148 ttft 225.43 ms tpot 91.362 ms generated 64 -> prefill 656.5 tok/s decode 10.95 tok/s
+[iter 5] prompt 148 ttft 225.41 ms tpot 91.398 ms generated 64 -> prefill 656.6 tok/s decode 10.94 tok/s
+[iter 6] prompt 148 ttft 225.49 ms tpot 91.333 ms generated 64 -> prefill 656.3 tok/s decode 10.95 tok/s
+[iter 7] prompt 148 ttft 225.27 ms tpot 91.379 ms generated 64 -> prefill 657.0 tok/s decode 10.94 tok/s
+[iter 8] prompt 148 ttft 225.28 ms tpot 91.367 ms generated 64 -> prefill 656.9 tok/s decode 10.94 tok/s
+[iter 9] prompt 148 ttft 225.49 ms tpot 91.419 ms generated 64 -> prefill 656.4 tok/s decode 10.94 tok/s
+[ov-bench] prefill_median 656.95 decode_median 10.943 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 1 openvino threads 8 load 4.38 2026-09-25T21:02:29Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 8}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 217.27 ms tpot 93.009 ms generated 64 -> prefill 681.2 tok/s decode 10.75 tok/s
+[iter 1] prompt 148 ttft 217.25 ms tpot 92.998 ms generated 64 -> prefill 681.2 tok/s decode 10.75 tok/s
+[iter 2] prompt 148 ttft 217.08 ms tpot 93.050 ms generated 64 -> prefill 681.8 tok/s decode 10.75 tok/s
+[iter 3] prompt 148 ttft 216.74 ms tpot 93.039 ms generated 64 -> prefill 682.8 tok/s decode 10.75 tok/s
+[iter 4] prompt 148 ttft 217.22 ms tpot 93.034 ms generated 64 -> prefill 681.3 tok/s decode 10.75 tok/s
+[iter 5] prompt 148 ttft 216.78 ms tpot 93.050 ms generated 64 -> prefill 682.7 tok/s decode 10.75 tok/s
+[iter 6] prompt 148 ttft 217.29 ms tpot 93.018 ms generated 64 -> prefill 681.1 tok/s decode 10.75 tok/s
+[iter 7] prompt 148 ttft 217.19 ms tpot 93.134 ms generated 64 -> prefill 681.4 tok/s decode 10.74 tok/s
+[iter 8] prompt 148 ttft 217.55 ms tpot 93.020 ms generated 64 -> prefill 680.3 tok/s decode 10.75 tok/s
+[iter 9] prompt 148 ttft 217.25 ms tpot 93.049 ms generated 64 -> prefill 681.2 tok/s decode 10.75 tok/s
+[ov-bench] prefill_median 681.29 decode_median 10.748 tok/s iters 10 maxrss 11.34 GB
+== Qwen3.5-2B rep 1 openvino threads 12 load 5.90 2026-09-25T21:04:00Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 219.54 ms tpot 94.828 ms generated 64 -> prefill 674.1 tok/s decode 10.55 tok/s
+[iter 1] prompt 148 ttft 219.74 ms tpot 94.848 ms generated 64 -> prefill 673.5 tok/s decode 10.54 tok/s
+[iter 2] prompt 148 ttft 220.31 ms tpot 94.876 ms generated 64 -> prefill 671.8 tok/s decode 10.54 tok/s
+[iter 3] prompt 148 ttft 220.09 ms tpot 94.938 ms generated 64 -> prefill 672.5 tok/s decode 10.53 tok/s
+[iter 4] prompt 148 ttft 219.98 ms tpot 94.924 ms generated 64 -> prefill 672.8 tok/s decode 10.53 tok/s
+[iter 5] prompt 148 ttft 219.95 ms tpot 94.848 ms generated 64 -> prefill 672.9 tok/s decode 10.54 tok/s
+[iter 6] prompt 148 ttft 220.39 ms tpot 94.911 ms generated 64 -> prefill 671.5 tok/s decode 10.54 tok/s
+[iter 7] prompt 148 ttft 220.03 ms tpot 94.941 ms generated 64 -> prefill 672.6 tok/s decode 10.53 tok/s
+[iter 8] prompt 148 ttft 221.20 ms tpot 94.842 ms generated 64 -> prefill 669.1 tok/s decode 10.54 tok/s
+[iter 9] prompt 148 ttft 219.96 ms tpot 94.915 ms generated 64 -> prefill 672.9 tok/s decode 10.54 tok/s
+[ov-bench] prefill_median 672.71 decode_median 10.538 tok/s iters 10 maxrss 11.34 GB
+== Qwen3.5-2B rep 1 openvino threads 24 load 8.87 2026-09-25T21:05:32Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 24}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 216.31 ms tpot 94.796 ms generated 64 -> prefill 684.2 tok/s decode 10.55 tok/s
+[iter 1] prompt 148 ttft 216.28 ms tpot 94.796 ms generated 64 -> prefill 684.3 tok/s decode 10.55 tok/s
+[iter 2] prompt 148 ttft 216.15 ms tpot 94.795 ms generated 64 -> prefill 684.7 tok/s decode 10.55 tok/s
+[iter 3] prompt 148 ttft 216.34 ms tpot 94.800 ms generated 64 -> prefill 684.1 tok/s decode 10.55 tok/s
+[iter 4] prompt 148 ttft 216.06 ms tpot 94.777 ms generated 64 -> prefill 685.0 tok/s decode 10.55 tok/s
+[iter 5] prompt 148 ttft 216.12 ms tpot 94.865 ms generated 64 -> prefill 684.8 tok/s decode 10.54 tok/s
+[iter 6] prompt 148 ttft 219.90 ms tpot 94.781 ms generated 64 -> prefill 673.0 tok/s decode 10.55 tok/s
+[iter 7] prompt 148 ttft 216.17 ms tpot 94.784 ms generated 64 -> prefill 684.6 tok/s decode 10.55 tok/s
+[iter 8] prompt 148 ttft 216.09 ms tpot 94.783 ms generated 64 -> prefill 684.9 tok/s decode 10.55 tok/s
+[iter 9] prompt 148 ttft 216.01 ms tpot 94.799 ms generated 64 -> prefill 685.1 tok/s decode 10.55 tok/s
+[ov-bench] prefill_median 684.68 decode_median 10.549 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 2 herbert threads 12 load 9.46 2026-09-25T21:07:04Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.2 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.010 s
+[engine] loaded in 1.2 s, mounted in 0.40 s — 8192 positions reserved, prefill program Some((2841886, 304571, 305330)), decode program Some((2841518, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 0.152 s (976.5 tok/s) · 50 generated in 4.36 s (11.47 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 2 openvino threads 1 load 8.18 2026-09-25T21:07:21Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 1}
+[ov] pipeline ready in 1.1 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 956.83 ms tpot 99.294 ms generated 64 -> prefill 154.7 tok/s decode 10.07 tok/s
+[iter 1] prompt 148 ttft 957.11 ms tpot 99.334 ms generated 64 -> prefill 154.6 tok/s decode 10.07 tok/s
+[iter 2] prompt 148 ttft 956.43 ms tpot 99.280 ms generated 64 -> prefill 154.7 tok/s decode 10.07 tok/s
+[iter 3] prompt 148 ttft 956.46 ms tpot 99.227 ms generated 64 -> prefill 154.7 tok/s decode 10.08 tok/s
+[iter 4] prompt 148 ttft 955.95 ms tpot 99.243 ms generated 64 -> prefill 154.8 tok/s decode 10.08 tok/s
+[iter 5] prompt 148 ttft 955.60 ms tpot 99.249 ms generated 64 -> prefill 154.9 tok/s decode 10.08 tok/s
+[iter 6] prompt 148 ttft 956.76 ms tpot 99.249 ms generated 64 -> prefill 154.7 tok/s decode 10.08 tok/s
+[iter 7] prompt 148 ttft 956.53 ms tpot 99.300 ms generated 64 -> prefill 154.7 tok/s decode 10.07 tok/s
+[iter 8] prompt 148 ttft 955.54 ms tpot 99.333 ms generated 64 -> prefill 154.9 tok/s decode 10.07 tok/s
+[iter 9] prompt 148 ttft 957.16 ms tpot 99.281 ms generated 64 -> prefill 154.6 tok/s decode 10.07 tok/s
+[ov-bench] prefill_median 154.73 decode_median 10.072 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 2 openvino threads 2 load 1.99 2026-09-25T21:09:08Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 2}
+[ov] pipeline ready in 0.9 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 576.79 ms tpot 91.755 ms generated 64 -> prefill 256.6 tok/s decode 10.90 tok/s
+[iter 1] prompt 148 ttft 576.16 ms tpot 91.806 ms generated 64 -> prefill 256.9 tok/s decode 10.89 tok/s
+[iter 2] prompt 148 ttft 576.35 ms tpot 91.740 ms generated 64 -> prefill 256.8 tok/s decode 10.90 tok/s
+[iter 3] prompt 148 ttft 576.36 ms tpot 91.773 ms generated 64 -> prefill 256.8 tok/s decode 10.90 tok/s
+[iter 4] prompt 148 ttft 576.34 ms tpot 91.736 ms generated 64 -> prefill 256.8 tok/s decode 10.90 tok/s
+[iter 5] prompt 148 ttft 576.54 ms tpot 91.706 ms generated 64 -> prefill 256.7 tok/s decode 10.90 tok/s
+[iter 6] prompt 148 ttft 576.28 ms tpot 91.728 ms generated 64 -> prefill 256.8 tok/s decode 10.90 tok/s
+[iter 7] prompt 148 ttft 576.90 ms tpot 91.781 ms generated 64 -> prefill 256.5 tok/s decode 10.90 tok/s
+[iter 8] prompt 148 ttft 576.48 ms tpot 91.695 ms generated 64 -> prefill 256.7 tok/s decode 10.91 tok/s
+[iter 9] prompt 148 ttft 576.76 ms tpot 91.737 ms generated 64 -> prefill 256.6 tok/s decode 10.90 tok/s
+[ov-bench] prefill_median 256.76 decode_median 10.901 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 2 openvino threads 4 load 1.69 2026-09-25T21:10:43Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 4}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 328.14 ms tpot 91.113 ms generated 64 -> prefill 451.0 tok/s decode 10.98 tok/s
+[iter 1] prompt 148 ttft 328.01 ms tpot 91.089 ms generated 64 -> prefill 451.2 tok/s decode 10.98 tok/s
+[iter 2] prompt 148 ttft 327.96 ms tpot 91.124 ms generated 64 -> prefill 451.3 tok/s decode 10.97 tok/s
+[iter 3] prompt 148 ttft 327.95 ms tpot 91.106 ms generated 64 -> prefill 451.3 tok/s decode 10.98 tok/s
+[iter 4] prompt 148 ttft 327.96 ms tpot 91.076 ms generated 64 -> prefill 451.3 tok/s decode 10.98 tok/s
+[iter 5] prompt 148 ttft 328.09 ms tpot 91.071 ms generated 64 -> prefill 451.1 tok/s decode 10.98 tok/s
+[iter 6] prompt 148 ttft 327.97 ms tpot 91.065 ms generated 64 -> prefill 451.3 tok/s decode 10.98 tok/s
+[iter 7] prompt 148 ttft 328.22 ms tpot 91.073 ms generated 64 -> prefill 450.9 tok/s decode 10.98 tok/s
+[iter 8] prompt 148 ttft 327.73 ms tpot 91.001 ms generated 64 -> prefill 451.6 tok/s decode 10.99 tok/s
+[iter 9] prompt 148 ttft 328.19 ms tpot 91.000 ms generated 64 -> prefill 451.0 tok/s decode 10.99 tok/s
+[ov-bench] prefill_median 451.23 decode_median 10.980 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 2 openvino threads 6 load 2.87 2026-09-25T21:12:13Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 6}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 225.40 ms tpot 91.450 ms generated 64 -> prefill 656.6 tok/s decode 10.93 tok/s
+[iter 1] prompt 148 ttft 225.68 ms tpot 91.428 ms generated 64 -> prefill 655.8 tok/s decode 10.94 tok/s
+[iter 2] prompt 148 ttft 225.57 ms tpot 91.389 ms generated 64 -> prefill 656.1 tok/s decode 10.94 tok/s
+[iter 3] prompt 148 ttft 225.91 ms tpot 91.393 ms generated 64 -> prefill 655.1 tok/s decode 10.94 tok/s
+[iter 4] prompt 148 ttft 225.64 ms tpot 91.401 ms generated 64 -> prefill 655.9 tok/s decode 10.94 tok/s
+[iter 5] prompt 148 ttft 225.97 ms tpot 91.407 ms generated 64 -> prefill 654.9 tok/s decode 10.94 tok/s
+[iter 6] prompt 148 ttft 226.01 ms tpot 91.409 ms generated 64 -> prefill 654.8 tok/s decode 10.94 tok/s
+[iter 7] prompt 148 ttft 225.79 ms tpot 91.401 ms generated 64 -> prefill 655.5 tok/s decode 10.94 tok/s
+[iter 8] prompt 148 ttft 225.90 ms tpot 91.369 ms generated 64 -> prefill 655.1 tok/s decode 10.94 tok/s
+[iter 9] prompt 148 ttft 226.14 ms tpot 91.414 ms generated 64 -> prefill 654.5 tok/s decode 10.94 tok/s
+[ov-bench] prefill_median 655.32 decode_median 10.940 tok/s iters 10 maxrss 11.34 GB
+== Qwen3.5-2B rep 2 openvino threads 8 load 4.38 2026-09-25T21:13:43Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 8}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 218.55 ms tpot 93.061 ms generated 64 -> prefill 677.2 tok/s decode 10.75 tok/s
+[iter 1] prompt 148 ttft 217.93 ms tpot 93.112 ms generated 64 -> prefill 679.1 tok/s decode 10.74 tok/s
+[iter 2] prompt 148 ttft 218.32 ms tpot 93.102 ms generated 64 -> prefill 677.9 tok/s decode 10.74 tok/s
+[iter 3] prompt 148 ttft 218.29 ms tpot 93.113 ms generated 64 -> prefill 678.0 tok/s decode 10.74 tok/s
+[iter 4] prompt 148 ttft 218.57 ms tpot 93.102 ms generated 64 -> prefill 677.1 tok/s decode 10.74 tok/s
+[iter 5] prompt 148 ttft 217.99 ms tpot 93.099 ms generated 64 -> prefill 678.9 tok/s decode 10.74 tok/s
+[iter 6] prompt 148 ttft 218.76 ms tpot 93.094 ms generated 64 -> prefill 676.5 tok/s decode 10.74 tok/s
+[iter 7] prompt 148 ttft 218.20 ms tpot 93.102 ms generated 64 -> prefill 678.3 tok/s decode 10.74 tok/s
+[iter 8] prompt 148 ttft 218.48 ms tpot 93.030 ms generated 64 -> prefill 677.4 tok/s decode 10.75 tok/s
+[iter 9] prompt 148 ttft 217.94 ms tpot 93.111 ms generated 64 -> prefill 679.1 tok/s decode 10.74 tok/s
+[ov-bench] prefill_median 677.96 decode_median 10.741 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 2 openvino threads 12 load 5.76 2026-09-25T21:15:13Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 216.05 ms tpot 94.624 ms generated 64 -> prefill 685.0 tok/s decode 10.57 tok/s
+[iter 1] prompt 148 ttft 215.77 ms tpot 94.757 ms generated 64 -> prefill 685.9 tok/s decode 10.55 tok/s
+[iter 2] prompt 148 ttft 216.00 ms tpot 94.618 ms generated 64 -> prefill 685.2 tok/s decode 10.57 tok/s
+[iter 3] prompt 148 ttft 215.78 ms tpot 94.621 ms generated 64 -> prefill 685.9 tok/s decode 10.57 tok/s
+[iter 4] prompt 148 ttft 215.85 ms tpot 94.601 ms generated 64 -> prefill 685.7 tok/s decode 10.57 tok/s
+[iter 5] prompt 148 ttft 215.89 ms tpot 94.651 ms generated 64 -> prefill 685.5 tok/s decode 10.57 tok/s
+[iter 6] prompt 148 ttft 215.87 ms tpot 94.609 ms generated 64 -> prefill 685.6 tok/s decode 10.57 tok/s
+[iter 7] prompt 148 ttft 216.33 ms tpot 94.589 ms generated 64 -> prefill 684.2 tok/s decode 10.57 tok/s
+[iter 8] prompt 148 ttft 215.98 ms tpot 94.571 ms generated 64 -> prefill 685.3 tok/s decode 10.57 tok/s
+[iter 9] prompt 148 ttft 216.26 ms tpot 94.620 ms generated 64 -> prefill 684.3 tok/s decode 10.57 tok/s
+[ov-bench] prefill_median 685.40 decode_median 10.569 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 2 openvino threads 24 load 8.77 2026-09-25T21:16:45Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 24}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 215.45 ms tpot 94.873 ms generated 64 -> prefill 686.9 tok/s decode 10.54 tok/s
+[iter 1] prompt 148 ttft 215.71 ms tpot 94.847 ms generated 64 -> prefill 686.1 tok/s decode 10.54 tok/s
+[iter 2] prompt 148 ttft 215.66 ms tpot 94.731 ms generated 64 -> prefill 686.3 tok/s decode 10.56 tok/s
+[iter 3] prompt 148 ttft 215.50 ms tpot 94.850 ms generated 64 -> prefill 686.8 tok/s decode 10.54 tok/s
+[iter 4] prompt 148 ttft 215.64 ms tpot 94.877 ms generated 64 -> prefill 686.3 tok/s decode 10.54 tok/s
+[iter 5] prompt 148 ttft 216.02 ms tpot 94.876 ms generated 64 -> prefill 685.1 tok/s decode 10.54 tok/s
+[iter 6] prompt 148 ttft 216.10 ms tpot 95.000 ms generated 64 -> prefill 684.9 tok/s decode 10.53 tok/s
+[iter 7] prompt 148 ttft 215.45 ms tpot 94.852 ms generated 64 -> prefill 686.9 tok/s decode 10.54 tok/s
+[iter 8] prompt 148 ttft 215.46 ms tpot 94.889 ms generated 64 -> prefill 686.9 tok/s decode 10.54 tok/s
+[iter 9] prompt 148 ttft 215.46 ms tpot 94.864 ms generated 64 -> prefill 686.9 tok/s decode 10.54 tok/s
+[ov-bench] prefill_median 686.55 decode_median 10.541 tok/s iters 10 maxrss 11.34 GB
+== Qwen3.5-2B rep 3 herbert threads 12 load 9.50 2026-09-25T21:18:17Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.2 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.009 s
+[engine] loaded in 1.2 s, mounted in 0.40 s — 8192 positions reserved, prefill program Some((2841886, 304571, 305330)), decode program Some((2841518, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 0.150 s (987.0 tok/s) · 50 generated in 4.36 s (11.48 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 3 openvino threads 1 load 8.20 2026-09-25T21:18:34Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 1}
+[ov] pipeline ready in 1.1 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 955.84 ms tpot 98.737 ms generated 64 -> prefill 154.8 tok/s decode 10.13 tok/s
+[iter 1] prompt 148 ttft 955.66 ms tpot 98.717 ms generated 64 -> prefill 154.9 tok/s decode 10.13 tok/s
+[iter 2] prompt 148 ttft 955.28 ms tpot 98.628 ms generated 64 -> prefill 154.9 tok/s decode 10.14 tok/s
+[iter 3] prompt 148 ttft 955.75 ms tpot 98.715 ms generated 64 -> prefill 154.9 tok/s decode 10.13 tok/s
+[iter 4] prompt 148 ttft 955.37 ms tpot 98.763 ms generated 64 -> prefill 154.9 tok/s decode 10.13 tok/s
+[iter 5] prompt 148 ttft 954.68 ms tpot 98.696 ms generated 64 -> prefill 155.0 tok/s decode 10.13 tok/s
+[iter 6] prompt 148 ttft 955.07 ms tpot 99.044 ms generated 64 -> prefill 155.0 tok/s decode 10.10 tok/s
+[iter 7] prompt 148 ttft 953.70 ms tpot 98.667 ms generated 64 -> prefill 155.2 tok/s decode 10.14 tok/s
+[iter 8] prompt 148 ttft 954.39 ms tpot 98.748 ms generated 64 -> prefill 155.1 tok/s decode 10.13 tok/s
+[iter 9] prompt 148 ttft 954.18 ms tpot 98.686 ms generated 64 -> prefill 155.1 tok/s decode 10.13 tok/s
+[ov-bench] prefill_median 154.95 decode_median 10.130 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 3 openvino threads 2 load 2.09 2026-09-25T21:20:20Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 2}
+[ov] pipeline ready in 0.9 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 573.14 ms tpot 91.671 ms generated 64 -> prefill 258.2 tok/s decode 10.91 tok/s
+[iter 1] prompt 148 ttft 573.48 ms tpot 91.758 ms generated 64 -> prefill 258.1 tok/s decode 10.90 tok/s
+[iter 2] prompt 148 ttft 573.70 ms tpot 91.766 ms generated 64 -> prefill 258.0 tok/s decode 10.90 tok/s
+[iter 3] prompt 148 ttft 573.24 ms tpot 91.738 ms generated 64 -> prefill 258.2 tok/s decode 10.90 tok/s
+[iter 4] prompt 148 ttft 573.66 ms tpot 91.756 ms generated 64 -> prefill 258.0 tok/s decode 10.90 tok/s
+[iter 5] prompt 148 ttft 574.13 ms tpot 91.746 ms generated 64 -> prefill 257.8 tok/s decode 10.90 tok/s
+[iter 6] prompt 148 ttft 573.85 ms tpot 91.752 ms generated 64 -> prefill 257.9 tok/s decode 10.90 tok/s
+[iter 7] prompt 148 ttft 573.66 ms tpot 91.791 ms generated 64 -> prefill 258.0 tok/s decode 10.89 tok/s
+[iter 8] prompt 148 ttft 574.16 ms tpot 91.802 ms generated 64 -> prefill 257.8 tok/s decode 10.89 tok/s
+[iter 9] prompt 148 ttft 573.72 ms tpot 91.738 ms generated 64 -> prefill 258.0 tok/s decode 10.90 tok/s
+[ov-bench] prefill_median 257.98 decode_median 10.899 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 3 openvino threads 4 load 1.71 2026-09-25T21:21:55Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 4}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 328.33 ms tpot 90.969 ms generated 64 -> prefill 450.8 tok/s decode 10.99 tok/s
+[iter 1] prompt 148 ttft 327.90 ms tpot 90.948 ms generated 64 -> prefill 451.4 tok/s decode 11.00 tok/s
+[iter 2] prompt 148 ttft 328.89 ms tpot 90.965 ms generated 64 -> prefill 450.0 tok/s decode 10.99 tok/s
+[iter 3] prompt 148 ttft 328.90 ms tpot 91.008 ms generated 64 -> prefill 450.0 tok/s decode 10.99 tok/s
+[iter 4] prompt 148 ttft 328.22 ms tpot 91.005 ms generated 64 -> prefill 450.9 tok/s decode 10.99 tok/s
+[iter 5] prompt 148 ttft 328.75 ms tpot 91.053 ms generated 64 -> prefill 450.2 tok/s decode 10.98 tok/s
+[iter 6] prompt 148 ttft 328.98 ms tpot 91.001 ms generated 64 -> prefill 449.9 tok/s decode 10.99 tok/s
+[iter 7] prompt 148 ttft 328.53 ms tpot 91.058 ms generated 64 -> prefill 450.5 tok/s decode 10.98 tok/s
+[iter 8] prompt 148 ttft 328.58 ms tpot 91.040 ms generated 64 -> prefill 450.4 tok/s decode 10.98 tok/s
+[iter 9] prompt 148 ttft 328.60 ms tpot 91.020 ms generated 64 -> prefill 450.4 tok/s decode 10.99 tok/s
+[ov-bench] prefill_median 450.41 decode_median 10.988 tok/s iters 10 maxrss 11.34 GB
+== Qwen3.5-2B rep 3 openvino threads 6 load 2.88 2026-09-25T21:23:26Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 6}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 224.92 ms tpot 91.552 ms generated 64 -> prefill 658.0 tok/s decode 10.92 tok/s
+[iter 1] prompt 148 ttft 225.43 ms tpot 91.541 ms generated 64 -> prefill 656.5 tok/s decode 10.92 tok/s
+[iter 2] prompt 148 ttft 225.33 ms tpot 91.517 ms generated 64 -> prefill 656.8 tok/s decode 10.93 tok/s
+[iter 3] prompt 148 ttft 225.44 ms tpot 91.517 ms generated 64 -> prefill 656.5 tok/s decode 10.93 tok/s
+[iter 4] prompt 148 ttft 225.60 ms tpot 91.534 ms generated 64 -> prefill 656.0 tok/s decode 10.92 tok/s
+[iter 5] prompt 148 ttft 225.30 ms tpot 91.534 ms generated 64 -> prefill 656.9 tok/s decode 10.92 tok/s
+[iter 6] prompt 148 ttft 225.31 ms tpot 91.518 ms generated 64 -> prefill 656.9 tok/s decode 10.93 tok/s
+[iter 7] prompt 148 ttft 225.60 ms tpot 91.531 ms generated 64 -> prefill 656.0 tok/s decode 10.93 tok/s
+[iter 8] prompt 148 ttft 225.53 ms tpot 91.533 ms generated 64 -> prefill 656.2 tok/s decode 10.93 tok/s
+[iter 9] prompt 148 ttft 225.68 ms tpot 91.514 ms generated 64 -> prefill 655.8 tok/s decode 10.93 tok/s
+[ov-bench] prefill_median 656.51 decode_median 10.925 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 3 openvino threads 8 load 4.38 2026-09-25T21:24:55Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 8}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 218.41 ms tpot 93.050 ms generated 64 -> prefill 677.6 tok/s decode 10.75 tok/s
+[iter 1] prompt 148 ttft 218.05 ms tpot 93.040 ms generated 64 -> prefill 678.7 tok/s decode 10.75 tok/s
+[iter 2] prompt 148 ttft 218.51 ms tpot 93.066 ms generated 64 -> prefill 677.3 tok/s decode 10.75 tok/s
+[iter 3] prompt 148 ttft 218.36 ms tpot 93.065 ms generated 64 -> prefill 677.8 tok/s decode 10.75 tok/s
+[iter 4] prompt 148 ttft 218.00 ms tpot 93.065 ms generated 64 -> prefill 678.9 tok/s decode 10.75 tok/s
+[iter 5] prompt 148 ttft 218.04 ms tpot 93.076 ms generated 64 -> prefill 678.8 tok/s decode 10.74 tok/s
+[iter 6] prompt 148 ttft 217.95 ms tpot 93.094 ms generated 64 -> prefill 679.0 tok/s decode 10.74 tok/s
+[iter 7] prompt 148 ttft 218.41 ms tpot 93.073 ms generated 64 -> prefill 677.6 tok/s decode 10.74 tok/s
+[iter 8] prompt 148 ttft 218.94 ms tpot 93.069 ms generated 64 -> prefill 676.0 tok/s decode 10.74 tok/s
+[iter 9] prompt 148 ttft 218.24 ms tpot 93.103 ms generated 64 -> prefill 678.2 tok/s decode 10.74 tok/s
+[ov-bench] prefill_median 677.96 decode_median 10.745 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 3 openvino threads 12 load 5.68 2026-09-25T21:26:26Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 216.57 ms tpot 94.836 ms generated 64 -> prefill 683.4 tok/s decode 10.54 tok/s
+[iter 1] prompt 148 ttft 216.62 ms tpot 94.800 ms generated 64 -> prefill 683.2 tok/s decode 10.55 tok/s
+[iter 2] prompt 148 ttft 216.39 ms tpot 94.831 ms generated 64 -> prefill 683.9 tok/s decode 10.55 tok/s
+[iter 3] prompt 148 ttft 216.66 ms tpot 94.848 ms generated 64 -> prefill 683.1 tok/s decode 10.54 tok/s
+[iter 4] prompt 148 ttft 216.32 ms tpot 94.853 ms generated 64 -> prefill 684.2 tok/s decode 10.54 tok/s
+[iter 5] prompt 148 ttft 216.45 ms tpot 94.875 ms generated 64 -> prefill 683.7 tok/s decode 10.54 tok/s
+[iter 6] prompt 148 ttft 216.42 ms tpot 94.848 ms generated 64 -> prefill 683.8 tok/s decode 10.54 tok/s
+[iter 7] prompt 148 ttft 216.38 ms tpot 94.848 ms generated 64 -> prefill 684.0 tok/s decode 10.54 tok/s
+[iter 8] prompt 148 ttft 216.55 ms tpot 94.867 ms generated 64 -> prefill 683.5 tok/s decode 10.54 tok/s
+[iter 9] prompt 148 ttft 216.60 ms tpot 94.877 ms generated 64 -> prefill 683.3 tok/s decode 10.54 tok/s
+[ov-bench] prefill_median 683.60 decode_median 10.543 tok/s iters 10 maxrss 11.35 GB
+== Qwen3.5-2B rep 3 openvino threads 24 load 8.86 2026-09-25T21:27:58Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 24}
+[ov] pipeline ready in 0.8 s, maxrss 7.57 GB
+[iter 0] prompt 148 ttft 215.86 ms tpot 94.864 ms generated 64 -> prefill 685.6 tok/s decode 10.54 tok/s
+[iter 1] prompt 148 ttft 215.80 ms tpot 94.891 ms generated 64 -> prefill 685.8 tok/s decode 10.54 tok/s
+[iter 2] prompt 148 ttft 215.53 ms tpot 94.863 ms generated 64 -> prefill 686.7 tok/s decode 10.54 tok/s
+[iter 3] prompt 148 ttft 215.25 ms tpot 94.865 ms generated 64 -> prefill 687.6 tok/s decode 10.54 tok/s
+[iter 4] prompt 148 ttft 215.78 ms tpot 94.879 ms generated 64 -> prefill 685.9 tok/s decode 10.54 tok/s
+[iter 5] prompt 148 ttft 215.55 ms tpot 94.875 ms generated 64 -> prefill 686.6 tok/s decode 10.54 tok/s
+[iter 6] prompt 148 ttft 215.59 ms tpot 94.878 ms generated 64 -> prefill 686.5 tok/s decode 10.54 tok/s
+[iter 7] prompt 148 ttft 215.85 ms tpot 94.855 ms generated 64 -> prefill 685.7 tok/s decode 10.54 tok/s
+[iter 8] prompt 148 ttft 215.54 ms tpot 94.843 ms generated 64 -> prefill 686.6 tok/s decode 10.54 tok/s
+[iter 9] prompt 148 ttft 216.00 ms tpot 94.873 ms generated 64 -> prefill 685.2 tok/s decode 10.54 tok/s
+[ov-bench] prefill_median 686.19 decode_median 10.541 tok/s iters 10 maxrss 11.34 GB
+[ov-campaign] Qwen3.5-4B IR be5e9de40b74c79d 5692ec832e9ac119 
+== Qwen3.5-4B outputs openvino threads 12 2026-09-25T21:29:27Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[ids] [40781, 219485, 49598, 1147, 198922, 909, 181349, 401, 208257, 11, 3424, 74593, 9056, 224731, 7314, 181699, 1147, 90793, 1440, 4783, 184743, 644, 7072, 57832, 3424, 628, 11640, 11, 208701, 11345, 1147, 184743]
+[decoded] 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire'
+[reference] 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire'
+[agreement] compared 32 first_divergence none
+== Qwen3.5-4B rep 1 herbert threads 12 load 9.73 2026-09-25T21:29:46Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 0.8 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.0 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.019 s
+[engine] loaded in 2.0 s, mounted in 0.44 s — 8192 positions reserved, prefill program Some((3941112, 404459, 405442)), decode program Some((3940632, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 0.363 s (407.8 tok/s) · 43 generated in 8.36 s (5.14 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 1 openvino threads 1 load 8.03 2026-09-25T21:30:08Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 1}
+[ov] pipeline ready in 1.8 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 2470.70 ms tpot 223.257 ms generated 64 -> prefill 59.9 tok/s decode 4.48 tok/s
+[iter 1] prompt 148 ttft 2469.89 ms tpot 223.241 ms generated 64 -> prefill 59.9 tok/s decode 4.48 tok/s
+[iter 2] prompt 148 ttft 2470.56 ms tpot 222.989 ms generated 64 -> prefill 59.9 tok/s decode 4.48 tok/s
+[iter 3] prompt 148 ttft 2464.57 ms tpot 222.995 ms generated 64 -> prefill 60.1 tok/s decode 4.48 tok/s
+[iter 4] prompt 148 ttft 2469.97 ms tpot 222.879 ms generated 64 -> prefill 59.9 tok/s decode 4.49 tok/s
+[iter 5] prompt 148 ttft 2465.61 ms tpot 222.846 ms generated 64 -> prefill 60.0 tok/s decode 4.49 tok/s
+[iter 6] prompt 148 ttft 2464.44 ms tpot 222.864 ms generated 64 -> prefill 60.1 tok/s decode 4.49 tok/s
+[iter 7] prompt 148 ttft 2471.18 ms tpot 222.843 ms generated 64 -> prefill 59.9 tok/s decode 4.49 tok/s
+[iter 8] prompt 148 ttft 2468.65 ms tpot 222.776 ms generated 64 -> prefill 60.0 tok/s decode 4.49 tok/s
+[iter 9] prompt 148 ttft 2463.69 ms tpot 222.819 ms generated 64 -> prefill 60.1 tok/s decode 4.49 tok/s
+[ov-bench] prefill_median 59.94 decode_median 4.487 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 1 openvino threads 2 load 0.99 2026-09-25T21:33:59Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 2}
+[ov] pipeline ready in 1.4 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 1529.97 ms tpot 201.661 ms generated 64 -> prefill 96.7 tok/s decode 4.96 tok/s
+[iter 1] prompt 148 ttft 1527.09 ms tpot 201.663 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[iter 2] prompt 148 ttft 1526.16 ms tpot 201.675 ms generated 64 -> prefill 97.0 tok/s decode 4.96 tok/s
+[iter 3] prompt 148 ttft 1527.36 ms tpot 201.590 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[iter 4] prompt 148 ttft 1526.91 ms tpot 201.673 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[iter 5] prompt 148 ttft 1527.56 ms tpot 201.704 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[iter 6] prompt 148 ttft 1527.49 ms tpot 201.673 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[iter 7] prompt 148 ttft 1528.22 ms tpot 201.656 ms generated 64 -> prefill 96.8 tok/s decode 4.96 tok/s
+[iter 8] prompt 148 ttft 1527.54 ms tpot 201.674 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[iter 9] prompt 148 ttft 1527.43 ms tpot 201.657 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[ov-bench] prefill_median 96.89 decode_median 4.959 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 1 openvino threads 4 load 1.59 2026-09-25T21:37:17Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 4}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 803.12 ms tpot 199.286 ms generated 64 -> prefill 184.3 tok/s decode 5.02 tok/s
+[iter 1] prompt 148 ttft 802.29 ms tpot 199.602 ms generated 64 -> prefill 184.5 tok/s decode 5.01 tok/s
+[iter 2] prompt 148 ttft 803.23 ms tpot 199.888 ms generated 64 -> prefill 184.3 tok/s decode 5.00 tok/s
+[iter 3] prompt 148 ttft 802.71 ms tpot 199.926 ms generated 64 -> prefill 184.4 tok/s decode 5.00 tok/s
+[iter 4] prompt 148 ttft 802.47 ms tpot 200.053 ms generated 64 -> prefill 184.4 tok/s decode 5.00 tok/s
+[iter 5] prompt 148 ttft 803.37 ms tpot 199.907 ms generated 64 -> prefill 184.2 tok/s decode 5.00 tok/s
+[iter 6] prompt 148 ttft 803.76 ms tpot 200.115 ms generated 64 -> prefill 184.1 tok/s decode 5.00 tok/s
+[iter 7] prompt 148 ttft 802.00 ms tpot 200.090 ms generated 64 -> prefill 184.5 tok/s decode 5.00 tok/s
+[iter 8] prompt 148 ttft 803.14 ms tpot 200.075 ms generated 64 -> prefill 184.3 tok/s decode 5.00 tok/s
+[iter 9] prompt 148 ttft 802.00 ms tpot 200.266 ms generated 64 -> prefill 184.5 tok/s decode 4.99 tok/s
+[ov-bench] prefill_median 184.33 decode_median 5.000 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 1 openvino threads 6 load 3.28 2026-09-25T21:40:24Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 6}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 573.50 ms tpot 200.666 ms generated 64 -> prefill 258.1 tok/s decode 4.98 tok/s
+[iter 1] prompt 148 ttft 572.81 ms tpot 200.624 ms generated 64 -> prefill 258.4 tok/s decode 4.98 tok/s
+[iter 2] prompt 148 ttft 571.35 ms tpot 200.648 ms generated 64 -> prefill 259.0 tok/s decode 4.98 tok/s
+[iter 3] prompt 148 ttft 574.54 ms tpot 200.676 ms generated 64 -> prefill 257.6 tok/s decode 4.98 tok/s
+[iter 4] prompt 148 ttft 569.52 ms tpot 200.708 ms generated 64 -> prefill 259.9 tok/s decode 4.98 tok/s
+[iter 5] prompt 148 ttft 571.48 ms tpot 200.670 ms generated 64 -> prefill 259.0 tok/s decode 4.98 tok/s
+[iter 6] prompt 148 ttft 569.65 ms tpot 200.637 ms generated 64 -> prefill 259.8 tok/s decode 4.98 tok/s
+[iter 7] prompt 148 ttft 570.73 ms tpot 200.690 ms generated 64 -> prefill 259.3 tok/s decode 4.98 tok/s
+[iter 8] prompt 148 ttft 574.84 ms tpot 200.677 ms generated 64 -> prefill 257.5 tok/s decode 4.98 tok/s
+[iter 9] prompt 148 ttft 575.14 ms tpot 200.684 ms generated 64 -> prefill 257.3 tok/s decode 4.98 tok/s
+[ov-bench] prefill_median 258.68 decode_median 4.983 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 1 openvino threads 8 load 4.96 2026-09-25T21:43:29Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 8}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 553.65 ms tpot 203.452 ms generated 64 -> prefill 267.3 tok/s decode 4.92 tok/s
+[iter 1] prompt 148 ttft 554.95 ms tpot 203.474 ms generated 64 -> prefill 266.7 tok/s decode 4.91 tok/s
+[iter 2] prompt 148 ttft 552.32 ms tpot 203.523 ms generated 64 -> prefill 268.0 tok/s decode 4.91 tok/s
+[iter 3] prompt 148 ttft 554.27 ms tpot 203.566 ms generated 64 -> prefill 267.0 tok/s decode 4.91 tok/s
+[iter 4] prompt 148 ttft 553.91 ms tpot 203.428 ms generated 64 -> prefill 267.2 tok/s decode 4.92 tok/s
+[iter 5] prompt 148 ttft 554.05 ms tpot 203.492 ms generated 64 -> prefill 267.1 tok/s decode 4.91 tok/s
+[iter 6] prompt 148 ttft 553.96 ms tpot 203.581 ms generated 64 -> prefill 267.2 tok/s decode 4.91 tok/s
+[iter 7] prompt 148 ttft 553.87 ms tpot 203.499 ms generated 64 -> prefill 267.2 tok/s decode 4.91 tok/s
+[iter 8] prompt 148 ttft 554.97 ms tpot 203.611 ms generated 64 -> prefill 266.7 tok/s decode 4.91 tok/s
+[iter 9] prompt 148 ttft 554.85 ms tpot 203.454 ms generated 64 -> prefill 266.7 tok/s decode 4.92 tok/s
+[ov-bench] prefill_median 267.15 decode_median 4.914 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 1 openvino threads 12 load 6.63 2026-09-25T21:46:35Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 486.60 ms tpot 206.812 ms generated 64 -> prefill 304.2 tok/s decode 4.84 tok/s
+[iter 1] prompt 148 ttft 485.88 ms tpot 206.827 ms generated 64 -> prefill 304.6 tok/s decode 4.83 tok/s
+[iter 2] prompt 148 ttft 485.87 ms tpot 206.816 ms generated 64 -> prefill 304.6 tok/s decode 4.84 tok/s
+[iter 3] prompt 148 ttft 485.82 ms tpot 207.004 ms generated 64 -> prefill 304.6 tok/s decode 4.83 tok/s
+[iter 4] prompt 148 ttft 486.11 ms tpot 206.787 ms generated 64 -> prefill 304.5 tok/s decode 4.84 tok/s
+[iter 5] prompt 148 ttft 484.98 ms tpot 206.813 ms generated 64 -> prefill 305.2 tok/s decode 4.84 tok/s
+[iter 6] prompt 148 ttft 485.87 ms tpot 206.806 ms generated 64 -> prefill 304.6 tok/s decode 4.84 tok/s
+[iter 7] prompt 148 ttft 485.26 ms tpot 206.819 ms generated 64 -> prefill 305.0 tok/s decode 4.84 tok/s
+[iter 8] prompt 148 ttft 485.99 ms tpot 206.871 ms generated 64 -> prefill 304.5 tok/s decode 4.83 tok/s
+[iter 9] prompt 148 ttft 485.61 ms tpot 206.863 ms generated 64 -> prefill 304.8 tok/s decode 4.83 tok/s
+[ov-bench] prefill_median 304.61 decode_median 4.835 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 1 openvino threads 24 load 9.93 2026-09-25T21:49:43Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 24}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 485.90 ms tpot 206.884 ms generated 64 -> prefill 304.6 tok/s decode 4.83 tok/s
+[iter 1] prompt 148 ttft 486.13 ms tpot 206.926 ms generated 64 -> prefill 304.4 tok/s decode 4.83 tok/s
+[iter 2] prompt 148 ttft 486.14 ms tpot 206.914 ms generated 64 -> prefill 304.4 tok/s decode 4.83 tok/s
+[iter 3] prompt 148 ttft 485.77 ms tpot 206.964 ms generated 64 -> prefill 304.7 tok/s decode 4.83 tok/s
+[iter 4] prompt 148 ttft 486.52 ms tpot 206.809 ms generated 64 -> prefill 304.2 tok/s decode 4.84 tok/s
+[iter 5] prompt 148 ttft 486.27 ms tpot 206.876 ms generated 64 -> prefill 304.4 tok/s decode 4.83 tok/s
+[iter 6] prompt 148 ttft 486.76 ms tpot 206.864 ms generated 64 -> prefill 304.0 tok/s decode 4.83 tok/s
+[iter 7] prompt 148 ttft 485.88 ms tpot 207.056 ms generated 64 -> prefill 304.6 tok/s decode 4.83 tok/s
+[iter 8] prompt 148 ttft 486.72 ms tpot 206.784 ms generated 64 -> prefill 304.1 tok/s decode 4.84 tok/s
+[iter 9] prompt 148 ttft 485.94 ms tpot 206.789 ms generated 64 -> prefill 304.6 tok/s decode 4.84 tok/s
+[ov-bench] prefill_median 304.44 decode_median 4.834 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 2 herbert threads 12 load 10.16 2026-09-25T21:52:52Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 0.8 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.0 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.018 s
+[engine] loaded in 2.0 s, mounted in 0.44 s — 8192 positions reserved, prefill program Some((3941112, 404459, 405442)), decode program Some((3940632, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 0.361 s (410.3 tok/s) · 43 generated in 8.35 s (5.15 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 2 openvino threads 1 load 8.83 2026-09-25T21:53:13Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 1}
+[ov] pipeline ready in 1.8 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 2465.52 ms tpot 223.410 ms generated 64 -> prefill 60.0 tok/s decode 4.48 tok/s
+[iter 1] prompt 148 ttft 2469.03 ms tpot 223.543 ms generated 64 -> prefill 59.9 tok/s decode 4.47 tok/s
+[iter 2] prompt 148 ttft 2465.29 ms tpot 223.442 ms generated 64 -> prefill 60.0 tok/s decode 4.48 tok/s
+[iter 3] prompt 148 ttft 2465.04 ms tpot 223.158 ms generated 64 -> prefill 60.0 tok/s decode 4.48 tok/s
+[iter 4] prompt 148 ttft 2466.23 ms tpot 223.432 ms generated 64 -> prefill 60.0 tok/s decode 4.48 tok/s
+[iter 5] prompt 148 ttft 2464.82 ms tpot 223.525 ms generated 64 -> prefill 60.0 tok/s decode 4.47 tok/s
+[iter 6] prompt 148 ttft 2467.52 ms tpot 223.577 ms generated 64 -> prefill 60.0 tok/s decode 4.47 tok/s
+[iter 7] prompt 148 ttft 2465.96 ms tpot 223.374 ms generated 64 -> prefill 60.0 tok/s decode 4.48 tok/s
+[iter 8] prompt 148 ttft 2468.57 ms tpot 223.857 ms generated 64 -> prefill 60.0 tok/s decode 4.47 tok/s
+[iter 9] prompt 148 ttft 2464.26 ms tpot 223.579 ms generated 64 -> prefill 60.1 tok/s decode 4.47 tok/s
+[ov-bench] prefill_median 60.02 decode_median 4.475 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 2 openvino threads 2 load 1.01 2026-09-25T21:57:04Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 2}
+[ov] pipeline ready in 1.4 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 1524.86 ms tpot 201.734 ms generated 64 -> prefill 97.1 tok/s decode 4.96 tok/s
+[iter 1] prompt 148 ttft 1528.57 ms tpot 201.862 ms generated 64 -> prefill 96.8 tok/s decode 4.95 tok/s
+[iter 2] prompt 148 ttft 1527.38 ms tpot 201.681 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[iter 3] prompt 148 ttft 1525.19 ms tpot 201.644 ms generated 64 -> prefill 97.0 tok/s decode 4.96 tok/s
+[iter 4] prompt 148 ttft 1524.24 ms tpot 201.662 ms generated 64 -> prefill 97.1 tok/s decode 4.96 tok/s
+[iter 5] prompt 148 ttft 1523.06 ms tpot 201.670 ms generated 64 -> prefill 97.2 tok/s decode 4.96 tok/s
+[iter 6] prompt 148 ttft 1527.36 ms tpot 201.693 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[iter 7] prompt 148 ttft 1529.56 ms tpot 201.745 ms generated 64 -> prefill 96.8 tok/s decode 4.96 tok/s
+[iter 8] prompt 148 ttft 1526.85 ms tpot 201.726 ms generated 64 -> prefill 96.9 tok/s decode 4.96 tok/s
+[iter 9] prompt 148 ttft 1529.07 ms tpot 202.051 ms generated 64 -> prefill 96.8 tok/s decode 4.95 tok/s
+[ov-bench] prefill_median 96.92 decode_median 4.958 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 2 openvino threads 4 load 1.66 2026-09-25T22:00:23Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 4}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 801.34 ms tpot 200.164 ms generated 64 -> prefill 184.7 tok/s decode 5.00 tok/s
+[iter 1] prompt 148 ttft 804.90 ms tpot 200.225 ms generated 64 -> prefill 183.9 tok/s decode 4.99 tok/s
+[iter 2] prompt 148 ttft 802.34 ms tpot 200.165 ms generated 64 -> prefill 184.5 tok/s decode 5.00 tok/s
+[iter 3] prompt 148 ttft 804.79 ms tpot 200.282 ms generated 64 -> prefill 183.9 tok/s decode 4.99 tok/s
+[iter 4] prompt 148 ttft 803.34 ms tpot 200.291 ms generated 64 -> prefill 184.2 tok/s decode 4.99 tok/s
+[iter 5] prompt 148 ttft 803.26 ms tpot 200.383 ms generated 64 -> prefill 184.2 tok/s decode 4.99 tok/s
+[iter 6] prompt 148 ttft 805.11 ms tpot 200.269 ms generated 64 -> prefill 183.8 tok/s decode 4.99 tok/s
+[iter 7] prompt 148 ttft 803.23 ms tpot 200.313 ms generated 64 -> prefill 184.3 tok/s decode 4.99 tok/s
+[iter 8] prompt 148 ttft 805.75 ms tpot 200.309 ms generated 64 -> prefill 183.7 tok/s decode 4.99 tok/s
+[iter 9] prompt 148 ttft 802.68 ms tpot 200.317 ms generated 64 -> prefill 184.4 tok/s decode 4.99 tok/s
+[ov-bench] prefill_median 184.24 decode_median 4.993 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 2 openvino threads 6 load 3.28 2026-09-25T22:03:30Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 6}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 572.24 ms tpot 200.445 ms generated 64 -> prefill 258.6 tok/s decode 4.99 tok/s
+[iter 1] prompt 148 ttft 573.17 ms tpot 200.448 ms generated 64 -> prefill 258.2 tok/s decode 4.99 tok/s
+[iter 2] prompt 148 ttft 573.09 ms tpot 200.369 ms generated 64 -> prefill 258.2 tok/s decode 4.99 tok/s
+[iter 3] prompt 148 ttft 573.58 ms tpot 200.418 ms generated 64 -> prefill 258.0 tok/s decode 4.99 tok/s
+[iter 4] prompt 148 ttft 572.74 ms tpot 200.397 ms generated 64 -> prefill 258.4 tok/s decode 4.99 tok/s
+[iter 5] prompt 148 ttft 574.17 ms tpot 200.414 ms generated 64 -> prefill 257.8 tok/s decode 4.99 tok/s
+[iter 6] prompt 148 ttft 573.30 ms tpot 200.433 ms generated 64 -> prefill 258.2 tok/s decode 4.99 tok/s
+[iter 7] prompt 148 ttft 573.84 ms tpot 200.416 ms generated 64 -> prefill 257.9 tok/s decode 4.99 tok/s
+[iter 8] prompt 148 ttft 574.57 ms tpot 200.433 ms generated 64 -> prefill 257.6 tok/s decode 4.99 tok/s
+[iter 9] prompt 148 ttft 573.38 ms tpot 200.437 ms generated 64 -> prefill 258.1 tok/s decode 4.99 tok/s
+[ov-bench] prefill_median 258.14 decode_median 4.989 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 2 openvino threads 8 load 4.95 2026-09-25T22:06:34Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 8}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 554.79 ms tpot 203.323 ms generated 64 -> prefill 266.8 tok/s decode 4.92 tok/s
+[iter 1] prompt 148 ttft 554.33 ms tpot 203.440 ms generated 64 -> prefill 267.0 tok/s decode 4.92 tok/s
+[iter 2] prompt 148 ttft 555.68 ms tpot 203.395 ms generated 64 -> prefill 266.3 tok/s decode 4.92 tok/s
+[iter 3] prompt 148 ttft 555.11 ms tpot 203.401 ms generated 64 -> prefill 266.6 tok/s decode 4.92 tok/s
+[iter 4] prompt 148 ttft 554.92 ms tpot 203.326 ms generated 64 -> prefill 266.7 tok/s decode 4.92 tok/s
+[iter 5] prompt 148 ttft 555.31 ms tpot 203.437 ms generated 64 -> prefill 266.5 tok/s decode 4.92 tok/s
+[iter 6] prompt 148 ttft 554.18 ms tpot 203.484 ms generated 64 -> prefill 267.1 tok/s decode 4.91 tok/s
+[iter 7] prompt 148 ttft 555.99 ms tpot 203.486 ms generated 64 -> prefill 266.2 tok/s decode 4.91 tok/s
+[iter 8] prompt 148 ttft 554.77 ms tpot 203.432 ms generated 64 -> prefill 266.8 tok/s decode 4.92 tok/s
+[iter 9] prompt 148 ttft 555.68 ms tpot 203.433 ms generated 64 -> prefill 266.3 tok/s decode 4.92 tok/s
+[ov-bench] prefill_median 266.66 decode_median 4.916 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 2 openvino threads 12 load 6.41 2026-09-25T22:09:41Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 486.25 ms tpot 206.890 ms generated 64 -> prefill 304.4 tok/s decode 4.83 tok/s
+[iter 1] prompt 148 ttft 486.33 ms tpot 206.675 ms generated 64 -> prefill 304.3 tok/s decode 4.84 tok/s
+[iter 2] prompt 148 ttft 486.38 ms tpot 206.657 ms generated 64 -> prefill 304.3 tok/s decode 4.84 tok/s
+[iter 3] prompt 148 ttft 486.54 ms tpot 206.667 ms generated 64 -> prefill 304.2 tok/s decode 4.84 tok/s
+[iter 4] prompt 148 ttft 486.47 ms tpot 206.655 ms generated 64 -> prefill 304.2 tok/s decode 4.84 tok/s
+[iter 5] prompt 148 ttft 487.21 ms tpot 206.651 ms generated 64 -> prefill 303.8 tok/s decode 4.84 tok/s
+[iter 6] prompt 148 ttft 486.79 ms tpot 206.674 ms generated 64 -> prefill 304.0 tok/s decode 4.84 tok/s
+[iter 7] prompt 148 ttft 486.23 ms tpot 206.718 ms generated 64 -> prefill 304.4 tok/s decode 4.84 tok/s
+[iter 8] prompt 148 ttft 486.27 ms tpot 206.652 ms generated 64 -> prefill 304.4 tok/s decode 4.84 tok/s
+[iter 9] prompt 148 ttft 486.76 ms tpot 206.827 ms generated 64 -> prefill 304.0 tok/s decode 4.83 tok/s
+[ov-bench] prefill_median 304.26 decode_median 4.839 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 2 openvino threads 24 load 9.92 2026-09-25T22:12:49Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 24}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 485.72 ms tpot 206.895 ms generated 64 -> prefill 304.7 tok/s decode 4.83 tok/s
+[iter 1] prompt 148 ttft 485.70 ms tpot 206.914 ms generated 64 -> prefill 304.7 tok/s decode 4.83 tok/s
+[iter 2] prompt 148 ttft 486.14 ms tpot 206.937 ms generated 64 -> prefill 304.4 tok/s decode 4.83 tok/s
+[iter 3] prompt 148 ttft 486.40 ms tpot 206.894 ms generated 64 -> prefill 304.3 tok/s decode 4.83 tok/s
+[iter 4] prompt 148 ttft 485.58 ms tpot 207.184 ms generated 64 -> prefill 304.8 tok/s decode 4.83 tok/s
+[iter 5] prompt 148 ttft 486.15 ms tpot 206.887 ms generated 64 -> prefill 304.4 tok/s decode 4.83 tok/s
+[iter 6] prompt 148 ttft 486.31 ms tpot 206.903 ms generated 64 -> prefill 304.3 tok/s decode 4.83 tok/s
+[iter 7] prompt 148 ttft 486.21 ms tpot 206.895 ms generated 64 -> prefill 304.4 tok/s decode 4.83 tok/s
+[iter 8] prompt 148 ttft 485.29 ms tpot 206.952 ms generated 64 -> prefill 305.0 tok/s decode 4.83 tok/s
+[iter 9] prompt 148 ttft 485.06 ms tpot 206.805 ms generated 64 -> prefill 305.1 tok/s decode 4.84 tok/s
+[ov-bench] prefill_median 304.57 decode_median 4.833 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 3 herbert threads 12 load 10.06 2026-09-25T22:15:57Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=yes avx512bf16=yes → GEMM lanes zmm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 0.8 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.0 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 2 CCDs, 12 cores, worker order [0, 6, 1, 7, 2, 8, 3, 9, 4, 10, 5, 11]…
+[pool] 12 workers on cpus [0,6,1,7,2,8,3,9,4,10,5,11] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.018 s
+[engine] loaded in 2.0 s, mounted in 0.44 s — 8192 positions reserved, prefill program Some((3941112, 404459, 405442)), decode program Some((3940632, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 0.363 s (407.4 tok/s) · 43 generated in 8.34 s (5.16 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 3 openvino threads 1 load 9.45 2026-09-25T22:16:19Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 1}
+[ov] pipeline ready in 1.8 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 2465.45 ms tpot 223.482 ms generated 64 -> prefill 60.0 tok/s decode 4.47 tok/s
+[iter 1] prompt 148 ttft 2462.46 ms tpot 223.051 ms generated 64 -> prefill 60.1 tok/s decode 4.48 tok/s
+[iter 2] prompt 148 ttft 2461.26 ms tpot 223.136 ms generated 64 -> prefill 60.1 tok/s decode 4.48 tok/s
+[iter 3] prompt 148 ttft 2461.13 ms tpot 222.819 ms generated 64 -> prefill 60.1 tok/s decode 4.49 tok/s
+[iter 4] prompt 148 ttft 2460.44 ms tpot 223.198 ms generated 64 -> prefill 60.2 tok/s decode 4.48 tok/s
+[iter 5] prompt 148 ttft 2464.94 ms tpot 222.906 ms generated 64 -> prefill 60.0 tok/s decode 4.49 tok/s
+[iter 6] prompt 148 ttft 2459.74 ms tpot 222.803 ms generated 64 -> prefill 60.2 tok/s decode 4.49 tok/s
+[iter 7] prompt 148 ttft 2459.50 ms tpot 223.174 ms generated 64 -> prefill 60.2 tok/s decode 4.48 tok/s
+[iter 8] prompt 148 ttft 2460.58 ms tpot 222.846 ms generated 64 -> prefill 60.1 tok/s decode 4.49 tok/s
+[iter 9] prompt 148 ttft 2458.74 ms tpot 222.987 ms generated 64 -> prefill 60.2 tok/s decode 4.48 tok/s
+[ov-bench] prefill_median 60.14 decode_median 4.484 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 3 openvino threads 2 load 1.03 2026-09-25T22:20:09Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 2}
+[ov] pipeline ready in 1.4 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 1525.15 ms tpot 201.922 ms generated 64 -> prefill 97.0 tok/s decode 4.95 tok/s
+[iter 1] prompt 148 ttft 1525.97 ms tpot 201.866 ms generated 64 -> prefill 97.0 tok/s decode 4.95 tok/s
+[iter 2] prompt 148 ttft 1525.32 ms tpot 201.906 ms generated 64 -> prefill 97.0 tok/s decode 4.95 tok/s
+[iter 3] prompt 148 ttft 1526.73 ms tpot 201.883 ms generated 64 -> prefill 96.9 tok/s decode 4.95 tok/s
+[iter 4] prompt 148 ttft 1526.32 ms tpot 201.972 ms generated 64 -> prefill 97.0 tok/s decode 4.95 tok/s
+[iter 5] prompt 148 ttft 1526.65 ms tpot 201.947 ms generated 64 -> prefill 96.9 tok/s decode 4.95 tok/s
+[iter 6] prompt 148 ttft 1525.11 ms tpot 201.979 ms generated 64 -> prefill 97.0 tok/s decode 4.95 tok/s
+[iter 7] prompt 148 ttft 1525.46 ms tpot 202.018 ms generated 64 -> prefill 97.0 tok/s decode 4.95 tok/s
+[iter 8] prompt 148 ttft 1525.81 ms tpot 202.008 ms generated 64 -> prefill 97.0 tok/s decode 4.95 tok/s
+[iter 9] prompt 148 ttft 1526.61 ms tpot 202.026 ms generated 64 -> prefill 96.9 tok/s decode 4.95 tok/s
+[ov-bench] prefill_median 96.99 decode_median 4.951 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 3 openvino threads 4 load 1.72 2026-09-25T22:23:28Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 4}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 803.51 ms tpot 200.034 ms generated 64 -> prefill 184.2 tok/s decode 5.00 tok/s
+[iter 1] prompt 148 ttft 805.10 ms tpot 200.074 ms generated 64 -> prefill 183.8 tok/s decode 5.00 tok/s
+[iter 2] prompt 148 ttft 803.84 ms tpot 199.994 ms generated 64 -> prefill 184.1 tok/s decode 5.00 tok/s
+[iter 3] prompt 148 ttft 803.14 ms tpot 200.079 ms generated 64 -> prefill 184.3 tok/s decode 5.00 tok/s
+[iter 4] prompt 148 ttft 803.36 ms tpot 199.906 ms generated 64 -> prefill 184.2 tok/s decode 5.00 tok/s
+[iter 5] prompt 148 ttft 803.97 ms tpot 200.051 ms generated 64 -> prefill 184.1 tok/s decode 5.00 tok/s
+[iter 6] prompt 148 ttft 804.37 ms tpot 200.154 ms generated 64 -> prefill 184.0 tok/s decode 5.00 tok/s
+[iter 7] prompt 148 ttft 803.52 ms tpot 200.037 ms generated 64 -> prefill 184.2 tok/s decode 5.00 tok/s
+[iter 8] prompt 148 ttft 803.87 ms tpot 200.043 ms generated 64 -> prefill 184.1 tok/s decode 5.00 tok/s
+[iter 9] prompt 148 ttft 803.50 ms tpot 199.807 ms generated 64 -> prefill 184.2 tok/s decode 5.00 tok/s
+[ov-bench] prefill_median 184.15 decode_median 4.999 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 3 openvino threads 6 load 3.28 2026-09-25T22:26:35Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 6}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 569.23 ms tpot 200.329 ms generated 64 -> prefill 260.0 tok/s decode 4.99 tok/s
+[iter 1] prompt 148 ttft 571.02 ms tpot 200.345 ms generated 64 -> prefill 259.2 tok/s decode 4.99 tok/s
+[iter 2] prompt 148 ttft 572.83 ms tpot 200.104 ms generated 64 -> prefill 258.4 tok/s decode 5.00 tok/s
+[iter 3] prompt 148 ttft 570.67 ms tpot 200.399 ms generated 64 -> prefill 259.3 tok/s decode 4.99 tok/s
+[iter 4] prompt 148 ttft 573.10 ms tpot 200.402 ms generated 64 -> prefill 258.2 tok/s decode 4.99 tok/s
+[iter 5] prompt 148 ttft 572.11 ms tpot 200.412 ms generated 64 -> prefill 258.7 tok/s decode 4.99 tok/s
+[iter 6] prompt 148 ttft 573.52 ms tpot 200.429 ms generated 64 -> prefill 258.1 tok/s decode 4.99 tok/s
+[iter 7] prompt 148 ttft 570.20 ms tpot 200.364 ms generated 64 -> prefill 259.6 tok/s decode 4.99 tok/s
+[iter 8] prompt 148 ttft 571.24 ms tpot 200.414 ms generated 64 -> prefill 259.1 tok/s decode 4.99 tok/s
+[iter 9] prompt 148 ttft 573.53 ms tpot 200.111 ms generated 64 -> prefill 258.0 tok/s decode 5.00 tok/s
+[ov-bench] prefill_median 258.89 decode_median 4.990 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 3 openvino threads 8 load 4.96 2026-09-25T22:29:39Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 8}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 555.63 ms tpot 203.455 ms generated 64 -> prefill 266.4 tok/s decode 4.92 tok/s
+[iter 1] prompt 148 ttft 555.07 ms tpot 203.573 ms generated 64 -> prefill 266.6 tok/s decode 4.91 tok/s
+[iter 2] prompt 148 ttft 555.02 ms tpot 203.503 ms generated 64 -> prefill 266.7 tok/s decode 4.91 tok/s
+[iter 3] prompt 148 ttft 555.80 ms tpot 203.589 ms generated 64 -> prefill 266.3 tok/s decode 4.91 tok/s
+[iter 4] prompt 148 ttft 555.59 ms tpot 203.457 ms generated 64 -> prefill 266.4 tok/s decode 4.92 tok/s
+[iter 5] prompt 148 ttft 555.57 ms tpot 203.495 ms generated 64 -> prefill 266.4 tok/s decode 4.91 tok/s
+[iter 6] prompt 148 ttft 555.80 ms tpot 203.481 ms generated 64 -> prefill 266.3 tok/s decode 4.91 tok/s
+[iter 7] prompt 148 ttft 554.67 ms tpot 203.493 ms generated 64 -> prefill 266.8 tok/s decode 4.91 tok/s
+[iter 8] prompt 148 ttft 557.53 ms tpot 203.507 ms generated 64 -> prefill 265.5 tok/s decode 4.91 tok/s
+[iter 9] prompt 148 ttft 555.12 ms tpot 203.456 ms generated 64 -> prefill 266.6 tok/s decode 4.92 tok/s
+[ov-bench] prefill_median 266.39 decode_median 4.914 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 3 openvino threads 12 load 6.16 2026-09-25T22:32:46Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 487.05 ms tpot 206.627 ms generated 64 -> prefill 303.9 tok/s decode 4.84 tok/s
+[iter 1] prompt 148 ttft 487.33 ms tpot 206.670 ms generated 64 -> prefill 303.7 tok/s decode 4.84 tok/s
+[iter 2] prompt 148 ttft 487.11 ms tpot 206.631 ms generated 64 -> prefill 303.8 tok/s decode 4.84 tok/s
+[iter 3] prompt 148 ttft 487.61 ms tpot 206.753 ms generated 64 -> prefill 303.5 tok/s decode 4.84 tok/s
+[iter 4] prompt 148 ttft 487.41 ms tpot 206.638 ms generated 64 -> prefill 303.6 tok/s decode 4.84 tok/s
+[iter 5] prompt 148 ttft 487.32 ms tpot 206.792 ms generated 64 -> prefill 303.7 tok/s decode 4.84 tok/s
+[iter 6] prompt 148 ttft 487.27 ms tpot 206.671 ms generated 64 -> prefill 303.7 tok/s decode 4.84 tok/s
+[iter 7] prompt 148 ttft 487.54 ms tpot 206.844 ms generated 64 -> prefill 303.6 tok/s decode 4.83 tok/s
+[iter 8] prompt 148 ttft 487.99 ms tpot 206.735 ms generated 64 -> prefill 303.3 tok/s decode 4.84 tok/s
+[iter 9] prompt 148 ttft 487.17 ms tpot 206.744 ms generated 64 -> prefill 303.8 tok/s decode 4.84 tok/s
+[ov-bench] prefill_median 303.70 decode_median 4.838 tok/s iters 10 maxrss 25.06 GB
+== Qwen3.5-4B rep 3 openvino threads 24 load 9.93 2026-09-25T22:35:54Z
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 24}
+[ov] pipeline ready in 1.2 s, maxrss 16.66 GB
+[iter 0] prompt 148 ttft 485.44 ms tpot 206.823 ms generated 64 -> prefill 304.9 tok/s decode 4.84 tok/s
+[iter 1] prompt 148 ttft 485.80 ms tpot 206.677 ms generated 64 -> prefill 304.7 tok/s decode 4.84 tok/s
+[iter 2] prompt 148 ttft 485.47 ms tpot 206.803 ms generated 64 -> prefill 304.9 tok/s decode 4.84 tok/s
+[iter 3] prompt 148 ttft 486.59 ms tpot 206.660 ms generated 64 -> prefill 304.2 tok/s decode 4.84 tok/s
+[iter 4] prompt 148 ttft 486.26 ms tpot 206.653 ms generated 64 -> prefill 304.4 tok/s decode 4.84 tok/s
+[iter 5] prompt 148 ttft 485.58 ms tpot 206.666 ms generated 64 -> prefill 304.8 tok/s decode 4.84 tok/s
+[iter 6] prompt 148 ttft 486.26 ms tpot 206.665 ms generated 64 -> prefill 304.4 tok/s decode 4.84 tok/s
+[iter 7] prompt 148 ttft 486.12 ms tpot 206.791 ms generated 64 -> prefill 304.5 tok/s decode 4.84 tok/s
+[iter 8] prompt 148 ttft 485.28 ms tpot 206.668 ms generated 64 -> prefill 305.0 tok/s decode 4.84 tok/s
+[iter 9] prompt 148 ttft 486.09 ms tpot 206.733 ms generated 64 -> prefill 304.5 tok/s decode 4.84 tok/s
+[ov-bench] prefill_median 304.56 decode_median 4.839 tok/s iters 10 maxrss 25.06 GB
+[ov-campaign] done 2026-09-25T22:38:52Z

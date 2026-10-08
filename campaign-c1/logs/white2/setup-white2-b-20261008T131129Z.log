@@ -1,0 +1,18 @@
+[setup] 2026-10-08T13:11:29Z host white2 model name	: AMD Ryzen 7 5700G with Radeon Graphics load 0.00 0.03 0.05 2/686 4939
+[setup] 2026-10-08T13:25:25Z llama.cpp 1ab7e5ad2 2026-09-25 08:22:43 +0300 CUDA: fuse RMS_NORM + SCALE into one kernel (#29393)
+[setup] 2026-10-08T13:26:52Z llama-bench and llama-server built: 7853224b66f0f21a
+#define __AVX2__ 1 
+CMAKE_C_FLAGS:STRING=
+CMAKE_C_FLAGS_DEBUG:STRING=-g
+CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+GGML_AVX2:BOOL=OFF
+[setup] 2026-10-08T13:27:57Z convert venv: AttributeError: module 'gguf' has no attribute '__version__'
+[setup] 2026-10-08T13:27:57Z convert Qwen3.5-0.8B
+[setup] 2026-10-08T13:28:05Z Qwen3.5-0.8B gguf: 1516744672 bytes sha256 aa17c369420d8a1d
+[setup] 2026-10-08T13:28:05Z convert Qwen3.5-4B
+[setup] 2026-10-08T13:28:38Z Qwen3.5-4B gguf: 8424393600 bytes sha256 954f269ee0be3e2b
+[setup] 2026-10-08T13:28:38Z published copy and probe
+bash: _scripts/_setup-pub.sh: No such file or directory
+[setup] 2026-10-08T13:28:38Z done

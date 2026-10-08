@@ -1,0 +1,107 @@
+## 2026-10-08T13:30:17Z host white2 · Linux 7.0.0-38-generic x86_64 · model name	: AMD Ryzen 7 5700G with Radeon Graphics
+rustc 1.98.1 (48a229cea 2026-09-01)
+cargo 1.98.1 (797e8a9bc 2026-08-05)
+## 2026-10-08T13:30:17Z pub tree sha256 (all files, target excluded): 461d9ab4309edabe
+## 2026-10-08T13:30:17Z pub: cargo build --release --locked
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.24
+   Compiling serde_core v1.0.229
+   Compiling memchr v2.8.3
+   Compiling libc v0.2.189
+   Compiling serde v1.0.229
+   Compiling crossbeam-utils v0.8.22
+   Compiling cfg-if v1.0.4
+   Compiling zerocopy v0.8.55
+   Compiling fnv v1.0.7
+   Compiling crossbeam-epoch v0.9.20
+   Compiling ident_case v1.0.1
+   Compiling getrandom v0.3.4
+   Compiling strsim v0.11.1
+   Compiling crossbeam-deque v0.8.7
+   Compiling rayon-core v1.13.0
+   Compiling zmij v1.0.23
+   Compiling rustversion v1.0.23
+   Compiling version_check v0.9.5
+   Compiling either v1.17.0
+   Compiling itoa v1.0.18
+   Compiling serde_json v1.0.151
+   Compiling regex-syntax v0.8.11
+   Compiling ahash v0.8.12
+   Compiling paste v1.0.15
+   Compiling bit-vec v0.8.0
+   Compiling minimal-lexical v0.2.1
+   Compiling esaxx-rs v0.1.10
+   Compiling aho-corasick v1.1.4
+   Compiling thiserror v2.0.19
+   Compiling itertools v0.14.0
+   Compiling ryu v1.0.23
+   Compiling static_assertions v1.1.0
+   Compiling smallvec v1.15.2
+   Compiling base64 v0.13.1
+   Compiling nom v7.1.3
+   Compiling bit-set v0.8.0
+   Compiling thiserror v1.0.69
+   Compiling unicode-segmentation v1.13.3
+   Compiling macro_rules_attribute-proc_macro v0.2.3
+   Compiling pastey v0.2.3
+   Compiling once_cell v1.21.4
+   Compiling castaway v0.2.4
+   Compiling unicode-normalization-alignments v0.1.12
+   Compiling herbert-bf16 v0.1.0 (/home/zexigh/c1/pub)
+   Compiling log v0.4.33
+   Compiling unicode_categories v0.1.1
+   Compiling lazy_static v1.5.0
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling macro_rules_attribute v0.2.3
+   Compiling iced-x86 v1.21.0
+   Compiling memmap2 v0.9.11
+   Compiling rand_core v0.9.5
+   Compiling rayon v1.12.0
+   Compiling regex-automata v0.4.16
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.19
+   Compiling darling_core v0.20.11
+   Compiling zerocopy-derive v0.8.55
+   Compiling monostate-impl v0.1.18
+   Compiling thiserror-impl v1.0.69
+   Compiling monostate v0.1.18
+   Compiling rayon-cond v0.4.0
+   Compiling compact_str v0.9.1
+   Compiling spm_precompiled v0.1.4
+   Compiling dary_heap v0.3.9
+   Compiling safetensors v0.4.5
+   Compiling darling_macro v0.20.11
+   Compiling darling v0.20.11
+   Compiling derive_builder_core v0.20.2
+   Compiling regex v1.13.1
+   Compiling fancy-regex v0.14.0
+   Compiling derive_builder_macro v0.20.2
+   Compiling derive_builder v0.20.2
+   Compiling ppv-lite86 v0.2.21
+   Compiling half v2.7.1
+   Compiling rand_chacha v0.9.0
+   Compiling rand v0.9.5
+   Compiling tokenizers v0.22.2
+    Finished `release` profile [optimized] target(s) in 50.86s
+## exit 0
+812460c2044b52666aa50f6300d30d1ea8066fd32b28214483e70af23148e855  target/release/herbert-bf16-chat
+## 2026-10-08T13:31:08Z probe-bw: cargo build --release
+    Updating crates.io index
+     Locking 3 packages to latest Rust 1.98.1 compatible versions
+ Downloading crates ...
+  Downloaded lazy_static v1.5.1
+   Compiling libc v0.2.190
+   Compiling lazy_static v1.5.1
+   Compiling iced-x86 v1.21.0
+   Compiling probe-bw v0.1.0 (/home/zexigh/c1/probe-bw)
+    Finished `release` profile [optimized] target(s) in 11.67s
+## exit 0
+e1c8309de66c7e6c8e88f7ed970e5faab2a511c066ff37254adaf4ab8530d256  target/release/probe-bw
+version = "1.21.0"
+## 2026-10-08T13:31:20Z smoke: probe-bw, 1 GiB, 1 pass, 1 thread
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=1 GiB passes=1
+[probe-bw] threads=1 pass=0 bytes=1073741824 seconds=0.0393 GB/s=27.30
+[probe-bw] threads=1 best=27.30 median=27.30 GB/s
+## 2026-10-08T13:31:20Z done

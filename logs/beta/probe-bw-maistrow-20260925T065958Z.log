@@ -1,0 +1,26 @@
+[probe-bw] 2026-09-25T06:59:58Z load 3.21 5.35 5.01 1/365 462201 herbert-api active (idle server, not stopped) sha256 b8690353810be289
+[probe-bw] logical=16 physical=8 buffer=4 GiB passes=5 kernel=74 bytes
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.0946 GB/s=45.42
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.0946 GB/s=45.41
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.0946 GB/s=45.38
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.0945 GB/s=45.44
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.0946 GB/s=45.42
+[probe-bw] threads=1 best=45.44 median=45.42 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.0813 GB/s=52.84
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.0812 GB/s=52.86
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.0814 GB/s=52.74
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.0812 GB/s=52.89
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.0814 GB/s=52.75
+[probe-bw] threads=2 best=52.89 median=52.84 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.0796 GB/s=53.99
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.0796 GB/s=53.98
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.0796 GB/s=53.98
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.0796 GB/s=53.97
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.0796 GB/s=53.98
+[probe-bw] threads=4 best=53.99 median=53.98 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.0795 GB/s=54.05
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.0794 GB/s=54.06
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.0794 GB/s=54.10
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.0795 GB/s=54.05
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.0794 GB/s=54.08
+[probe-bw] threads=8 best=54.10 median=54.06 GB/s

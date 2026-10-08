@@ -1,0 +1,266 @@
+== Qwen3.5-0.8B reference+vllm 2026-09-25T07:13:51Z
+[outputs] prompt 148 tokens
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:  44%|████▍     | 142/320 [00:00<00:00, 1369.52it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 1864.40it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[outputs] reference fp32 Qwen3_5ForCausalLM: "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour"
+WARNING 09-25 09:14:05 [importing.py:45] Triton is installed, but doesn't include CPU backend. Disabling Triton.
+INFO 09-25 09:14:05 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-25 09:14:05 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+INFO 09-25 09:14:06 [api_utils.py:286] non-default args: {'dtype': 'bfloat16', 'max_model_len': 1024, 'disable_log_stats': True, 'language_model_only': True, 'model': '/opt3/models/Qwen3.5-0.8B'}
+INFO 09-25 09:14:06 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 09-25 09:14:06 [model.py:2030] Using max model len 1024
+WARNING 09-25 09:14:06 [model.py:994] Model does not support mm_device_do_normalize, forcing mm_device_do_normalize = False.
+INFO 09-25 09:14:07 [registry.py:146] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+INFO 09-25 09:14:07 [model.py:900] Disabled mm_prefix attention mode because multimodal inputs are configuration-disabled. Attention backends without mm_prefix support may now be selected.
+INFO 09-25 09:14:07 [scheduler.py:288] Chunked prefill is enabled with max_num_batched_tokens=4096.
+INFO 09-25 09:14:07 [config.py:625] Mamba cache mode is set to 'align' for Qwen3_5ForConditionalGeneration by default when prefix caching is enabled
+INFO 09-25 09:14:07 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+WARNING 09-25 09:14:07 [vllm.py:709] Model Runner V2 requires Triton; using the V1 model runner instead.
+WARNING 09-25 09:14:11 [importing.py:45] Triton is installed, but doesn't include CPU backend. Disabling Triton.
+INFO 09-25 09:14:11 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-25 09:14:11 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+(EngineCore pid=68255) INFO 09-25 09:14:12 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/opt3/models/Qwen3.5-0.8B', speculative_config=None, tokenizer='/opt3/models/Qwen3.5-0.8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=1024, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cpu, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/opt3/models/Qwen3.5-0.8B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.DYNAMO_TRACE_ONCE: 2>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': None, 'compile_ranges_endpoints': [4096], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'dce': True, 'size_asserts': False, 'nan_asserts': False, 'epilogue_fusion': True, 'cpp.dynamic_threads': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': None, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=68255) INFO 09-25 09:14:12 [multiproc_executor.py:153] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=beast (local), world_size=1, local_world_size=1
+(EngineCore pid=68255) INFO 09-25 09:14:12 [ompmultiprocessing.py:185] OpenMP thread binding info: 
+(EngineCore pid=68255) INFO 09-25 09:14:12 [ompmultiprocessing.py:185] 	VLLM_CPU_OMP_THREADS_BIND='0-11', auto_setup=False, skip_setup=False
+(EngineCore pid=68255) INFO 09-25 09:14:12 [ompmultiprocessing.py:185] 	local_world_size=1, reserve_cpu_num=1
+(EngineCore pid=68255) INFO 09-25 09:14:12 [ompmultiprocessing.py:185] 	local_rank=0, core ids=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+(EngineCore pid=68255) INFO 09-25 09:14:12 [ompmultiprocessing.py:185] 	reserved_cpus=[]
+WARNING 09-25 09:14:15 [importing.py:45] Triton is installed, but doesn't include CPU backend. Disabling Triton.
+INFO 09-25 09:14:15 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-25 09:14:15 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+WARNING 09-25 09:14:15 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+INFO 09-25 09:14:16 [registry.py:146] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+[W925 09:14:16.412373048 utils.cpp:68] Warning: NUMA binding: Using MEMBIND policy for memory allocation on the NUMA nodes (0). Memory allocations will be strictly bound to these NUMA nodes. (function init_cpu_memory_env)
+WARNING 09-25 09:14:16 [vllm.py:709] Model Runner V2 requires Triton; using the V1 model runner instead.
+(Worker pid=68340) INFO 09-25 09:14:16 [parallel_state.py:1827] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_ff961c63e12044c589de50bd9da4a37c backend=gloo
+(Worker pid=68340) INFO 09-25 09:14:16 [parallel_state.py:2267] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(Worker pid=68340) INFO 09-25 09:14:16 [cpu_model_runner.py:130] Starting to load model /opt3/models/Qwen3.5-0.8B...
+(Worker pid=68340) INFO 09-25 09:14:16 [interface.py:414] Using default backend AttentionBackendEnum.TORCH_SDPA for vit attention
+(Worker pid=68340) INFO 09-25 09:14:16 [mm_encoder_attention.py:372] Using AttentionBackendEnum.TORCH_SDPA for MMEncoderAttention.
+(Worker pid=68340) INFO 09-25 09:14:16 [qwen_gdn_linear_attn.py:164] Using CPU GDN prefill kernel (head_k_dim=128).
+(Worker pid=68340) INFO 09-25 09:14:16 [qwen_gdn_linear_attn.py:528] GDN decode kernel: CPU
+(Worker pid=68340) INFO 09-25 09:14:16 [weight_utils.py:895] Filesystem type for checkpoints: EXT4. Checkpoint size: 1.63 GiB. Available RAM: 176.11 GiB.
+(Worker pid=68340) INFO 09-25 09:14:16 [weight_utils.py:918] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(Worker pid=68340) Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+(Worker pid=68340) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  8.34it/s]
+(Worker pid=68340) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  8.33it/s]
+(Worker pid=68340) 
+(Worker pid=68340) INFO 09-25 09:14:16 [default_loader.py:430] Loading weights took 0.13 seconds
+(Worker pid=68340) INFO 09-25 09:14:16 [mamba_utils.py:38] VLLM_SSM_CONV_STATE_LAYOUT env detected. Setting SSM conv state layout to SD.
+(Worker pid=68340) INFO 09-25 09:14:16 [interface.py:933] Setting attention block size to 640 tokens to ensure that attention page size is >= mamba page size.
+(Worker pid=68340) INFO 09-25 09:14:16 [interface.py:957] Padding mamba page size by 20.75% to ensure that mamba page size and attention page size are exactly equal.
+(EngineCore pid=68255) INFO 09-25 09:14:16 [torch_utils.py:287] Reducing Torch threads from 12 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=68255) INFO 09-25 09:14:16 [utils.py:320] Using LBHNC KV cache layout.
+(Worker pid=68340) INFO 09-25 09:14:16 [cpu_model_runner.py:149] Warming up model for the compilation...
+(Worker pid=68340) INFO 09-25 09:14:39 [decorators.py:719] saved AOT compiled function to /home/zexigh/.cache/vllm/torch_compile_cache/torch_aot_compile/aca278e6e4580077ba5d4bf3b7a052e4f4be7375a78a2b30d2b0ef48731b24cb/rank_0_0/model
+(Worker pid=68340) INFO 09-25 09:14:40 [monitor.py:81] Initial profiling/warmup run took 0.82 s
+(Worker pid=68340) INFO 09-25 09:14:43 [cpu_model_runner.py:153] Warming up done.
+(Worker pid=68340) INFO 09-25 09:14:43 [cpu_worker.py:271] Explicitly set (8.0/186.38) GiB for KV cache on node 0.
+(EngineCore pid=68255) INFO 09-25 09:14:43 [kv_cache_utils.py:2395] CPU KV cache size: 139,776 tokens, Maximum concurrency for 1,024 tokens per request: 136.50x
+(EngineCore pid=68255) INFO 09-25 09:14:43 [core.py:379] init engine (profile, create kv cache, warmup model) took 26.96 s
+(EngineCore pid=68255) INFO 09-25 09:14:44 [kv_cache_utils.py:748] kv cache group sizes [640, 640, 640, 640]
+(EngineCore pid=68255) INFO 09-25 09:14:44 [kv_cache_utils.py:749] kv lcm block sizes 640
+(EngineCore pid=68255) INFO 09-25 09:14:44 [registry.py:146] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+(EngineCore pid=68255) WARNING 09-25 09:14:44 [vllm.py:709] Model Runner V2 requires Triton; using the V1 model runner instead.
+(EngineCore pid=68255) WARNING 09-25 09:14:44 [vllm.py:1570] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=68255) INFO 09-25 09:14:44 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+INFO 09-25 09:14:44 [hf.py:642] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+Rendering prompts:   0%|          | 0/1 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 1/1 [00:00<00:00, 282.94it/s]
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.43s/it, est. speed input: 103.49 toks/s, output: 22.38 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.43s/it, est. speed input: 103.49 toks/s, output: 22.38 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.43s/it, est. speed input: 103.49 toks/s, output: 22.38 toks/s]
+[outputs] vllm bf16: "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour"
+INFO 09-25 09:14:46 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=68255) INFO 09-25 09:14:46 [core.py:1342] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=68255) INFO 09-25 09:14:46 [core.py:1493] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=68255) INFO 09-25 09:14:46 [core.py:1524] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=68255) INFO 09-25 09:14:46 [core.py:1355] [shutdown] EngineCore: exiting busy loop
+(EngineCore pid=68255) INFO 09-25 09:14:46 [multiproc_executor.py:472] [shutdown] Executor: waiting for worker exit count=1
+(Worker pid=68340) INFO 09-25 09:14:46 [multiproc_executor.py:836] Parent process exited, terminating worker queues
+(EngineCore pid=68255) INFO 09-25 09:14:48 [multiproc_executor.py:479] [shutdown] Executor: all workers exited gracefully
+== Qwen3.5-0.8B llama.cpp 2026-09-25T07:14:50Z
+[outputs] llama.cpp: 'Les architectures récentes ont multiplié les canaux mémoire, empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser' [22969, 74593, 9056, 224731, 14091, 7072, 186173, 933, 3424, 628, 11640, 184743, 11, 8226, 208079, 1147, 184743, 7657, 5346, 80392, 909, 272, 225503, 1778, 205429, 909, 51790, 5346, 90209, 4755, 13831, 261]
+== Qwen3.5-0.8B herbert 2026-09-25T07:14:53Z
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands"
+[turn 1] 148 prompt tokens in 0.085 s (1750.5 tok/s) · 31 generated in 1.13 s (27.47 tok/s) · 0 tool calls · rewrite 0.000 s · position 179
+== Qwen3.5-2B reference+vllm 2026-09-25T07:14:55Z
+[outputs] prompt 148 tokens
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:51,  6.15it/s]Loading weights:  53%|█████▎    | 171/320 [00:00<00:00, 789.14it/s]Loading weights:  84%|████████▍ | 269/320 [00:00<00:00, 861.23it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 765.73it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[outputs] reference fp32 Qwen3_5ForCausalLM: 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon'
+WARNING 09-25 09:15:09 [importing.py:45] Triton is installed, but doesn't include CPU backend. Disabling Triton.
+INFO 09-25 09:15:09 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-25 09:15:09 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+INFO 09-25 09:15:10 [api_utils.py:286] non-default args: {'dtype': 'bfloat16', 'max_model_len': 1024, 'disable_log_stats': True, 'language_model_only': True, 'model': '/opt3/models/Qwen3.5-2B'}
+INFO 09-25 09:15:10 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 09-25 09:15:10 [model.py:2030] Using max model len 1024
+WARNING 09-25 09:15:10 [model.py:994] Model does not support mm_device_do_normalize, forcing mm_device_do_normalize = False.
+INFO 09-25 09:15:10 [registry.py:146] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+INFO 09-25 09:15:10 [model.py:900] Disabled mm_prefix attention mode because multimodal inputs are configuration-disabled. Attention backends without mm_prefix support may now be selected.
+INFO 09-25 09:15:10 [scheduler.py:288] Chunked prefill is enabled with max_num_batched_tokens=4096.
+INFO 09-25 09:15:10 [config.py:625] Mamba cache mode is set to 'align' for Qwen3_5ForConditionalGeneration by default when prefix caching is enabled
+INFO 09-25 09:15:10 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+WARNING 09-25 09:15:10 [vllm.py:709] Model Runner V2 requires Triton; using the V1 model runner instead.
+WARNING 09-25 09:15:15 [importing.py:45] Triton is installed, but doesn't include CPU backend. Disabling Triton.
+INFO 09-25 09:15:15 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-25 09:15:15 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+(EngineCore pid=68909) INFO 09-25 09:15:15 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/opt3/models/Qwen3.5-2B', speculative_config=None, tokenizer='/opt3/models/Qwen3.5-2B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=1024, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cpu, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/opt3/models/Qwen3.5-2B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.DYNAMO_TRACE_ONCE: 2>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': None, 'compile_ranges_endpoints': [4096], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'dce': True, 'size_asserts': False, 'nan_asserts': False, 'epilogue_fusion': True, 'cpp.dynamic_threads': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': None, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=68909) INFO 09-25 09:15:15 [multiproc_executor.py:153] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=beast (local), world_size=1, local_world_size=1
+(EngineCore pid=68909) INFO 09-25 09:15:15 [ompmultiprocessing.py:185] OpenMP thread binding info: 
+(EngineCore pid=68909) INFO 09-25 09:15:15 [ompmultiprocessing.py:185] 	VLLM_CPU_OMP_THREADS_BIND='0-11', auto_setup=False, skip_setup=False
+(EngineCore pid=68909) INFO 09-25 09:15:15 [ompmultiprocessing.py:185] 	local_world_size=1, reserve_cpu_num=1
+(EngineCore pid=68909) INFO 09-25 09:15:15 [ompmultiprocessing.py:185] 	local_rank=0, core ids=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+(EngineCore pid=68909) INFO 09-25 09:15:15 [ompmultiprocessing.py:185] 	reserved_cpus=[]
+WARNING 09-25 09:15:18 [importing.py:45] Triton is installed, but doesn't include CPU backend. Disabling Triton.
+INFO 09-25 09:15:18 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-25 09:15:18 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+WARNING 09-25 09:15:19 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+INFO 09-25 09:15:19 [registry.py:146] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+[W925 09:15:19.717441171 utils.cpp:68] Warning: NUMA binding: Using MEMBIND policy for memory allocation on the NUMA nodes (0). Memory allocations will be strictly bound to these NUMA nodes. (function init_cpu_memory_env)
+WARNING 09-25 09:15:19 [vllm.py:709] Model Runner V2 requires Triton; using the V1 model runner instead.
+(Worker pid=68988) INFO 09-25 09:15:19 [parallel_state.py:1827] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_3f665d73b5054219b0cc028cbb78caf1 backend=gloo
+(Worker pid=68988) INFO 09-25 09:15:19 [parallel_state.py:2267] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(Worker pid=68988) INFO 09-25 09:15:19 [cpu_model_runner.py:130] Starting to load model /opt3/models/Qwen3.5-2B...
+(Worker pid=68988) INFO 09-25 09:15:19 [interface.py:414] Using default backend AttentionBackendEnum.TORCH_SDPA for vit attention
+(Worker pid=68988) INFO 09-25 09:15:19 [mm_encoder_attention.py:372] Using AttentionBackendEnum.TORCH_SDPA for MMEncoderAttention.
+(Worker pid=68988) INFO 09-25 09:15:19 [qwen_gdn_linear_attn.py:164] Using CPU GDN prefill kernel (head_k_dim=128).
+(Worker pid=68988) INFO 09-25 09:15:19 [qwen_gdn_linear_attn.py:528] GDN decode kernel: CPU
+(Worker pid=68988) INFO 09-25 09:15:19 [weight_utils.py:895] Filesystem type for checkpoints: EXT4. Checkpoint size: 4.24 GiB. Available RAM: 176.24 GiB.
+(Worker pid=68988) INFO 09-25 09:15:19 [weight_utils.py:918] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(Worker pid=68988) Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+(Worker pid=68988) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  3.49it/s]
+(Worker pid=68988) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  3.49it/s]
+(Worker pid=68988) 
+(Worker pid=68988) INFO 09-25 09:15:20 [default_loader.py:430] Loading weights took 0.31 seconds
+(Worker pid=68988) INFO 09-25 09:15:20 [mamba_utils.py:38] VLLM_SSM_CONV_STATE_LAYOUT env detected. Setting SSM conv state layout to SD.
+(Worker pid=68988) INFO 09-25 09:15:20 [interface.py:933] Setting attention block size to 640 tokens to ensure that attention page size is >= mamba page size.
+(Worker pid=68988) INFO 09-25 09:15:20 [interface.py:957] Padding mamba page size by 20.75% to ensure that mamba page size and attention page size are exactly equal.
+(EngineCore pid=68909) INFO 09-25 09:15:20 [torch_utils.py:287] Reducing Torch threads from 12 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=68909) INFO 09-25 09:15:20 [utils.py:320] Using LBHNC KV cache layout.
+(Worker pid=68988) INFO 09-25 09:15:20 [cpu_model_runner.py:149] Warming up model for the compilation...
+(Worker pid=68988) INFO 09-25 09:15:43 [decorators.py:719] saved AOT compiled function to /home/zexigh/.cache/vllm/torch_compile_cache/torch_aot_compile/65ba6ec89e301964c7ce42a5f9ff8387c7588a6b76a51c280086e723d4ea7ff2/rank_0_0/model
+(Worker pid=68988) INFO 09-25 09:15:45 [monitor.py:81] Initial profiling/warmup run took 2.11 s
+(Worker pid=68988) INFO 09-25 09:15:48 [cpu_model_runner.py:153] Warming up done.
+(Worker pid=68988) INFO 09-25 09:15:48 [cpu_worker.py:271] Explicitly set (8.0/186.38) GiB for KV cache on node 0.
+(EngineCore pid=68909) INFO 09-25 09:15:48 [kv_cache_utils.py:2395] CPU KV cache size: 139,776 tokens, Maximum concurrency for 1,024 tokens per request: 136.50x
+(EngineCore pid=68909) INFO 09-25 09:15:48 [core.py:379] init engine (profile, create kv cache, warmup model) took 28.16 s
+(EngineCore pid=68909) INFO 09-25 09:15:48 [kv_cache_utils.py:748] kv cache group sizes [640, 640, 640, 640]
+(EngineCore pid=68909) INFO 09-25 09:15:48 [kv_cache_utils.py:749] kv lcm block sizes 640
+(EngineCore pid=68909) INFO 09-25 09:15:49 [registry.py:146] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+(EngineCore pid=68909) WARNING 09-25 09:15:49 [vllm.py:709] Model Runner V2 requires Triton; using the V1 model runner instead.
+(EngineCore pid=68909) WARNING 09-25 09:15:49 [vllm.py:1570] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=68909) INFO 09-25 09:15:49 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+INFO 09-25 09:15:49 [hf.py:642] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+Rendering prompts:   0%|          | 0/1 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 1/1 [00:00<00:00, 280.27it/s]
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:03<00:00,  3.19s/it, est. speed input: 46.46 toks/s, output: 10.05 toks/s]Processed prompts: 100%|██████████| 1/1 [00:03<00:00,  3.19s/it, est. speed input: 46.46 toks/s, output: 10.05 toks/s]Processed prompts: 100%|██████████| 1/1 [00:03<00:00,  3.19s/it, est. speed input: 46.46 toks/s, output: 10.05 toks/s]
+[outputs] vllm bf16: 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon'
+INFO 09-25 09:15:52 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=68909) INFO 09-25 09:15:52 [core.py:1342] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=68909) INFO 09-25 09:15:52 [core.py:1493] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=68909) INFO 09-25 09:15:52 [core.py:1524] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=68909) INFO 09-25 09:15:52 [core.py:1355] [shutdown] EngineCore: exiting busy loop
+(EngineCore pid=68909) INFO 09-25 09:15:52 [multiproc_executor.py:472] [shutdown] Executor: waiting for worker exit count=1
+(Worker pid=68988) INFO 09-25 09:15:52 [multiproc_executor.py:836] Parent process exited, terminating worker queues
+(EngineCore pid=68909) INFO 09-25 09:15:54 [multiproc_executor.py:479] [shutdown] Executor: all workers exited gracefully
+== Qwen3.5-2B llama.cpp 2026-09-25T07:15:57Z
+[outputs] llama.cpp: 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon' [22969, 74593, 9056, 224731, 401, 184743, 4755, 3424, 181349, 401, 208257, 3493, 13450, 12197, 2486, 416, 401, 628, 11640, 11, 8226, 448, 468, 909, 13067, 1778, 51790, 47080, 5229, 4755, 1668, 1588]
+== Qwen3.5-2B herbert 2026-09-25T07:16:01Z
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour sur"
+[turn 1] 148 prompt tokens in 0.153 s (970.0 tok/s) · 31 generated in 2.71 s (11.44 tok/s) · 0 tool calls · rewrite 0.000 s · position 179
+== Qwen3.5-4B reference+vllm 2026-09-25T07:16:06Z
+[outputs] prompt 148 tokens
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:00<02:11,  3.24it/s]Loading weights:  28%|██▊       | 120/426 [00:00<00:00, 376.72it/s]Loading weights:  45%|████▍     | 190/426 [00:00<00:00, 431.67it/s]Loading weights:  59%|█████▉    | 252/426 [00:00<00:00, 447.31it/s]Loading weights:  73%|███████▎  | 309/426 [00:00<00:00, 457.14it/s]Loading weights:  85%|████████▌ | 363/426 [00:00<00:00, 458.61it/s]Loading weights:  97%|█████████▋| 414/426 [00:01<00:00, 470.70it/s]Loading weights: 100%|██████████| 426/426 [00:01<00:00, 414.47it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[outputs] reference fp32 Qwen3_5ForCausalLM: 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire'
+WARNING 09-25 09:16:30 [importing.py:45] Triton is installed, but doesn't include CPU backend. Disabling Triton.
+INFO 09-25 09:16:30 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-25 09:16:30 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+INFO 09-25 09:16:31 [api_utils.py:286] non-default args: {'dtype': 'bfloat16', 'max_model_len': 1024, 'disable_log_stats': True, 'language_model_only': True, 'model': '/opt3/models/Qwen3.5-4B'}
+INFO 09-25 09:16:31 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 09-25 09:16:31 [model.py:2030] Using max model len 1024
+WARNING 09-25 09:16:31 [model.py:994] Model does not support mm_device_do_normalize, forcing mm_device_do_normalize = False.
+INFO 09-25 09:16:32 [registry.py:146] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+INFO 09-25 09:16:32 [model.py:900] Disabled mm_prefix attention mode because multimodal inputs are configuration-disabled. Attention backends without mm_prefix support may now be selected.
+INFO 09-25 09:16:32 [scheduler.py:288] Chunked prefill is enabled with max_num_batched_tokens=4096.
+INFO 09-25 09:16:32 [config.py:625] Mamba cache mode is set to 'align' for Qwen3_5ForConditionalGeneration by default when prefix caching is enabled
+INFO 09-25 09:16:32 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+WARNING 09-25 09:16:32 [vllm.py:709] Model Runner V2 requires Triton; using the V1 model runner instead.
+WARNING 09-25 09:16:36 [importing.py:45] Triton is installed, but doesn't include CPU backend. Disabling Triton.
+INFO 09-25 09:16:36 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-25 09:16:36 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+(EngineCore pid=69608) INFO 09-25 09:16:36 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/opt3/models/Qwen3.5-4B', speculative_config=None, tokenizer='/opt3/models/Qwen3.5-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=1024, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cpu, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/opt3/models/Qwen3.5-4B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.DYNAMO_TRACE_ONCE: 2>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': None, 'compile_ranges_endpoints': [4096], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'dce': True, 'size_asserts': False, 'nan_asserts': False, 'epilogue_fusion': True, 'cpp.dynamic_threads': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': None, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=69608) INFO 09-25 09:16:36 [multiproc_executor.py:153] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=beast (local), world_size=1, local_world_size=1
+(EngineCore pid=69608) INFO 09-25 09:16:36 [ompmultiprocessing.py:185] OpenMP thread binding info: 
+(EngineCore pid=69608) INFO 09-25 09:16:36 [ompmultiprocessing.py:185] 	VLLM_CPU_OMP_THREADS_BIND='0-11', auto_setup=False, skip_setup=False
+(EngineCore pid=69608) INFO 09-25 09:16:36 [ompmultiprocessing.py:185] 	local_world_size=1, reserve_cpu_num=1
+(EngineCore pid=69608) INFO 09-25 09:16:36 [ompmultiprocessing.py:185] 	local_rank=0, core ids=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+(EngineCore pid=69608) INFO 09-25 09:16:36 [ompmultiprocessing.py:185] 	reserved_cpus=[]
+WARNING 09-25 09:16:39 [importing.py:45] Triton is installed, but doesn't include CPU backend. Disabling Triton.
+INFO 09-25 09:16:39 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-25 09:16:39 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.
+WARNING 09-25 09:16:40 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+INFO 09-25 09:16:40 [registry.py:146] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+[W925 09:16:40.812463878 utils.cpp:68] Warning: NUMA binding: Using MEMBIND policy for memory allocation on the NUMA nodes (0). Memory allocations will be strictly bound to these NUMA nodes. (function init_cpu_memory_env)
+WARNING 09-25 09:16:40 [vllm.py:709] Model Runner V2 requires Triton; using the V1 model runner instead.
+(Worker pid=69687) INFO 09-25 09:16:40 [parallel_state.py:1827] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_1ccbee4be1c64683ba5fce501b089b4d backend=gloo
+(Worker pid=69687) INFO 09-25 09:16:40 [parallel_state.py:2267] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(Worker pid=69687) INFO 09-25 09:16:40 [cpu_model_runner.py:130] Starting to load model /opt3/models/Qwen3.5-4B...
+(Worker pid=69687) INFO 09-25 09:16:40 [interface.py:414] Using default backend AttentionBackendEnum.TORCH_SDPA for vit attention
+(Worker pid=69687) INFO 09-25 09:16:40 [mm_encoder_attention.py:372] Using AttentionBackendEnum.TORCH_SDPA for MMEncoderAttention.
+(Worker pid=69687) INFO 09-25 09:16:40 [qwen_gdn_linear_attn.py:164] Using CPU GDN prefill kernel (head_k_dim=128).
+(Worker pid=69687) INFO 09-25 09:16:40 [qwen_gdn_linear_attn.py:528] GDN decode kernel: CPU
+(Worker pid=69687) INFO 09-25 09:16:40 [weight_utils.py:895] Filesystem type for checkpoints: EXT4. Checkpoint size: 8.68 GiB. Available RAM: 175.86 GiB.
+(Worker pid=69687) INFO 09-25 09:16:40 [weight_utils.py:918] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(Worker pid=69687) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(Worker pid=69687) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:00<00:00,  2.61it/s]
+(Worker pid=69687) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:00<00:00,  3.10it/s]
+(Worker pid=69687) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:00<00:00,  3.02it/s]
+(Worker pid=69687) 
+(Worker pid=69687) INFO 09-25 09:16:41 [default_loader.py:430] Loading weights took 0.68 seconds
+(Worker pid=69687) INFO 09-25 09:16:42 [mamba_utils.py:38] VLLM_SSM_CONV_STATE_LAYOUT env detected. Setting SSM conv state layout to SD.
+(Worker pid=69687) INFO 09-25 09:16:42 [interface.py:933] Setting attention block size to 640 tokens to ensure that attention page size is >= mamba page size.
+(Worker pid=69687) INFO 09-25 09:16:42 [interface.py:957] Padding mamba page size by 22.14% to ensure that mamba page size and attention page size are exactly equal.
+(EngineCore pid=69608) INFO 09-25 09:16:42 [torch_utils.py:287] Reducing Torch threads from 12 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=69608) INFO 09-25 09:16:42 [utils.py:320] Using LBHNC KV cache layout.
+(Worker pid=69687) INFO 09-25 09:16:42 [cpu_model_runner.py:149] Warming up model for the compilation...
+(Worker pid=69687) INFO 09-25 09:17:09 [decorators.py:719] saved AOT compiled function to /home/zexigh/.cache/vllm/torch_compile_cache/torch_aot_compile/5e602526edda1780554f31cccade120bcecbbddc8c18923dc09e63f3d31a4959/rank_0_0/model
+(Worker pid=69687) INFO 09-25 09:17:14 [monitor.py:81] Initial profiling/warmup run took 5.42 s
+(Worker pid=69687) INFO 09-25 09:17:17 [cpu_model_runner.py:153] Warming up done.
+(Worker pid=69687) INFO 09-25 09:17:17 [cpu_worker.py:271] Explicitly set (8.0/186.38) GiB for KV cache on node 0.
+(EngineCore pid=69608) INFO 09-25 09:17:17 [kv_cache_utils.py:2395] CPU KV cache size: 52,352 tokens, Maximum concurrency for 1,024 tokens per request: 51.12x
+(EngineCore pid=69608) INFO 09-25 09:17:18 [core.py:379] init engine (profile, create kv cache, warmup model) took 35.80 s
+(EngineCore pid=69608) INFO 09-25 09:17:18 [kv_cache_utils.py:748] kv cache group sizes [640, 640, 640, 640]
+(EngineCore pid=69608) INFO 09-25 09:17:18 [kv_cache_utils.py:749] kv lcm block sizes 640
+(EngineCore pid=69608) INFO 09-25 09:17:18 [registry.py:146] All limits of multimodal modalities supported by the model are set to 0, running in text-only mode.
+(EngineCore pid=69608) WARNING 09-25 09:17:18 [vllm.py:709] Model Runner V2 requires Triton; using the V1 model runner instead.
+(EngineCore pid=69608) WARNING 09-25 09:17:18 [vllm.py:1570] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=69608) INFO 09-25 09:17:18 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+INFO 09-25 09:17:19 [hf.py:642] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+Rendering prompts:   0%|          | 0/1 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 1/1 [00:00<00:00, 279.29it/s]
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.89s/it, est. speed input: 21.49 toks/s, output: 4.65 toks/s]Processed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.89s/it, est. speed input: 21.49 toks/s, output: 4.65 toks/s]Processed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.89s/it, est. speed input: 21.49 toks/s, output: 4.65 toks/s]
+[outputs] vllm bf16: 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire'
+INFO 09-25 09:17:26 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+(EngineCore pid=69608) INFO 09-25 09:17:26 [core.py:1342] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=69608) INFO 09-25 09:17:26 [core.py:1493] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=69608) INFO 09-25 09:17:26 [core.py:1524] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=69608) INFO 09-25 09:17:26 [core.py:1355] [shutdown] EngineCore: exiting busy loop
+(EngineCore pid=69608) INFO 09-25 09:17:26 [multiproc_executor.py:472] [shutdown] Executor: waiting for worker exit count=1
+(Worker pid=69687) INFO 09-25 09:17:26 [multiproc_executor.py:836] Parent process exited, terminating worker queues
+(EngineCore pid=69608) INFO 09-25 09:17:28 [multiproc_executor.py:479] [shutdown] Executor: all workers exited gracefully
+== Qwen3.5-4B llama.cpp 2026-09-25T07:17:30Z
+[outputs] llama.cpp: 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire' [40781, 219485, 49598, 1147, 198922, 909, 181349, 401, 208257, 11, 3424, 74593, 9056, 224731, 7314, 181699, 1147, 90793, 1440, 4783, 184743, 644, 7072, 57832, 3424, 628, 11640, 11, 208701, 11345, 1147, 184743]
+== Qwen3.5-4B herbert 2026-09-25T07:17:40Z
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la"
+[turn 1] 148 prompt tokens in 0.362 s (409.2 tok/s) · 31 generated in 6.03 s (5.14 tok/s) · 0 tool calls · rewrite 0.000 s · position 179
+[outputs] done 2026-09-25T07:17:49Z -> /home/zexigh/bench-engines/logs/outputs-beast-20260925T071350Z

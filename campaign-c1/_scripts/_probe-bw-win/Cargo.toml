@@ -1,0 +1,8 @@
+[package]
+name = "probe-bw-win"
+version = "0.1.0"
+edition = "2024"
+description = "probe-bw for Windows: the same loop emitted by iced-x86, VirtualAlloc / VirtualProtect / SetThreadAffinityMask instead of mmap / mprotect / sched_setaffinity"
+
+[dependencies]
+iced-x86 = { version = "1.21", default-features = false, features = ["std", "code_asm"] }

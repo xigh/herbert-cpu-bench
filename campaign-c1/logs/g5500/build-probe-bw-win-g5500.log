@@ -1,0 +1,6 @@
+    Updating crates.io index
+     Locking 2 packages to latest Rust 1.98.0 compatible versions
+   Compiling lazy_static v1.5.1
+   Compiling iced-x86 v1.21.0
+   Compiling probe-bw-win v0.1.0 (C:\Users\zexig\c1\probe-bw-win)
+    Finished `release` profile [optimized] target(s) in 23.71s

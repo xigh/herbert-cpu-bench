@@ -1,0 +1,26 @@
+[probe-bw] 2026-09-25T07:31:22Z load 1.18 1.63 1.02 1/734 66986 ac=1 sha256 a4cbc0bb90fc5518
+[probe-bw] logical=8 physical=8 smt=false kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1148 GB/s=37.41
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1146 GB/s=37.47
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1149 GB/s=37.38
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1147 GB/s=37.46
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1147 GB/s=37.43
+[probe-bw] threads=1 best=37.47 median=37.43 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.0631 GB/s=68.06
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.0632 GB/s=68.00
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.0632 GB/s=68.00
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.0632 GB/s=67.95
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.0631 GB/s=68.05
+[probe-bw] threads=2 best=68.06 median=68.00 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.0418 GB/s=102.76
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.0452 GB/s=94.95
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.0449 GB/s=95.70
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.0449 GB/s=95.67
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.0448 GB/s=95.84
+[probe-bw] threads=4 best=102.76 median=95.70 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.0659 GB/s=65.17
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.0609 GB/s=70.54
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.0591 GB/s=72.70
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.0619 GB/s=69.39
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.0585 GB/s=73.46
+[probe-bw] threads=8 best=73.46 median=70.54 GB/s

@@ -1,0 +1,704 @@
+[bench] 2026-09-25T07:16:43Z omnibook model name	: Intel(R) Core(TM) Ultra 7 258V governor=powersave epp=balance_performance profile= ac=1
+[bench] herbert 53bc98c18cb8ffa7 probe-bw b8690353810be289
+[probe-bw] logical=8 physical=4 buffer=4 GiB passes=5 kernel=74 bytes
+./omnibook-campaign.sh: line 10: 65393 Illegal instruction        (core dumped) $D/probe-bw --gib 4 --passes 5 --threads 1,2,4,8
+== Qwen3.5-0.8B rep 1 herbert threads 4 no-ne-convert load 0.09 2026-09-25T07:17:00Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.3 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.7 s, mounted in 0.50 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 1.068 s (138.6 tok/s) · 44 generated in 1.11 s (39.63 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 1 herbert threads 4 --ne-convert load 0.13 2026-09-25T07:17:19Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.7 s, mounted in 0.49 s — 8192 positions reserved, prefill program Some((5146296, 304571, 305330)), decode program Some((5145370, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.692 s (213.9 tok/s) · 44 generated in 1.09 s (40.20 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 1 herbert threads 8 no-ne-convert load 0.34 2026-09-25T07:17:38Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.003 s
+[engine] loaded in 0.7 s, mounted in 0.50 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 1.142 s (129.6 tok/s) · 44 generated in 1.14 s (38.59 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 1 herbert threads 8 --ne-convert load 0.26 2026-09-25T07:17:57Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.7 s, mounted in 0.49 s — 8192 positions reserved, prefill program Some((5146296, 304571, 305330)), decode program Some((5145370, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.774 s (191.2 tok/s) · 44 generated in 1.16 s (37.94 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 2 herbert threads 4 no-ne-convert load 0.69 2026-09-25T07:18:15Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.8 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.8 s, mounted in 0.50 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 1.064 s (139.0 tok/s) · 44 generated in 1.12 s (39.16 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 2 herbert threads 4 --ne-convert load 0.55 2026-09-25T07:18:34Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.3 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.003 s
+[engine] loaded in 0.7 s, mounted in 0.48 s — 8192 positions reserved, prefill program Some((5146296, 304571, 305330)), decode program Some((5145370, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.692 s (213.7 tok/s) · 44 generated in 1.10 s (40.05 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 2 herbert threads 8 no-ne-convert load 0.65 2026-09-25T07:18:53Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] warning: cpu5 busy at 10 % (of which 4 % off accounting = interrupts) for 300 ms before the first work — another process or an interrupt storm; what is measured there is suspicious (see /proc/interrupts; PoolSettings::cpus picks other cores)
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.7 s, mounted in 0.50 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 1.157 s (127.9 tok/s) · 44 generated in 1.17 s (37.74 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 2 herbert threads 8 --ne-convert load 0.52 2026-09-25T07:19:12Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.7 s, mounted in 0.49 s — 8192 positions reserved, prefill program Some((5146296, 304571, 305330)), decode program Some((5145370, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.772 s (191.6 tok/s) · 44 generated in 1.16 s (37.99 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 3 herbert threads 4 no-ne-convert load 0.41 2026-09-25T07:19:31Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.7 s, mounted in 0.50 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 1.069 s (138.5 tok/s) · 44 generated in 1.14 s (38.66 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 3 herbert threads 4 --ne-convert load 0.35 2026-09-25T07:19:49Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.7 s, mounted in 0.49 s — 8192 positions reserved, prefill program Some((5146296, 304571, 305330)), decode program Some((5145370, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.692 s (214.0 tok/s) · 44 generated in 1.12 s (39.46 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 3 herbert threads 8 no-ne-convert load 0.50 2026-09-25T07:20:08Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.7 s, mounted in 0.50 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 1.146 s (129.2 tok/s) · 44 generated in 1.16 s (37.79 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-0.8B rep 3 herbert threads 8 --ne-convert load 0.86 2026-09-25T07:20:27Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.4 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 0.7 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 0.7 s, mounted in 0.50 s — 8192 positions reserved, prefill program Some((5146296, 304571, 305330)), decode program Some((5145370, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.746 s (198.3 tok/s) · 44 generated in 1.16 s (38.03 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+== Qwen3.5-2B rep 1 herbert threads 4 no-ne-convert load 0.67 2026-09-25T07:20:46Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.7 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.3 s, mounted in 0.48 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 2.341 s (63.2 tok/s) · 50 generated in 2.91 s (17.17 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 1 herbert threads 4 --ne-convert load 0.80 2026-09-25T07:21:08Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.8 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.4 s, mounted in 0.47 s — 8192 positions reserved, prefill program Some((4303488, 304571, 305330)), decode program Some((4302562, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.275 s (116.1 tok/s) · 50 generated in 2.85 s (17.53 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 1 herbert threads 8 no-ne-convert load 0.82 2026-09-25T07:21:30Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.8 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.4 s, mounted in 0.48 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 2.294 s (64.5 tok/s) · 50 generated in 2.86 s (17.49 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 1 herbert threads 8 --ne-convert load 1.21 2026-09-25T07:21:52Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.8 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.006 s
+[engine] loaded in 1.4 s, mounted in 0.47 s — 8192 positions reserved, prefill program Some((4303488, 304571, 305330)), decode program Some((4302562, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.236 s (119.7 tok/s) · 50 generated in 2.86 s (17.46 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 2 herbert threads 4 no-ne-convert load 1.37 2026-09-25T07:22:14Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.8 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.3 s, mounted in 0.48 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 2.343 s (63.2 tok/s) · 50 generated in 2.91 s (17.17 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 2 herbert threads 4 --ne-convert load 1.23 2026-09-25T07:22:37Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.7 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.3 s, mounted in 0.47 s — 8192 positions reserved, prefill program Some((4303488, 304571, 305330)), decode program Some((4302562, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.273 s (116.2 tok/s) · 50 generated in 2.85 s (17.56 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 2 herbert threads 8 no-ne-convert load 1.52 2026-09-25T07:22:58Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.7 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] warning: cpu6 busy at 10 % for 300 ms before the first work — another process or an interrupt storm; what is measured there is suspicious (see /proc/interrupts; PoolSettings::cpus picks other cores)
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.3 s, mounted in 0.48 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 2.302 s (64.3 tok/s) · 50 generated in 2.84 s (17.63 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 2 herbert threads 8 --ne-convert load 1.66 2026-09-25T07:23:21Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.7 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.3 s, mounted in 0.47 s — 8192 positions reserved, prefill program Some((4303488, 304571, 305330)), decode program Some((4302562, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.242 s (119.2 tok/s) · 50 generated in 2.85 s (17.55 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 3 herbert threads 4 no-ne-convert load 1.65 2026-09-25T07:23:42Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.8 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.4 s, mounted in 0.48 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 2.341 s (63.2 tok/s) · 50 generated in 2.92 s (17.14 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 3 herbert threads 4 --ne-convert load 1.43 2026-09-25T07:24:05Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.8 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.3 s, mounted in 0.47 s — 8192 positions reserved, prefill program Some((4303488, 304571, 305330)), decode program Some((4302562, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.275 s (116.1 tok/s) · 50 generated in 2.86 s (17.50 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 3 herbert threads 8 no-ne-convert load 1.08 2026-09-25T07:24:26Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.9 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.5 s, mounted in 0.48 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 2.286 s (64.7 tok/s) · 50 generated in 2.96 s (16.91 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-2B rep 3 herbert threads 8 --ne-convert load 1.67 2026-09-25T07:24:49Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 0.8 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 1.4 s, mounted in 0.47 s — 8192 positions reserved, prefill program Some((4303488, 304571, 305330)), decode program Some((4302562, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.245 s (118.9 tok/s) · 50 generated in 2.89 s (17.31 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+== Qwen3.5-4B rep 1 herbert threads 4 no-ne-convert load 1.70 2026-09-25T07:25:11Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.7 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.5 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.512 s
+[engine] loaded in 2.5 s, mounted in 0.54 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 6.027 s (24.6 tok/s) · 43 generated in 5.71 s (7.53 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 1 herbert threads 4 --ne-convert load 1.50 2026-09-25T07:25:42Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.3 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.3 s, mounted in 0.54 s — 8192 positions reserved, prefill program Some((6206772, 404459, 405442)), decode program Some((6205548, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 3.273 s (45.2 tok/s) · 43 generated in 5.53 s (7.78 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 1 herbert threads 8 no-ne-convert load 1.46 2026-09-25T07:26:09Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.3 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] warning: cpu4 busy at 10 % (of which 4 % off accounting = interrupts) for 300 ms before the first work — another process or an interrupt storm; what is measured there is suspicious (see /proc/interrupts; PoolSettings::cpus picks other cores)
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.3 s, mounted in 0.55 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 5.931 s (25.0 tok/s) · 43 generated in 5.55 s (7.75 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 1 herbert threads 8 --ne-convert load 1.98 2026-09-25T07:26:39Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.3 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.4 s, mounted in 0.54 s — 8192 positions reserved, prefill program Some((6206772, 404459, 405442)), decode program Some((6205548, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 3.167 s (46.7 tok/s) · 43 generated in 5.53 s (7.78 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 2 herbert threads 4 no-ne-convert load 1.80 2026-09-25T07:27:07Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.3 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.3 s, mounted in 0.55 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 6.044 s (24.5 tok/s) · 43 generated in 5.71 s (7.53 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 2 herbert threads 4 --ne-convert load 2.05 2026-09-25T07:27:37Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.2 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.2 s, mounted in 0.54 s — 8192 positions reserved, prefill program Some((6206772, 404459, 405442)), decode program Some((6205548, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 3.265 s (45.3 tok/s) · 43 generated in 5.53 s (7.77 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 2 herbert threads 8 no-ne-convert load 1.83 2026-09-25T07:28:04Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.4 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.4 s, mounted in 0.55 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 5.859 s (25.3 tok/s) · 43 generated in 5.54 s (7.77 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 2 herbert threads 8 --ne-convert load 2.06 2026-09-25T07:28:34Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.4 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.4 s, mounted in 0.54 s — 8192 positions reserved, prefill program Some((6206772, 404459, 405442)), decode program Some((6205548, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 3.182 s (46.5 tok/s) · 43 generated in 5.55 s (7.75 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 3 herbert threads 4 no-ne-convert load 1.86 2026-09-25T07:29:02Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.3 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.3 s, mounted in 0.55 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 6.034 s (24.5 tok/s) · 43 generated in 5.72 s (7.52 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 3 herbert threads 4 --ne-convert load 1.93 2026-09-25T07:29:32Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.3 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 4 workers on cpus [0,1,2,3] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.3 s, mounted in 0.54 s — 8192 positions reserved, prefill program Some((6206772, 404459, 405442)), decode program Some((6205548, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 3.265 s (45.3 tok/s) · 43 generated in 5.52 s (7.80 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 3 herbert threads 8 no-ne-convert load 1.75 2026-09-25T07:29:59Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.3 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.3 s, mounted in 0.55 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 5.915 s (25.0 tok/s) · 43 generated in 5.62 s (7.65 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+== Qwen3.5-4B rep 3 herbert threads 8 --ne-convert load 2.07 2026-09-25T07:30:29Z
+[isa] avx2=yes fma=yes avxvnni=yes avx512f=no avx512bf16=no → GEMM lanes ymm
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 0.9 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 0.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 2.2 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.010 s
+[engine] loaded in 2.2 s, mounted in 0.54 s — 8192 positions reserved, prefill program Some((6206772, 404459, 405442)), decode program Some((6205548, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 3.155 s (46.9 tok/s) · 43 generated in 5.59 s (7.69 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+[bench] done 2026-09-25T07:30:42Z

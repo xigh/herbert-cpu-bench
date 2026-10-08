@@ -1,0 +1,25 @@
+== genai PA hint bf16 kv bf16
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'INFERENCE_NUM_THREADS': 12, 'ATTENTION_BACKEND': 'PA'}
+[ov] pipeline ready in 0.6 s, maxrss 3.15 GB
+[ids] [22969, 74593, 207357, 14091, 7072, 186173, 933, 3424, 628, 11640, 184743, 1778, 324, 6, 3157, 379, 1223, 1147, 184743, 4755, 13831, 261, 1147, 194456, 322, 909, 27375, 323, 1663, 11, 1036, 185155]
+[decoded] "Les architectures modernes ont multiplié les canaux mémoire et l'emploier la mémoire pour compenser la lenteur des processeurs, assurant"
+[reference] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour"
+[agreement] compared 32 first_divergence 2
+== genai PA hint bf16 kv f32
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'f32', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'INFERENCE_NUM_THREADS': 12, 'ATTENTION_BACKEND': 'PA'}
+Traceback (most recent call last):
+  File "/home/zexigh/bench-engines/openvino/ov_bench.py", line 79, in <module>
+    main()
+  File "/home/zexigh/bench-engines/openvino/ov_bench.py", line 53, in main
+    p = pipeline(ir, threads)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zexigh/bench-engines/openvino/ov_bench.py", line 32, in pipeline
+    p = ov_genai.LLMPipeline(ir, "CPU", **props)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Exception from src/inference/src/cpp/core.cpp:117:
+Exception from src/inference/src/dev/plugin.cpp:54:
+Check 'key_cache_type == ov::element::bf16 && value_cache_type == ov::element::bf16' failed at /home/jenkins/agent/workspace/private-ci/ie/build-linux-manylinux_2_28/b/build/dldt/src/plugins/intel_cpu/cross-compiled/AVX512F/executor_pa.cpp:2847:
+expect kvcache type bf16, current: f32 , f32
+
+
+

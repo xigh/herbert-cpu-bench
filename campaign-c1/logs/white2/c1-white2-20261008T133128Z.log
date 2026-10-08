@@ -1,0 +1,1371 @@
+## 2026-10-08T13:32:25Z host white2 · Linux 7.0.0-38-generic x86_64
+model name	: AMD Ryzen 7 5700G with Radeon Graphics
+governor powersave epp balance_performance · load 5.07 2.46 1.20 1/678 9321
+processes >5% cpu:  100 ps;
+ffmpeg/hdmi_view running: 
+versions: herbert 812460c2044b5266 probe e1c8309de66c7e6c llama 1ab7e5ad2 vllm  vllm-zen  openvino 
+config MODELS=Qwen3.5-0.8B Qwen3.5-2B Qwen3.5-4B ARMS=herbert:8 llama:8 herbert:1 llama:1 PROBE_THREADS=1 2 4 8 REPS=5 NICE=0 MDIR=/home/zexigh/models REF=/home/zexigh/c1/logs/outputs-white2-20261008T133128Z
+gguf Qwen3.5-0.8B 1516744672 bytes
+gguf Qwen3.5-2B 3775709152 bytes
+gguf Qwen3.5-4B 8424393600 bytes
+# 13:32:36 idle 99.6% load 4.29 0 ffmpeg/hdmi_view
+== probe Qwen3.5-0.8B t=1,2,4,8 rep 1 load 4.29 13:32:36 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1595 GB/s=26.93
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1592 GB/s=26.98
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1589 GB/s=27.02
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1593 GB/s=26.97
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1595 GB/s=26.93
+[probe-bw] threads=1 best=27.02 median=26.97 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1250 GB/s=34.37
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1250 GB/s=34.37
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1249 GB/s=34.38
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1250 GB/s=34.37
+[probe-bw] threads=2 best=34.38 median=34.37 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1251 GB/s=34.32
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1256 GB/s=34.20
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1254 GB/s=34.26
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1249 GB/s=34.38
+[probe-bw] threads=4 best=34.38 median=34.32 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1282 GB/s=33.51
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1251 GB/s=34.32
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1283 GB/s=33.47
+[probe-bw] threads=8 best=34.32 median=33.48 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 1 arm herbert:8
+# 13:32:51 idle 99.8% load 3.48 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=8 rep 1 load 3.48 13:32:52 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 1.8 s, mounted in 0.60 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.519 s (284.9 tok/s) · 44 generated in 2.12 s (20.76 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+### model Qwen3.5-0.8B rep 1 arm llama:8
+# 13:33:08 idle 99.9% load 2.77 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=8 rep 1 load 2.77 13:33:08 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:33:09Z", "avg_ns": 357599634, "stddev_ns": 0, "avg_ts": 413.870670, "stddev_ts": 0.000000, "samples_ns": [ 357599634 ],"samples_ts": [ 413.871 ]}
+## exit 0
+# 13:33:21 idle 99.9% load 2.23 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=8 rep 1 load 2.23 13:33:21 procs>5%: ps 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:33:22Z", "avg_ns": 3272087852, "stddev_ns": 0, "avg_ts": 19.559377, "stddev_ts": 0.000000, "samples_ns": [ 3272087852 ],"samples_ts": [ 19.5594 ]}
+## exit 0
+### model Qwen3.5-0.8B rep 1 arm herbert:1
+# 13:33:37 idle 99.8% load 2.28 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=1 rep 1 load 2.28 13:33:37 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.004 s
+[engine] loaded in 1.8 s, mounted in 0.61 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 3.232 s (45.8 tok/s) · 44 generated in 3.45 s (12.75 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+### model Qwen3.5-0.8B rep 1 arm llama:1
+# 13:33:58 idle 99.8% load 1.70 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=1 rep 1 load 1.70 13:33:58 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:33:59Z", "avg_ns": 2210179934, "stddev_ns": 0, "avg_ts": 66.962874, "stddev_ts": 0.000000, "samples_ns": [ 2210179934 ],"samples_ts": [ 66.9629 ]}
+## exit 0
+# 13:34:14 idle 99.8% load 1.28 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=1 rep 1 load 1.28 13:34:14 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:34:15Z", "avg_ns": 5157354144, "stddev_ns": 0, "avg_ts": 12.409464, "stddev_ts": 0.000000, "samples_ns": [ 5157354144 ],"samples_ts": [ 12.4095 ]}
+## exit 0
+# 13:34:34 idle 99.8% load 0.98 0 ffmpeg/hdmi_view
+== probe Qwen3.5-0.8B t=1,2,4,8 rep 2 load 0.98 13:34:34 procs>5%: ps 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1601 GB/s=26.83
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1598 GB/s=26.88
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1598 GB/s=26.87
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1596 GB/s=26.91
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1599 GB/s=26.87
+[probe-bw] threads=1 best=26.91 median=26.87 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1249 GB/s=34.38
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1252 GB/s=34.30
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1250 GB/s=34.36
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1251 GB/s=34.34
+[probe-bw] threads=2 best=34.38 median=34.35 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1252 GB/s=34.29
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1251 GB/s=34.32
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1251 GB/s=34.34
+[probe-bw] threads=4 best=34.34 median=34.33 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1282 GB/s=33.49
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1282 GB/s=33.49
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1250 GB/s=34.37
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1283 GB/s=33.47
+[probe-bw] threads=8 best=34.37 median=33.49 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 2 arm llama:8
+# 13:34:49 idle 99.8% load 0.76 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=8 rep 2 load 0.76 13:34:49 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:34:50Z", "avg_ns": 370258738, "stddev_ns": 0, "avg_ts": 399.720479, "stddev_ts": 0.000000, "samples_ns": [ 370258738 ],"samples_ts": [ 399.72 ]}
+## exit 0
+# 13:35:02 idle 99.8% load 0.64 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=8 rep 2 load 0.64 13:35:02 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:35:03Z", "avg_ns": 3263681473, "stddev_ns": 0, "avg_ts": 19.609757, "stddev_ts": 0.000000, "samples_ns": [ 3263681473 ],"samples_ts": [ 19.6098 ]}
+## exit 0
+### model Qwen3.5-0.8B rep 2 arm herbert:1
+# 13:35:18 idle 99.6% load 1.04 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=1 rep 2 load 1.04 13:35:18 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.004 s
+[engine] loaded in 1.8 s, mounted in 0.60 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 3.231 s (45.8 tok/s) · 44 generated in 3.47 s (12.69 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+### model Qwen3.5-0.8B rep 2 arm llama:1
+# 13:35:39 idle 99.8% load 0.80 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=1 rep 2 load 0.80 13:35:39 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:35:40Z", "avg_ns": 2200916261, "stddev_ns": 0, "avg_ts": 67.244721, "stddev_ts": 0.000000, "samples_ns": [ 2200916261 ],"samples_ts": [ 67.2447 ]}
+## exit 0
+# 13:35:56 idle 99.9% load 0.69 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=1 rep 2 load 0.69 13:35:56 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:35:57Z", "avg_ns": 5028388816, "stddev_ns": 0, "avg_ts": 12.727735, "stddev_ts": 0.000000, "samples_ns": [ 5028388816 ],"samples_ts": [ 12.7277 ]}
+## exit 0
+### model Qwen3.5-0.8B rep 2 arm herbert:8
+# 13:36:15 idle 99.8% load 0.63 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=8 rep 2 load 0.63 13:36:15 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 1.8 s, mounted in 0.60 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.515 s (287.3 tok/s) · 44 generated in 2.12 s (20.77 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+# 13:36:32 idle 99.9% load 1.03 0 ffmpeg/hdmi_view
+== probe Qwen3.5-0.8B t=1,2,4,8 rep 3 load 1.03 13:36:32 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1605 GB/s=26.75
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1602 GB/s=26.81
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1601 GB/s=26.82
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1602 GB/s=26.81
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1604 GB/s=26.78
+[probe-bw] threads=1 best=26.82 median=26.81 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1254 GB/s=34.26
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1253 GB/s=34.27
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1252 GB/s=34.31
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1251 GB/s=34.32
+[probe-bw] threads=2 best=34.35 median=34.31 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1254 GB/s=34.24
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1249 GB/s=34.39
+[probe-bw] threads=4 best=34.39 median=34.35 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1281 GB/s=33.52
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1282 GB/s=33.51
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1281 GB/s=33.52
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1249 GB/s=34.38
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1243 GB/s=34.54
+[probe-bw] threads=8 best=34.54 median=33.52 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 3 arm herbert:1
+# 13:36:47 idle 99.8% load 0.87 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=1 rep 3 load 0.87 13:36:47 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.004 s
+[engine] loaded in 1.8 s, mounted in 0.61 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 3.236 s (45.7 tok/s) · 44 generated in 3.44 s (12.79 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+### model Qwen3.5-0.8B rep 3 arm llama:1
+# 13:37:08 idle 99.8% load 0.75 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=1 rep 3 load 0.75 13:37:08 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:37:09Z", "avg_ns": 2213207769, "stddev_ns": 0, "avg_ts": 66.871264, "stddev_ts": 0.000000, "samples_ns": [ 2213207769 ],"samples_ts": [ 66.8713 ]}
+## exit 0
+# 13:37:25 idle 99.9% load 0.60 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=1 rep 3 load 0.60 13:37:25 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:37:26Z", "avg_ns": 5142557061, "stddev_ns": 0, "avg_ts": 12.445171, "stddev_ts": 0.000000, "samples_ns": [ 5142557061 ],"samples_ts": [ 12.4452 ]}
+## exit 0
+### model Qwen3.5-0.8B rep 3 arm herbert:8
+# 13:37:44 idle 99.8% load 0.49 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=8 rep 3 load 0.49 13:37:44 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 1.8 s, mounted in 0.60 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.515 s (287.2 tok/s) · 44 generated in 2.12 s (20.78 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+### model Qwen3.5-0.8B rep 3 arm llama:8
+# 13:38:01 idle 99.8% load 0.93 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=8 rep 3 load 0.93 13:38:01 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:38:02Z", "avg_ns": 354792886, "stddev_ns": 0, "avg_ts": 417.144779, "stddev_ts": 0.000000, "samples_ns": [ 354792886 ],"samples_ts": [ 417.145 ]}
+## exit 0
+# 13:38:14 idle 99.8% load 0.78 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=8 rep 3 load 0.78 13:38:14 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:38:15Z", "avg_ns": 3255293538, "stddev_ns": 0, "avg_ts": 19.660285, "stddev_ts": 0.000000, "samples_ns": [ 3255293538 ],"samples_ts": [ 19.6603 ]}
+## exit 0
+# 13:38:30 idle 99.9% load 0.62 0 ffmpeg/hdmi_view
+== probe Qwen3.5-0.8B t=1,2,4,8 rep 4 load 0.62 13:38:30 procs>5%: ps 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1597 GB/s=26.90
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1594 GB/s=26.94
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1593 GB/s=26.96
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1594 GB/s=26.95
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1593 GB/s=26.95
+[probe-bw] threads=1 best=26.96 median=26.95 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1249 GB/s=34.38
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1252 GB/s=34.31
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1249 GB/s=34.39
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1249 GB/s=34.39
+[probe-bw] threads=2 best=34.41 median=34.39 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1254 GB/s=34.25
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1254 GB/s=34.25
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1254 GB/s=34.25
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1254 GB/s=34.26
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1254 GB/s=34.26
+[probe-bw] threads=4 best=34.26 median=34.25 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1285 GB/s=33.43
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1284 GB/s=33.44
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1284 GB/s=33.44
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1285 GB/s=33.44
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1285 GB/s=33.43
+[probe-bw] threads=8 best=33.44 median=33.44 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 4 arm llama:1
+# 13:38:45 idle 99.8% load 0.55 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=1 rep 4 load 0.55 13:38:45 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:38:46Z", "avg_ns": 2238458396, "stddev_ns": 0, "avg_ts": 66.116931, "stddev_ts": 0.000000, "samples_ns": [ 2238458396 ],"samples_ts": [ 66.1169 ]}
+## exit 0
+# 13:39:02 idle 99.8% load 0.50 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=1 rep 4 load 0.50 13:39:02 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:39:03Z", "avg_ns": 5020334866, "stddev_ns": 0, "avg_ts": 12.748154, "stddev_ts": 0.000000, "samples_ns": [ 5020334866 ],"samples_ts": [ 12.7482 ]}
+## exit 0
+### model Qwen3.5-0.8B rep 4 arm herbert:8
+# 13:39:21 idle 99.8% load 0.55 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=8 rep 4 load 0.55 13:39:21 procs>5%: ps 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 1.8 s, mounted in 0.60 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.514 s (287.7 tok/s) · 44 generated in 2.12 s (20.79 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+### model Qwen3.5-0.8B rep 4 arm llama:8
+# 13:39:38 idle 99.9% load 0.50 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=8 rep 4 load 0.50 13:39:38 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:39:39Z", "avg_ns": 353775799, "stddev_ns": 0, "avg_ts": 418.344048, "stddev_ts": 0.000000, "samples_ns": [ 353775799 ],"samples_ts": [ 418.344 ]}
+## exit 0
+# 13:39:51 idle 99.9% load 0.46 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=8 rep 4 load 0.46 13:39:51 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:39:52Z", "avg_ns": 3189362680, "stddev_ns": 0, "avg_ts": 20.066705, "stddev_ts": 0.000000, "samples_ns": [ 3189362680 ],"samples_ts": [ 20.0667 ]}
+## exit 0
+### model Qwen3.5-0.8B rep 4 arm herbert:1
+# 13:40:07 idle 99.9% load 0.90 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=1 rep 4 load 0.90 13:40:07 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.004 s
+[engine] loaded in 1.8 s, mounted in 0.60 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 3.243 s (45.6 tok/s) · 44 generated in 3.44 s (12.78 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+# 13:40:28 idle 99.9% load 0.77 0 ffmpeg/hdmi_view
+== probe Qwen3.5-0.8B t=1,2,4,8 rep 5 load 0.77 13:40:28 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1594 GB/s=26.95
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1592 GB/s=26.97
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1588 GB/s=27.05
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1591 GB/s=26.99
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1591 GB/s=27.00
+[probe-bw] threads=1 best=27.05 median=26.99 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1249 GB/s=34.40
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1249 GB/s=34.38
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1248 GB/s=34.42
+[probe-bw] threads=2 best=34.42 median=34.41 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1252 GB/s=34.31
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1251 GB/s=34.32
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1250 GB/s=34.37
+[probe-bw] threads=4 best=34.37 median=34.33 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1282 GB/s=33.51
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1289 GB/s=33.33
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1283 GB/s=33.49
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1283 GB/s=33.47
+[probe-bw] threads=8 best=33.51 median=33.48 GB/s
+## exit 0
+### model Qwen3.5-0.8B rep 5 arm herbert:8
+# 13:40:43 idle 99.8% load 0.67 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=8 rep 5 load 0.67 13:40:43 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.002 s
+[engine] loaded in 1.8 s, mounted in 0.60 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 0.515 s (287.6 tok/s) · 44 generated in 2.12 s (20.79 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+### model Qwen3.5-0.8B rep 5 arm llama:8
+# 13:41:00 idle 99.9% load 0.54 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=8 rep 5 load 0.54 13:41:00 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:41:01Z", "avg_ns": 355178492, "stddev_ns": 0, "avg_ts": 416.691898, "stddev_ts": 0.000000, "samples_ns": [ 355178492 ],"samples_ts": [ 416.692 ]}
+## exit 0
+# 13:41:13 idle 99.8% load 0.46 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=8 rep 5 load 0.46 13:41:13 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:41:14Z", "avg_ns": 3285140527, "stddev_ns": 0, "avg_ts": 19.481663, "stddev_ts": 0.000000, "samples_ns": [ 3285140527 ],"samples_ts": [ 19.4817 ]}
+## exit 0
+### model Qwen3.5-0.8B rep 5 arm herbert:1
+# 13:41:28 idle 99.8% load 0.90 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-0.8B t=1 rep 5 load 0.90 13:41:28 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 1024, 24 layers, 8 heads / 2 kv heads × 256, intermediate 3584, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 488 tensors, 1.63 GiB mapped, 0.6 s
+[loader] skipped, not used by the engine: model.visual.* ×153, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 1.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (1.40 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 1.40 GiB of weights touched in 0.004 s
+[engine] loaded in 1.8 s, mounted in 0.60 s — 8192 positions reserved, prefill program Some((5232503, 304571, 305330)), decode program Some((5231577, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs.
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209 4755 13831 261 1147 194456 322 401 1147 184743 909 195441 1663 13
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser la lenteur de la mémoire des ordinateurs."
+[turn 1] 148 prompt tokens in 3.230 s (45.8 tok/s) · 44 generated in 3.45 s (12.74 tok/s) · 0 tool calls · rewrite 0.000 s · position 192
+## exit 0
+### model Qwen3.5-0.8B rep 5 arm llama:1
+# 13:41:49 idle 99.8% load 0.71 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-0.8B t=1 rep 5 load 0.71 13:41:49 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:41:50Z", "avg_ns": 2212514542, "stddev_ns": 0, "avg_ts": 66.892216, "stddev_ts": 0.000000, "samples_ns": [ 2212514542 ],"samples_ts": [ 66.8922 ]}
+## exit 0
+# 13:42:06 idle 99.8% load 0.62 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-0.8B t=1 rep 5 load 0.62 13:42:06 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf", "model_type": "qwen35 0.8B BF16", "model_size": 1505783040, "model_n_params": 752393024, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:42:07Z", "avg_ns": 5155604337, "stddev_ns": 0, "avg_ts": 12.413676, "stddev_ts": 0.000000, "samples_ns": [ 5155604337 ],"samples_ts": [ 12.4137 ]}
+## exit 0
+# 13:42:25 idle 99.9% load 0.58 0 ffmpeg/hdmi_view
+== probe Qwen3.5-2B t=1,2,4,8 rep 1 load 0.58 13:42:26 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1600 GB/s=26.84
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1596 GB/s=26.90
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1595 GB/s=26.93
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1594 GB/s=26.94
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1588 GB/s=27.04
+[probe-bw] threads=1 best=27.04 median=26.93 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1247 GB/s=34.44
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1247 GB/s=34.45
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1247 GB/s=34.45
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1244 GB/s=34.53
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1242 GB/s=34.59
+[probe-bw] threads=2 best=34.59 median=34.45 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1254 GB/s=34.25
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1256 GB/s=34.20
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1255 GB/s=34.23
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1254 GB/s=34.24
+[probe-bw] threads=4 best=34.35 median=34.24 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1283 GB/s=33.47
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1282 GB/s=33.50
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 best=33.50 median=33.48 GB/s
+## exit 0
+### model Qwen3.5-2B rep 1 arm herbert:8
+# 13:42:41 idle 99.8% load 0.99 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=8 rep 1 load 0.99 13:42:41 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.4 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.1 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 3.9 s, mounted in 0.58 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.100 s (134.5 tok/s) · 50 generated in 5.79 s (8.64 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+### model Qwen3.5-2B rep 1 arm llama:8
+# 13:43:04 idle 99.8% load 1.21 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=8 rep 1 load 1.21 13:43:04 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:43:06Z", "avg_ns": 801003310, "stddev_ns": 0, "avg_ts": 184.768275, "stddev_ts": 0.000000, "samples_ns": [ 801003310 ],"samples_ts": [ 184.768 ]}
+## exit 0
+# 13:43:19 idle 99.9% load 1.02 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=8 rep 1 load 1.02 13:43:19 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:43:21Z", "avg_ns": 7635306714, "stddev_ns": 0, "avg_ts": 8.382113, "stddev_ts": 0.000000, "samples_ns": [ 7635306714 ],"samples_ts": [ 8.38211 ]}
+## exit 0
+### model Qwen3.5-2B rep 1 arm herbert:1
+# 13:43:41 idle 99.9% load 1.77 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=1 rep 1 load 1.77 13:43:41 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.009 s
+[engine] loaded in 4.1 s, mounted in 0.58 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 6.732 s (22.0 tok/s) · 50 generated in 9.06 s (5.52 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+### model Qwen3.5-2B rep 1 arm llama:1
+# 13:44:13 idle 99.8% load 1.31 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=1 rep 1 load 1.31 13:44:13 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:44:15Z", "avg_ns": 5514618717, "stddev_ns": 0, "avg_ts": 26.837758, "stddev_ts": 0.000000, "samples_ns": [ 5514618717 ],"samples_ts": [ 26.8378 ]}
+## exit 0
+# 13:44:37 idle 99.8% load 1.12 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=1 rep 1 load 1.12 13:44:37 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:44:39Z", "avg_ns": 12320068090, "stddev_ns": 0, "avg_ts": 5.194776, "stddev_ts": 0.000000, "samples_ns": [ 12320068090 ],"samples_ts": [ 5.19478 ]}
+## exit 0
+# 13:45:09 idle 99.8% load 0.92 0 ffmpeg/hdmi_view
+== probe Qwen3.5-2B t=1,2,4,8 rep 2 load 0.92 13:45:09 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1586 GB/s=27.08
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1585 GB/s=27.10
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1583 GB/s=27.14
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1584 GB/s=27.12
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1583 GB/s=27.13
+[probe-bw] threads=1 best=27.14 median=27.12 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1249 GB/s=34.39
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=2 best=34.41 median=34.41 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1254 GB/s=34.24
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1254 GB/s=34.25
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1254 GB/s=34.24
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1254 GB/s=34.24
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1251 GB/s=34.32
+[probe-bw] threads=4 best=34.32 median=34.24 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1282 GB/s=33.49
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1283 GB/s=33.47
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1284 GB/s=33.46
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1283 GB/s=33.46
+[probe-bw] threads=8 best=33.49 median=33.47 GB/s
+## exit 0
+### model Qwen3.5-2B rep 2 arm llama:8
+# 13:45:24 idle 99.8% load 0.78 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=8 rep 2 load 0.78 13:45:24 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:45:26Z", "avg_ns": 799469900, "stddev_ns": 0, "avg_ts": 185.122667, "stddev_ts": 0.000000, "samples_ns": [ 799469900 ],"samples_ts": [ 185.123 ]}
+## exit 0
+# 13:45:39 idle 99.7% load 0.75 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=8 rep 2 load 0.75 13:45:39 procs>5%: ps 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:45:41Z", "avg_ns": 7568206881, "stddev_ns": 0, "avg_ts": 8.456428, "stddev_ts": 0.000000, "samples_ns": [ 7568206881 ],"samples_ts": [ 8.45643 ]}
+## exit 0
+### model Qwen3.5-2B rep 2 arm herbert:1
+# 13:46:00 idle 99.8% load 1.59 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=1 rep 2 load 1.59 13:46:00 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.009 s
+[engine] loaded in 4.0 s, mounted in 0.58 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 6.762 s (21.9 tok/s) · 50 generated in 9.05 s (5.52 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+### model Qwen3.5-2B rep 2 arm llama:1
+# 13:46:33 idle 99.8% load 1.20 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=1 rep 2 load 1.20 13:46:33 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:46:35Z", "avg_ns": 5524411568, "stddev_ns": 0, "avg_ts": 26.790184, "stddev_ts": 0.000000, "samples_ns": [ 5524411568 ],"samples_ts": [ 26.7902 ]}
+## exit 0
+# 13:46:57 idle 99.8% load 0.98 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=1 rep 2 load 0.98 13:46:57 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:46:59Z", "avg_ns": 12275515847, "stddev_ns": 0, "avg_ts": 5.213630, "stddev_ts": 0.000000, "samples_ns": [ 12275515847 ],"samples_ts": [ 5.21363 ]}
+## exit 0
+### model Qwen3.5-2B rep 2 arm herbert:8
+# 13:47:28 idle 99.9% load 0.83 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=8 rep 2 load 0.83 13:47:28 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.7 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 4.2 s, mounted in 0.58 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.106 s (133.8 tok/s) · 50 generated in 5.80 s (8.63 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+# 13:47:52 idle 99.9% load 2.34 0 ffmpeg/hdmi_view
+== probe Qwen3.5-2B t=1,2,4,8 rep 3 load 2.34 13:47:52 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1599 GB/s=26.87
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1596 GB/s=26.91
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1602 GB/s=26.82
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1598 GB/s=26.88
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1594 GB/s=26.95
+[probe-bw] threads=1 best=26.95 median=26.88 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1248 GB/s=34.40
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1249 GB/s=34.39
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1247 GB/s=34.43
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1246 GB/s=34.47
+[probe-bw] threads=2 best=34.47 median=34.41 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1219 GB/s=35.24
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1251 GB/s=34.34
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1251 GB/s=34.32
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=4 best=35.24 median=34.33 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1281 GB/s=33.52
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1281 GB/s=33.53
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1279 GB/s=33.58
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1280 GB/s=33.55
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1247 GB/s=34.46
+[probe-bw] threads=8 best=34.46 median=33.55 GB/s
+## exit 0
+### model Qwen3.5-2B rep 3 arm herbert:1
+# 13:48:07 idle 99.8% load 1.95 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=1 rep 3 load 1.95 13:48:07 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.009 s
+[engine] loaded in 4.0 s, mounted in 0.58 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 6.752 s (21.9 tok/s) · 50 generated in 9.07 s (5.51 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+### model Qwen3.5-2B rep 3 arm llama:1
+# 13:48:40 idle 99.9% load 1.37 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=1 rep 3 load 1.37 13:48:40 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:48:41Z", "avg_ns": 5498005575, "stddev_ns": 0, "avg_ts": 26.918852, "stddev_ts": 0.000000, "samples_ns": [ 5498005575 ],"samples_ts": [ 26.9189 ]}
+## exit 0
+# 13:49:04 idle 99.8% load 1.11 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=1 rep 3 load 1.11 13:49:04 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:49:06Z", "avg_ns": 12226473175, "stddev_ns": 0, "avg_ts": 5.234543, "stddev_ts": 0.000000, "samples_ns": [ 12226473175 ],"samples_ts": [ 5.23454 ]}
+## exit 0
+### model Qwen3.5-2B rep 3 arm herbert:8
+# 13:49:35 idle 99.8% load 0.90 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=8 rep 3 load 0.90 13:49:35 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 4.1 s, mounted in 0.58 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.104 s (134.1 tok/s) · 50 generated in 5.80 s (8.63 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+### model Qwen3.5-2B rep 3 arm llama:8
+# 13:49:58 idle 99.8% load 1.19 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=8 rep 3 load 1.19 13:49:58 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:50:00Z", "avg_ns": 805155311, "stddev_ns": 0, "avg_ts": 183.815468, "stddev_ts": 0.000000, "samples_ns": [ 805155311 ],"samples_ts": [ 183.815 ]}
+## exit 0
+# 13:50:13 idle 99.9% load 0.99 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=8 rep 3 load 0.99 13:50:13 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:50:15Z", "avg_ns": 7651447142, "stddev_ns": 0, "avg_ts": 8.364431, "stddev_ts": 0.000000, "samples_ns": [ 7651447142 ],"samples_ts": [ 8.36443 ]}
+## exit 0
+# 13:50:35 idle 99.9% load 1.21 0 ffmpeg/hdmi_view
+== probe Qwen3.5-2B t=1,2,4,8 rep 4 load 1.21 13:50:35 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1602 GB/s=26.81
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1600 GB/s=26.85
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1598 GB/s=26.88
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1598 GB/s=26.87
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1598 GB/s=26.88
+[probe-bw] threads=1 best=26.88 median=26.87 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1250 GB/s=34.36
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1252 GB/s=34.31
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1251 GB/s=34.34
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=2 best=34.36 median=34.33 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1252 GB/s=34.30
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1249 GB/s=34.37
+[probe-bw] threads=4 best=34.37 median=34.35 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1280 GB/s=33.56
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1280 GB/s=33.55
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1279 GB/s=33.57
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1255 GB/s=34.21
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1280 GB/s=33.55
+[probe-bw] threads=8 best=34.21 median=33.56 GB/s
+## exit 0
+### model Qwen3.5-2B rep 4 arm llama:1
+# 13:50:50 idle 99.8% load 1.01 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=1 rep 4 load 1.01 13:50:50 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:50:52Z", "avg_ns": 5519070826, "stddev_ns": 0, "avg_ts": 26.816108, "stddev_ts": 0.000000, "samples_ns": [ 5519070826 ],"samples_ts": [ 26.8161 ]}
+## exit 0
+# 13:51:15 idle 99.8% load 0.78 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=1 rep 4 load 0.78 13:51:15 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:51:16Z", "avg_ns": 12503643874, "stddev_ns": 0, "avg_ts": 5.118508, "stddev_ts": 0.000000, "samples_ns": [ 12503643874 ],"samples_ts": [ 5.11851 ]}
+## exit 0
+### model Qwen3.5-2B rep 4 arm herbert:8
+# 13:51:46 idle 99.9% load 0.87 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=8 rep 4 load 0.87 13:51:46 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.4 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 4.1 s, mounted in 0.58 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.105 s (134.0 tok/s) · 50 generated in 5.79 s (8.63 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+### model Qwen3.5-2B rep 4 arm llama:8
+# 13:52:09 idle 99.8% load 1.13 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=8 rep 4 load 1.13 13:52:09 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:52:11Z", "avg_ns": 804599643, "stddev_ns": 0, "avg_ts": 183.942413, "stddev_ts": 0.000000, "samples_ns": [ 804599643 ],"samples_ts": [ 183.942 ]}
+## exit 0
+# 13:52:24 idle 99.8% load 0.88 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=8 rep 4 load 0.88 13:52:24 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:52:26Z", "avg_ns": 7637145264, "stddev_ns": 0, "avg_ts": 8.380095, "stddev_ts": 0.000000, "samples_ns": [ 7637145264 ],"samples_ts": [ 8.38009 ]}
+## exit 0
+### model Qwen3.5-2B rep 4 arm herbert:1
+# 13:52:46 idle 99.8% load 1.67 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=1 rep 4 load 1.67 13:52:46 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.2 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.009 s
+[engine] loaded in 3.9 s, mounted in 0.58 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 6.717 s (22.0 tok/s) · 50 generated in 9.06 s (5.52 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+# 13:53:18 idle 99.8% load 1.25 0 ffmpeg/hdmi_view
+== probe Qwen3.5-2B t=1,2,4,8 rep 5 load 1.25 13:53:18 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1585 GB/s=27.10
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1585 GB/s=27.09
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1591 GB/s=27.00
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1589 GB/s=27.02
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1592 GB/s=26.98
+[probe-bw] threads=1 best=27.10 median=27.02 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1249 GB/s=34.39
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1249 GB/s=34.39
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1245 GB/s=34.49
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1245 GB/s=34.51
+[probe-bw] threads=2 best=34.51 median=34.41 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1249 GB/s=34.40
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1250 GB/s=34.36
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1255 GB/s=34.21
+[probe-bw] threads=4 best=34.40 median=34.35 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1282 GB/s=33.50
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1282 GB/s=33.50
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1282 GB/s=33.49
+[probe-bw] threads=8 best=33.50 median=33.49 GB/s
+## exit 0
+### model Qwen3.5-2B rep 5 arm herbert:8
+# 13:53:34 idle 99.8% load 1.04 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=8 rep 5 load 1.04 13:53:34 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.005 s
+[engine] loaded in 4.1 s, mounted in 0.57 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 1.107 s (133.7 tok/s) · 50 generated in 5.79 s (8.63 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+### model Qwen3.5-2B rep 5 arm llama:8
+# 13:53:57 idle 99.8% load 2.64 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=8 rep 5 load 2.64 13:53:57 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:53:59Z", "avg_ns": 806839241, "stddev_ns": 0, "avg_ts": 183.431832, "stddev_ts": 0.000000, "samples_ns": [ 806839241 ],"samples_ts": [ 183.432 ]}
+## exit 0
+# 13:54:12 idle 99.8% load 2.60 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=8 rep 5 load 2.60 13:54:12 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:54:14Z", "avg_ns": 7622777788, "stddev_ns": 0, "avg_ts": 8.395890, "stddev_ts": 0.000000, "samples_ns": [ 7622777788 ],"samples_ts": [ 8.39589 ]}
+## exit 0
+### model Qwen3.5-2B rep 5 arm herbert:1
+# 13:54:34 idle 99.8% load 2.90 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-2B t=1 rep 5 load 2.90 13:54:34 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2048, 24 layers, 8 heads / 2 kv heads × 256, intermediate 6144, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/1: 632 tensors, 4.24 GiB mapped, 1.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 24 layers assembled, RoPE tables built, 3.3 s in all
+[loader] bf16 everywhere: 151 matrices packed R16 (3.50 GiB), 6 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×18, linear_attn.in_proj_z.weight×18, linear_attn.out_proj.weight×18, lm_head.weight (tied)×1, mlp.down_proj.weight×24, mlp.gate_proj.weight×24, mlp.up_proj.weight×24, self_attn.k_proj.weight×6, self_attn.o_proj.weight×6, self_attn.q_proj.weight×6, self_attn.v_proj.weight×6
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 3.50 GiB of weights touched in 0.009 s
+[engine] loaded in 4.0 s, mounted in 0.58 s — 8192 positions reserved, prefill program Some((4389695, 304571, 305330)), decode program Some((4388769, 304571, 305330))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs.
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668 1588 455 501 73372 401 1147 183208 401 198922 1298 37102 3656 1147 182235 909 27375 323 1663 13
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmonter le retard de la vitesse de génération par rapport à la puissance des processeurs."
+[turn 1] 148 prompt tokens in 6.739 s (22.0 tok/s) · 50 generated in 9.16 s (5.46 tok/s) · 0 tool calls · rewrite 0.000 s · position 198
+## exit 0
+### model Qwen3.5-2B rep 5 arm llama:1
+# 13:55:06 idle 99.8% load 2.63 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-2B t=1 rep 5 load 2.63 13:55:06 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:55:08Z", "avg_ns": 5495085469, "stddev_ns": 0, "avg_ts": 26.933157, "stddev_ts": 0.000000, "samples_ns": [ 5495085469 ],"samples_ts": [ 26.9332 ]}
+## exit 0
+# 13:55:30 idle 99.8% load 1.92 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-2B t=1 rep 5 load 1.92 13:55:30 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-2B-bf16.gguf", "model_type": "qwen35 2B BF16", "model_size": 3764747520, "model_n_params": 1881825088, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:55:32Z", "avg_ns": 12066350553, "stddev_ns": 0, "avg_ts": 5.304006, "stddev_ts": 0.000000, "samples_ns": [ 12066350553 ],"samples_ts": [ 5.30401 ]}
+## exit 0
+# 13:56:01 idle 99.8% load 1.40 0 ffmpeg/hdmi_view
+== probe Qwen3.5-4B t=1,2,4,8 rep 1 load 1.40 13:56:01 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1598 GB/s=26.88
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1598 GB/s=26.88
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1599 GB/s=26.87
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1598 GB/s=26.88
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1598 GB/s=26.88
+[probe-bw] threads=1 best=26.88 median=26.88 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1251 GB/s=34.34
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1253 GB/s=34.28
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1252 GB/s=34.30
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1252 GB/s=34.30
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1253 GB/s=34.27
+[probe-bw] threads=2 best=34.34 median=34.30 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1254 GB/s=34.25
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1254 GB/s=34.24
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1253 GB/s=34.27
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1252 GB/s=34.31
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1223 GB/s=35.13
+[probe-bw] threads=4 best=35.13 median=34.27 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1279 GB/s=33.57
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1280 GB/s=33.55
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1279 GB/s=33.57
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1279 GB/s=33.58
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1280 GB/s=33.55
+[probe-bw] threads=8 best=33.58 median=33.57 GB/s
+## exit 0
+### model Qwen3.5-4B rep 1 arm herbert:8
+# 13:56:17 idle 99.8% load 1.36 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=8 rep 1 load 1.36 13:56:17 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 2.2 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.4 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.5 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.011 s
+[engine] loaded in 6.4 s, mounted in 0.76 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 2.830 s (52.3 tok/s) · 43 generated in 11.12 s (3.87 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+### model Qwen3.5-4B rep 1 arm llama:8
+# 13:56:50 idle 99.8% load 2.69 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=8 rep 1 load 2.69 13:56:50 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:56:54Z", "avg_ns": 1993037698, "stddev_ns": 0, "avg_ts": 74.258505, "stddev_ts": 0.000000, "samples_ns": [ 1993037698 ],"samples_ts": [ 74.2585 ]}
+## exit 0
+# 13:57:09 idle 99.9% load 2.43 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=8 rep 1 load 2.43 13:57:09 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:57:13Z", "avg_ns": 17106735891, "stddev_ns": 0, "avg_ts": 3.741216, "stddev_ts": 0.000000, "samples_ns": [ 17106735891 ],"samples_ts": [ 3.74122 ]}
+## exit 0
+### model Qwen3.5-4B rep 1 arm herbert:1
+# 13:57:44 idle 99.9% load 3.39 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=1 rep 1 load 3.39 13:57:44 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 2.0 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.4 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.4 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.019 s
+[engine] loaded in 6.3 s, mounted in 0.77 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 17.338 s (8.5 tok/s) · 43 generated in 17.70 s (2.43 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+### model Qwen3.5-4B rep 1 arm llama:1
+# 13:58:38 idle 99.9% load 2.32 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=1 rep 1 load 2.32 13:58:38 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T13:58:42Z", "avg_ns": 13867530799, "stddev_ns": 0, "avg_ts": 10.672412, "stddev_ts": 0.000000, "samples_ns": [ 13867530799 ],"samples_ts": [ 10.6724 ]}
+## exit 0
+# 13:59:21 idle 99.8% load 1.51 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=1 rep 1 load 1.51 13:59:21 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T13:59:25Z", "avg_ns": 28286730450, "stddev_ns": 0, "avg_ts": 2.262545, "stddev_ts": 0.000000, "samples_ns": [ 28286730450 ],"samples_ts": [ 2.26254 ]}
+## exit 0
+# 14:00:20 idle 99.8% load 0.96 0 ffmpeg/hdmi_view
+== probe Qwen3.5-4B t=1,2,4,8 rep 2 load 0.96 14:00:20 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1585 GB/s=27.09
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1586 GB/s=27.08
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1586 GB/s=27.09
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1585 GB/s=27.10
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1585 GB/s=27.11
+[probe-bw] threads=1 best=27.11 median=27.09 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1247 GB/s=34.44
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1247 GB/s=34.43
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1249 GB/s=34.38
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1247 GB/s=34.43
+[probe-bw] threads=2 best=34.44 median=34.43 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1253 GB/s=34.27
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1252 GB/s=34.30
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1252 GB/s=34.31
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1252 GB/s=34.31
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1250 GB/s=34.36
+[probe-bw] threads=4 best=34.36 median=34.31 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1254 GB/s=34.25
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1282 GB/s=33.50
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1284 GB/s=33.45
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 best=34.25 median=33.48 GB/s
+## exit 0
+### model Qwen3.5-4B rep 2 arm llama:8
+# 14:00:35 idle 99.8% load 0.75 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=8 rep 2 load 0.75 14:00:35 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T14:00:39Z", "avg_ns": 1988378843, "stddev_ns": 0, "avg_ts": 74.432496, "stddev_ts": 0.000000, "samples_ns": [ 1988378843 ],"samples_ts": [ 74.4325 ]}
+## exit 0
+# 14:00:54 idle 99.8% load 1.13 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=8 rep 2 load 1.13 14:00:54 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T14:00:58Z", "avg_ns": 17118638301, "stddev_ns": 0, "avg_ts": 3.738615, "stddev_ts": 0.000000, "samples_ns": [ 17118638301 ],"samples_ts": [ 3.73862 ]}
+## exit 0
+### model Qwen3.5-4B rep 2 arm herbert:1
+# 14:01:29 idle 99.8% load 2.55 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=1 rep 2 load 2.55 14:01:29 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 2.3 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.8 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.019 s
+[engine] loaded in 6.8 s, mounted in 0.76 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 17.417 s (8.5 tok/s) · 43 generated in 17.69 s (2.43 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+### model Qwen3.5-4B rep 2 arm llama:1
+# 14:02:24 idle 99.9% load 1.95 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=1 rep 2 load 1.95 14:02:24 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T14:02:28Z", "avg_ns": 13822730964, "stddev_ns": 0, "avg_ts": 10.707001, "stddev_ts": 0.000000, "samples_ns": [ 13822730964 ],"samples_ts": [ 10.707 ]}
+## exit 0
+# 14:03:07 idle 99.8% load 1.29 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=1 rep 2 load 1.29 14:03:07 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T14:03:11Z", "avg_ns": 27801235020, "stddev_ns": 0, "avg_ts": 2.302056, "stddev_ts": 0.000000, "samples_ns": [ 27801235020 ],"samples_ts": [ 2.30206 ]}
+## exit 0
+### model Qwen3.5-4B rep 2 arm herbert:8
+# 14:04:04 idle 99.8% load 0.88 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=8 rep 2 load 0.88 14:04:04 procs>5%: ps 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 2.3 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.7 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.011 s
+[engine] loaded in 6.6 s, mounted in 0.76 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 2.842 s (52.1 tok/s) · 43 generated in 11.12 s (3.87 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+# 14:04:38 idle 99.8% load 2.09 0 ffmpeg/hdmi_view
+== probe Qwen3.5-4B t=1,2,4,8 rep 3 load 2.09 14:04:38 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1595 GB/s=26.93
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1585 GB/s=27.10
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1584 GB/s=27.12
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1582 GB/s=27.15
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1583 GB/s=27.12
+[probe-bw] threads=1 best=27.15 median=27.12 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1247 GB/s=34.45
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1249 GB/s=34.38
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1247 GB/s=34.45
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1249 GB/s=34.39
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1241 GB/s=34.60
+[probe-bw] threads=2 best=34.60 median=34.45 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1249 GB/s=34.40
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1250 GB/s=34.36
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1254 GB/s=34.26
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1253 GB/s=34.28
+[probe-bw] threads=4 best=34.41 median=34.36 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1281 GB/s=33.52
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1282 GB/s=33.50
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1282 GB/s=33.49
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1249 GB/s=34.37
+[probe-bw] threads=8 best=34.37 median=33.52 GB/s
+## exit 0
+### model Qwen3.5-4B rep 3 arm herbert:1
+# 14:04:53 idle 99.9% load 1.69 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=1 rep 3 load 1.69 14:04:53 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 2.2 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.4 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.6 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.019 s
+[engine] loaded in 6.5 s, mounted in 0.76 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 17.355 s (8.5 tok/s) · 43 generated in 17.81 s (2.41 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+### model Qwen3.5-4B rep 3 arm llama:1
+# 14:05:48 idle 99.9% load 1.65 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=1 rep 3 load 1.65 14:05:48 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T14:05:52Z", "avg_ns": 13856325801, "stddev_ns": 0, "avg_ts": 10.681042, "stddev_ts": 0.000000, "samples_ns": [ 13856325801 ],"samples_ts": [ 10.681 ]}
+## exit 0
+# 14:06:31 idle 99.8% load 1.19 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=1 rep 3 load 1.19 14:06:31 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T14:06:35Z", "avg_ns": 27613421552, "stddev_ns": 0, "avg_ts": 2.317714, "stddev_ts": 0.000000, "samples_ns": [ 27613421552 ],"samples_ts": [ 2.31771 ]}
+## exit 0
+### model Qwen3.5-4B rep 3 arm herbert:8
+# 14:07:28 idle 99.9% load 0.92 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=8 rep 3 load 0.92 14:07:28 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 2.3 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.5 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.8 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.011 s
+[engine] loaded in 6.7 s, mounted in 0.76 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 2.837 s (52.2 tok/s) · 43 generated in 11.11 s (3.87 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+### model Qwen3.5-4B rep 3 arm llama:8
+# 14:08:02 idle 99.9% load 2.79 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=8 rep 3 load 2.79 14:08:02 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T14:08:06Z", "avg_ns": 1999079141, "stddev_ns": 0, "avg_ts": 74.034087, "stddev_ts": 0.000000, "samples_ns": [ 1999079141 ],"samples_ts": [ 74.0341 ]}
+## exit 0
+# 14:08:21 idle 99.8% load 2.68 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=8 rep 3 load 2.68 14:08:21 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T14:08:25Z", "avg_ns": 17136550689, "stddev_ns": 0, "avg_ts": 3.734707, "stddev_ts": 0.000000, "samples_ns": [ 17136550689 ],"samples_ts": [ 3.73471 ]}
+## exit 0
+# 14:08:56 idle 99.8% load 3.52 0 ffmpeg/hdmi_view
+== probe Qwen3.5-4B t=1,2,4,8 rep 4 load 3.52 14:08:56 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1589 GB/s=27.04
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1587 GB/s=27.07
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1587 GB/s=27.06
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1589 GB/s=27.04
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1585 GB/s=27.10
+[probe-bw] threads=1 best=27.10 median=27.06 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1248 GB/s=34.41
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1247 GB/s=34.44
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1242 GB/s=34.57
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1242 GB/s=34.58
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1260 GB/s=34.08
+[probe-bw] threads=2 best=34.58 median=34.44 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1252 GB/s=34.31
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1252 GB/s=34.29
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1253 GB/s=34.29
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1254 GB/s=34.26
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1253 GB/s=34.29
+[probe-bw] threads=4 best=34.31 median=34.29 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1254 GB/s=34.25
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1283 GB/s=33.48
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1283 GB/s=33.47
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1246 GB/s=34.46
+[probe-bw] threads=8 best=34.46 median=33.48 GB/s
+## exit 0
+### model Qwen3.5-4B rep 4 arm llama:1
+# 14:09:12 idle 99.8% load 3.01 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=1 rep 4 load 3.01 14:09:12 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T14:09:15Z", "avg_ns": 13865770348, "stddev_ns": 0, "avg_ts": 10.673767, "stddev_ts": 0.000000, "samples_ns": [ 13865770348 ],"samples_ts": [ 10.6738 ]}
+## exit 0
+# 14:09:55 idle 99.8% load 1.72 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=1 rep 4 load 1.72 14:09:55 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T14:09:58Z", "avg_ns": 28192805015, "stddev_ns": 0, "avg_ts": 2.270083, "stddev_ts": 0.000000, "samples_ns": [ 28192805015 ],"samples_ts": [ 2.27008 ]}
+## exit 0
+### model Qwen3.5-4B rep 4 arm herbert:8
+# 14:10:53 idle 99.8% load 1.13 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=8 rep 4 load 1.13 14:10:53 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 2.2 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.7 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.011 s
+[engine] loaded in 6.7 s, mounted in 0.76 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 2.838 s (52.1 tok/s) · 43 generated in 11.13 s (3.86 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+### model Qwen3.5-4B rep 4 arm llama:8
+# 14:11:26 idle 99.8% load 2.57 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=8 rep 4 load 2.57 14:11:26 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T14:11:30Z", "avg_ns": 1998326367, "stddev_ns": 0, "avg_ts": 74.061976, "stddev_ts": 0.000000, "samples_ns": [ 1998326367 ],"samples_ts": [ 74.062 ]}
+## exit 0
+# 14:11:45 idle 99.9% load 1.97 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=8 rep 4 load 1.97 14:11:46 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T14:11:49Z", "avg_ns": 17089037133, "stddev_ns": 0, "avg_ts": 3.745091, "stddev_ts": 0.000000, "samples_ns": [ 17089037133 ],"samples_ts": [ 3.74509 ]}
+## exit 0
+### model Qwen3.5-4B rep 4 arm herbert:1
+# 14:12:20 idle 99.8% load 2.87 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=1 rep 4 load 2.87 14:12:20 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 2.2 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.4 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.5 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.019 s
+[engine] loaded in 6.5 s, mounted in 0.77 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 17.384 s (8.5 tok/s) · 43 generated in 17.68 s (2.43 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+# 14:13:15 idle 99.9% load 1.52 0 ffmpeg/hdmi_view
+== probe Qwen3.5-4B t=1,2,4,8 rep 5 load 1.52 14:13:15 procs>5%: 
+[probe-bw] logical=16 physical=8 smt=true kernel=16 x vmovdqa ymm (134 bytes) buffer=4 GiB passes=5
+[probe-bw] threads=1 pass=0 bytes=4294967296 seconds=0.1600 GB/s=26.84
+[probe-bw] threads=1 pass=1 bytes=4294967296 seconds=0.1599 GB/s=26.86
+[probe-bw] threads=1 pass=2 bytes=4294967296 seconds=0.1598 GB/s=26.87
+[probe-bw] threads=1 pass=3 bytes=4294967296 seconds=0.1596 GB/s=26.92
+[probe-bw] threads=1 pass=4 bytes=4294967296 seconds=0.1598 GB/s=26.88
+[probe-bw] threads=1 best=26.92 median=26.87 GB/s
+[probe-bw] threads=2 pass=0 bytes=4294967296 seconds=0.1250 GB/s=34.35
+[probe-bw] threads=2 pass=1 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=2 pass=2 bytes=4294967296 seconds=0.1251 GB/s=34.33
+[probe-bw] threads=2 pass=3 bytes=4294967296 seconds=0.1250 GB/s=34.36
+[probe-bw] threads=2 pass=4 bytes=4294967296 seconds=0.1250 GB/s=34.37
+[probe-bw] threads=2 best=34.37 median=34.35 GB/s
+[probe-bw] threads=4 pass=0 bytes=4294967296 seconds=0.1252 GB/s=34.30
+[probe-bw] threads=4 pass=1 bytes=4294967296 seconds=0.1251 GB/s=34.32
+[probe-bw] threads=4 pass=2 bytes=4294967296 seconds=0.1250 GB/s=34.37
+[probe-bw] threads=4 pass=3 bytes=4294967296 seconds=0.1250 GB/s=34.36
+[probe-bw] threads=4 pass=4 bytes=4294967296 seconds=0.1250 GB/s=34.36
+[probe-bw] threads=4 best=34.37 median=34.36 GB/s
+[probe-bw] threads=8 pass=0 bytes=4294967296 seconds=0.1280 GB/s=33.56
+[probe-bw] threads=8 pass=1 bytes=4294967296 seconds=0.1280 GB/s=33.55
+[probe-bw] threads=8 pass=2 bytes=4294967296 seconds=0.1279 GB/s=33.57
+[probe-bw] threads=8 pass=3 bytes=4294967296 seconds=0.1280 GB/s=33.55
+[probe-bw] threads=8 pass=4 bytes=4294967296 seconds=0.1277 GB/s=33.64
+[probe-bw] threads=8 best=33.64 median=33.56 GB/s
+## exit 0
+### model Qwen3.5-4B rep 5 arm herbert:8
+# 14:13:30 idle 99.9% load 1.18 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=8 rep 5 load 1.18 14:13:30 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 1.9 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.4 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.3 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 8 workers on cpus [0,1,2,3,4,5,6,7] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.011 s
+[engine] loaded in 6.2 s, mounted in 0.77 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 2.848 s (52.0 tok/s) · 43 generated in 11.13 s (3.86 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+### model Qwen3.5-4B rep 5 arm llama:8
+# 14:14:03 idle 99.8% load 2.27 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=8 rep 5 load 2.27 14:14:03 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T14:14:07Z", "avg_ns": 1999098748, "stddev_ns": 0, "avg_ts": 74.033361, "stddev_ts": 0.000000, "samples_ns": [ 1999098748 ],"samples_ts": [ 74.0334 ]}
+## exit 0
+# 14:14:23 idle 99.8% load 2.23 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=8 rep 5 load 2.23 14:14:23 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 8, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T14:14:26Z", "avg_ns": 17131640639, "stddev_ns": 0, "avg_ts": 3.735778, "stddev_ts": 0.000000, "samples_ns": [ 17131640639 ],"samples_ts": [ 3.73578 ]}
+## exit 0
+### model Qwen3.5-4B rep 5 arm herbert:1
+# 14:14:57 idle 99.8% load 3.21 0 ffmpeg/hdmi_view
+== herbert Qwen3.5-4B t=1 rep 5 load 3.21 14:14:58 procs>5%: 
+[isa] avx2=yes fma=yes avxvnni=no avx512f=no avx512bf16=no → GEMM lanes ymm-no-vnni
+[loader] qwen3_5_text — hidden 2560, 32 layers, 16 heads / 4 kv heads × 256, intermediate 9216, vocab 248320, rotary 64 dims, rope_theta 10000000, tied head true
+[loader] shard 1/2: 87 tensors, 4.96 GiB mapped, 2.1 s
+[loader] shard 2/2: 651 tensors, 3.72 GiB mapped, 1.6 s
+[loader] skipped, not used by the engine: model.visual.* ×297, mtp.fc.* ×1, mtp.layers.* ×11, mtp.norm.* ×1, mtp.pre_fc_norm_embedding.* ×1, mtp.pre_fc_norm_hidden.* ×1
+[loader] 32 layers assembled, RoPE tables built, 5.6 s in all
+[loader] bf16 everywhere: 201 matrices packed R16 (7.82 GiB), 8 gated q_proj permuted, no Q4, no cache — linear_attn.in_proj_qkv.weight×24, linear_attn.in_proj_z.weight×24, linear_attn.out_proj.weight×24, lm_head.weight (tied)×1, mlp.down_proj.weight×32, mlp.gate_proj.weight×32, mlp.up_proj.weight×32, self_attn.k_proj.weight×8, self_attn.o_proj.weight×8, self_attn.q_proj.weight×8, self_attn.v_proj.weight×8
+[pool] 1 workers on cpus [0] · caller = worker 0: yes · spin 500 µs · coordinator spins: yes
+[engine] 7.83 GiB of weights touched in 0.019 s
+[engine] loaded in 6.6 s, mounted in 0.77 s — 8192 positions reserved, prefill program Some((6321561, 404459, 405442)), decode program Some((6320337, 404459, 405442))
+[tokens] im_start 248045 im_end 248046 endoftext 248044 think Some(248068)/Some(248069) tool_call Some(248058)/Some(248059) · vocab 248070
+
+>>> Voici un texte à résumer. La mémoire des ordinateurs a longtemps progressé moins vite que leurs unités de calcul : les processeurs doublaient leur puissance tous les deux ans, tandis que la bande passante de la mémoire suivait avec retard. Pour les modèles de langage, chaque jeton généré exige de relire tous les poids du modèle, si bien que la vitesse de génération dépend surtout de la quantité de données que la mémoire peut livrer par seconde. Les architectures récentes multiplient donc les canaux mémoire, empilent la mémoire au plus près des cœurs et ajoutent des caches plus grands. Résume ce texte en une phrase.
+
+[answer]
+Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches.
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147 184743 909 272 225503 1778 47080 505 1147 59644 909 51790 13
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire des cœurs et augmentant la taille des caches."
+[turn 1] 148 prompt tokens in 17.385 s (8.5 tok/s) · 43 generated in 17.74 s (2.42 tok/s) · 0 tool calls · rewrite 0.000 s · position 191
+## exit 0
+### model Qwen3.5-4B rep 5 arm llama:1
+# 14:15:52 idle 99.8% load 1.73 0 ffmpeg/hdmi_view
+== llama-pp148 Qwen3.5-4B t=1 rep 5 load 1.73 14:15:52 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 148, "n_gen": 0, "n_depth": 0, "test_time": "2026-10-08T14:15:56Z", "avg_ns": 13836637681, "stddev_ns": 0, "avg_ts": 10.696240, "stddev_ts": 0.000000, "samples_ns": [ 13836637681 ],"samples_ts": [ 10.6962 ]}
+## exit 0
+# 14:16:35 idle 99.8% load 1.18 0 ffmpeg/hdmi_view
+== llama-tg64 Qwen3.5-4B t=1 rep 5 load 1.18 14:16:35 procs>5%: 
+{"build_commit": "1ab7e5ad2", "build_number": 11177, "cpu_info": "AMD Ryzen 7 5700G with Radeon Graphics", "gpu_info": "", "backends": "CPU", "model_filename": "/home/zexigh/bench-engines/gguf/Qwen3.5-4B-bf16.gguf", "model_type": "qwen35 4B BF16", "model_size": 8413425664, "model_n_params": 4205751296, "n_batch": 2048, "n_ubatch": 512, "n_threads": 1, "cpu_mask": "0x0", "cpu_strict": false, "poll": 50, "type_k": "f16", "type_v": "f16", "n_gpu_layers": -1, "n_cpu_moe": 0, "split_mode": "layer", "main_gpu": 0, "no_kv_offload": false, "flash_attn": -1, "devices": "auto", "tensor_split": "0.00", "tensor_buft_overrides": "none", "load_mode": "none", "lazy_mode": "auto", "embeddings": false, "no_op_offload": 0, "no_host": false, "fit_target": 0, "fit_min_ctx": 0, "n_prompt": 0, "n_gen": 64, "n_depth": 148, "test_time": "2026-10-08T14:16:39Z", "avg_ns": 27940052416, "stddev_ns": 0, "avg_ts": 2.290618, "stddev_ts": 0.000000, "samples_ns": [ 27940052416 ],"samples_ts": [ 2.29062 ]}
+## exit 0
+## 2026-10-08T14:17:22Z finished

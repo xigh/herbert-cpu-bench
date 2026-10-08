@@ -1,0 +1,6 @@
+[ov] openvino 2026.4.1-22982-e213a147257-releases/2026/4 genai 2026.4.1.0-3408-ab01d1771e4 props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'PA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.6 s, maxrss 3.16 GB
+[ids] [22969, 74593, 207357, 14091, 7072, 186173, 933, 3424, 628, 11640, 184743, 1778, 324, 6, 3157, 379, 1223, 1147, 184743, 4755, 13831, 261, 1147, 194456, 322, 909, 27375, 323, 1663, 11, 1036, 185155]
+[decoded] "Les architectures modernes ont multiplié les canaux mémoire et l'emploier la mémoire pour compenser la lenteur des processeurs, assurant"
+[reference] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour"
+[agreement] compared 32 first_divergence 2

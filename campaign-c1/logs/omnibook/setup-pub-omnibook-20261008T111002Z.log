@@ -1,0 +1,19 @@
+## 2026-10-08T11:10:02Z host omnibook · Linux 7.0.0-31-generic x86_64 · model name	: Intel(R) Core(TM) Ultra 7 258V
+rustc 1.97.1 (8bab26f4f 2026-07-14)
+cargo 1.97.1 (c980f4866 2026-06-30)
+## 2026-10-08T11:10:02Z pub tree sha256 (all files, target excluded): deace45cf8fdadf8
+## 2026-10-08T11:10:02Z pub: cargo build --release --locked
+   Compiling herbert-bf16 v0.1.0 (/home/zexigh/c1/pub)
+    Finished `release` profile [optimized] target(s) in 30.49s
+## exit 0
+5246af8003803d602e455c748526e2336aa30acc7b5c494910c2276378bda087  target/release/herbert-bf16-chat
+## 2026-10-08T11:10:33Z probe-bw: cargo build --release
+    Finished `release` profile [optimized] target(s) in 0.01s
+## exit 0
+fd49cec5d19183aceb2b2b51fd85e5681599dd3ad0a6262d2aee66cbd413979d  target/release/probe-bw
+version = "1.21.0"
+## 2026-10-08T11:10:33Z smoke: probe-bw, 1 GiB, 1 pass, 1 thread
+[probe-bw] logical=8 physical=8 smt=false kernel=16 x vmovdqa ymm (134 bytes) buffer=1 GiB passes=1
+[probe-bw] threads=1 pass=0 bytes=1073741824 seconds=0.0285 GB/s=37.67
+[probe-bw] threads=1 best=37.67 median=37.67 GB/s
+## 2026-10-08T11:10:33Z done

@@ -1,0 +1,11 @@
+[tests] 2026-09-25T07:31:35Z sha256 63b763d1b158d2f5
+
+running 3 tests
+test jit::gemm_bf16_conformance::avx2_bf16_gemm_matches_its_scalar_order_on_served_shapes ... AVX2 bf16 GEMM: 1600640 elements on normal inputs, 3200 with bf16 denormals, all bit-exact
+ok
+test jit::gemm_bf16_conformance::avx2_ne_convert_bf16_gemm_matches_the_avx2_order_on_served_shapes ... AVX2 + AVX-NE-CONVERT bf16 GEMM: 1600640 elements on normal inputs, 3200 with bf16 denormals, all bit-exact
+ok
+test jit::gemm_bf16_conformance::avx512_bf16_gemm_matches_its_scalar_order_on_served_shapes ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 136 filtered out; finished in 48.14s
+

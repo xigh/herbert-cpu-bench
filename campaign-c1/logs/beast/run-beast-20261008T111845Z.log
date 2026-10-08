@@ -1,0 +1,6 @@
+run beast 20261008T111845Z steps: outputs bisect c1 ovdiag
+step outputs done 2026-10-08T11:24:14Z
+step bisect done 2026-10-08T11:49:02Z
+step c1 done 2026-10-08T14:08:02Z
+step ovdiag done 2026-10-08T14:09:01Z
+finished 2026-10-08T14:09:01Z

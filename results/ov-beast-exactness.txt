@@ -1,0 +1,3 @@
+[exactness] beast Qwen3.5-0.8B openvino compared 32 first divergence none
+[exactness] beast Qwen3.5-2B openvino compared 32 first divergence none
+[exactness] beast Qwen3.5-4B openvino compared 32 first divergence none

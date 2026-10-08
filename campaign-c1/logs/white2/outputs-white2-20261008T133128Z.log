@@ -1,0 +1,31 @@
+## 2026-10-08T13:31:28Z host white2 · Linux 7.0.0-38-generic x86_64
+model name	: AMD Ryzen 7 5700G with Radeon Graphics
+governor powersave epp balance_performance · load 1.41 1.51 0.84 1/680 9045
+processes >5% cpu: 
+ffmpeg/hdmi_view running: 
+out /home/zexigh/c1/logs/outputs-white2-20261008T133128Z herbert 812460c2044b5266 T=8 transformers 
+## 2026-10-08T13:31:28Z Qwen3.5-0.8B reference fp32: the C1 JSON of beast (/home/zexigh/c1/ref/Qwen3.5-0.8B.json: prompt ids + reference_fp32 + vllm_bf16 of beast), no transformers / vLLM on this machine
+## 2026-10-08T13:31:28Z Qwen3.5-0.8B llama.cpp (llama-server, same ids, top_k 1)
+[outputs] llama.cpp: "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour" [22969, 74593, 9056, 224731, 14091, 7072, 186173, 933, 3424, 628, 11640, 184743, 11, 324, 6, 3157, 208079, 1147, 184743, 7657, 5346, 80392, 909, 272, 225503, 1778, 205429, 909, 51790, 5346, 90209, 4755]
+## 2026-10-08T13:31:32Z Qwen3.5-0.8B herbert (published copy, --max-tokens 32)
+## exit 0
+[ids] 22969 74593 9056 224731 14091 7072 186173 933 3424 628 11640 184743 11 324 6 3157 208079 1147 184743 7657 5346 80392 909 272 225503 1778 205429 909 51790 5346 90209
+[decoded] "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands"
+[turn 1] 148 prompt tokens in 0.517 s (286.4 tok/s) · 31 generated in 1.49 s (20.75 tok/s) · 0 tool calls · rewrite 0.000 s · position 179
+## 2026-10-08T13:31:37Z Qwen3.5-2B reference fp32: the C1 JSON of beast (/home/zexigh/c1/ref/Qwen3.5-2B.json: prompt ids + reference_fp32 + vllm_bf16 of beast), no transformers / vLLM on this machine
+## 2026-10-08T13:31:37Z Qwen3.5-2B llama.cpp (llama-server, same ids, top_k 1)
+[outputs] llama.cpp: 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon' [22969, 74593, 9056, 224731, 401, 184743, 4755, 3424, 181349, 401, 208257, 3493, 13450, 12197, 2486, 416, 401, 628, 11640, 11, 8226, 448, 468, 909, 13067, 1778, 51790, 47080, 5229, 4755, 1668, 1588]
+## 2026-10-08T13:31:42Z Qwen3.5-2B herbert (published copy, --max-tokens 32)
+## exit 0
+[ids] 22969 74593 9056 224731 401 184743 4755 3424 181349 401 208257 3493 13450 12197 2486 416 401 628 11640 11 8226 448 468 909 13067 1778 51790 47080 5229 4755 1668
+[decoded] "Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour sur"
+[turn 1] 148 prompt tokens in 1.111 s (133.2 tok/s) · 31 generated in 3.59 s (8.63 tok/s) · 0 tool calls · rewrite 0.000 s · position 179
+## 2026-10-08T13:31:53Z Qwen3.5-4B reference fp32: the C1 JSON of beast (/home/zexigh/c1/ref/Qwen3.5-4B.json: prompt ids + reference_fp32 + vllm_bf16 of beast), no transformers / vLLM on this machine
+## 2026-10-08T13:31:53Z Qwen3.5-4B llama.cpp (llama-server, same ids, top_k 1)
+[outputs] llama.cpp: 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire' [40781, 219485, 49598, 1147, 198922, 909, 181349, 401, 208257, 11, 3424, 74593, 9056, 224731, 7314, 181699, 1147, 90793, 1440, 4783, 184743, 644, 7072, 57832, 3424, 628, 11640, 11, 208701, 11345, 1147, 184743]
+## 2026-10-08T13:32:06Z Qwen3.5-4B herbert (published copy, --max-tokens 32)
+## exit 0
+[ids] 40781 219485 49598 1147 198922 909 181349 401 208257 11 3424 74593 9056 224731 7314 181699 1147 90793 1440 4783 184743 644 7072 57832 3424 628 11640 11 208701 11345 1147
+[decoded] "Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la"
+[turn 1] 148 prompt tokens in 2.859 s (51.8 tok/s) · 31 generated in 8.01 s (3.87 tok/s) · 0 tool calls · rewrite 0.000 s · position 179
+## 2026-10-08T13:32:25Z finished -> /home/zexigh/c1/logs/outputs-white2-20261008T133128Z

@@ -1,0 +1,154 @@
+    Updating crates.io index
+     Locking 3 packages to latest Rust 1.98.0 compatible versions
+ Downloading crates ...
+  Downloaded lazy_static v1.5.1
+  Downloaded libc v0.2.190
+   Compiling libc v0.2.190
+   Compiling lazy_static v1.5.1
+   Compiling iced-x86 v1.21.0
+   Compiling probe-bw v0.1.0 (C:\Users\zexig\c1\probe-bw)
+error[E0425]: cannot find function `mmap` in crate `libc`
+  --> src\main.rs:49:23
+   |
+49 |         let p = libc::mmap(std::ptr::null_mut(), 4096, libc::PROT_READ | libc::PROT_WRITE,
+   |                       ^^^^ not found in `libc`
+
+error[E0425]: cannot find value `PROT_READ` in crate `libc`
+  --> src\main.rs:49:62
+   |
+49 |         let p = libc::mmap(std::ptr::null_mut(), 4096, libc::PROT_READ | libc::PROT_WRITE,
+   |                                                              ^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `PROT_WRITE` in crate `libc`
+  --> src\main.rs:49:80
+   |
+49 |         let p = libc::mmap(std::ptr::null_mut(), 4096, libc::PROT_READ | libc::PROT_WRITE,
+   |                                                                                ^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `MAP_PRIVATE` in crate `libc`
+  --> src\main.rs:50:19
+   |
+50 |             libc::MAP_PRIVATE | libc::MAP_ANONYMOUS, -1, 0);
+   |                   ^^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `MAP_ANONYMOUS` in crate `libc`
+  --> src\main.rs:50:39
+   |
+50 |             libc::MAP_PRIVATE | libc::MAP_ANONYMOUS, -1, 0);
+   |                                       ^^^^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `MAP_FAILED` in crate `libc`
+  --> src\main.rs:51:29
+   |
+51 |         assert_ne!(p, libc::MAP_FAILED);
+   |                             ^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find function `mprotect` in crate `libc`
+  --> src\main.rs:53:26
+   |
+53 |         assert_eq!(libc::mprotect(p, 4096, libc::PROT_READ | libc::PROT_EXEC), 0);
+   |                          ^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `PROT_READ` in crate `libc`
+  --> src\main.rs:53:50
+   |
+53 |         assert_eq!(libc::mprotect(p, 4096, libc::PROT_READ | libc::PROT_EXEC), 0);
+   |                                                  ^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `PROT_EXEC` in crate `libc`
+  --> src\main.rs:53:68
+   |
+53 |         assert_eq!(libc::mprotect(p, 4096, libc::PROT_READ | libc::PROT_EXEC), 0);
+   |                                                                    ^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find type `cpu_set_t` in crate `libc`
+  --> src\main.rs:60:28
+   |
+60 |         let mut set: libc::cpu_set_t = std::mem::zeroed();
+   |                            ^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find function, tuple struct or tuple variant `CPU_SET` in crate `libc`
+  --> src\main.rs:61:15
+   |
+61 |         libc::CPU_SET(cpu, &mut set);
+   |               ^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find function `sched_setaffinity` in crate `libc`
+  --> src\main.rs:62:26
+   |
+62 |         assert_eq!(libc::sched_setaffinity(0, std::mem::size_of::<libc::cpu_set_t>(), &set), 0, "pin cpu {cpu}");
+   |                          ^^^^^^^^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find type `cpu_set_t` in crate `libc`
+  --> src\main.rs:62:73
+   |
+62 |         assert_eq!(libc::sched_setaffinity(0, std::mem::size_of::<libc::cpu_set_t>(), &set), 0, "pin cpu {cpu}");
+   |                                                                         ^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find function `sysconf` in crate `libc`
+   --> src\main.rs:74:34
+    |
+ 74 |     let logical = unsafe { libc::sysconf(libc::_SC_NPROCESSORS_ONLN) } as usize;
+    |                                  ^^^^^^^
+    |
+   ::: C:\Users\zexig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\libc-0.2.190\src\windows\mod.rs:288:13
+    |
+288 |             pub fn sscanf(buffer: *const c_char, format: *const c_char, ...) -> c_int;
+    |             -------------------------------------------------------------------------- similarly named function `sscanf` defined here
+    |
+help: a function with a similar name exists
+    |
+ 74 -     let logical = unsafe { libc::sysconf(libc::_SC_NPROCESSORS_ONLN) } as usize;
+ 74 +     let logical = unsafe { libc::sscanf(libc::_SC_NPROCESSORS_ONLN) } as usize;
+    |
+
+error[E0425]: cannot find value `_SC_NPROCESSORS_ONLN` in crate `libc`
+  --> src\main.rs:74:48
+   |
+74 |     let logical = unsafe { libc::sysconf(libc::_SC_NPROCESSORS_ONLN) } as usize;
+   |                                                ^^^^^^^^^^^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find function `mmap` in crate `libc`
+  --> src\main.rs:90:23
+   |
+90 |         let p = libc::mmap(std::ptr::null_mut(), bytes, libc::PROT_READ | libc::PROT_WRITE,
+   |                       ^^^^ not found in `libc`
+
+error[E0425]: cannot find value `PROT_READ` in crate `libc`
+  --> src\main.rs:90:63
+   |
+90 |         let p = libc::mmap(std::ptr::null_mut(), bytes, libc::PROT_READ | libc::PROT_WRITE,
+   |                                                               ^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `PROT_WRITE` in crate `libc`
+  --> src\main.rs:90:81
+   |
+90 |         let p = libc::mmap(std::ptr::null_mut(), bytes, libc::PROT_READ | libc::PROT_WRITE,
+   |                                                                                 ^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `MAP_PRIVATE` in crate `libc`
+  --> src\main.rs:91:19
+   |
+91 |             libc::MAP_PRIVATE | libc::MAP_ANONYMOUS | libc::MAP_POPULATE, -1, 0);
+   |                   ^^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `MAP_ANONYMOUS` in crate `libc`
+  --> src\main.rs:91:39
+   |
+91 |             libc::MAP_PRIVATE | libc::MAP_ANONYMOUS | libc::MAP_POPULATE, -1, 0);
+   |                                       ^^^^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `MAP_POPULATE` in crate `libc`
+  --> src\main.rs:91:61
+   |
+91 |             libc::MAP_PRIVATE | libc::MAP_ANONYMOUS | libc::MAP_POPULATE, -1, 0);
+   |                                                             ^^^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `MAP_FAILED` in crate `libc`
+  --> src\main.rs:92:29
+   |
+92 |         assert_ne!(p, libc::MAP_FAILED);
+   |                             ^^^^^^^^^^ not found in `libc`
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `probe-bw` (bin "probe-bw") due to 22 previous errors

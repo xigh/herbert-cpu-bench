@@ -1,0 +1,8 @@
+[ov] openvino 2026.4.0-22959-99c81491cc3-releases/2026/4 genai 2026.4.0.0-3407-7ea2546852a props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 0.6 s, maxrss 3.16 GB
+[iter 0] prompt 148 ttft 114.02 ms tpot 42.233 ms generated 64 -> prefill 1298.0 tok/s decode 23.68 tok/s
+[iter 1] prompt 148 ttft 113.89 ms tpot 42.234 ms generated 64 -> prefill 1299.5 tok/s decode 23.68 tok/s
+[iter 2] prompt 148 ttft 113.51 ms tpot 42.229 ms generated 64 -> prefill 1303.9 tok/s decode 23.68 tok/s
+[iter 3] prompt 148 ttft 113.86 ms tpot 42.229 ms generated 64 -> prefill 1299.8 tok/s decode 23.68 tok/s
+[iter 4] prompt 148 ttft 114.06 ms tpot 42.246 ms generated 64 -> prefill 1297.5 tok/s decode 23.67 tok/s
+[ov-bench] prefill_median 1299.50 decode_median 23.678 tok/s iters 5 maxrss 4.73 GB

@@ -1,0 +1,570 @@
+
+### date / host
+2026-09-25T07:00:01Z
+maistrow
+Linux maistrow 6.8.0-138-generic #138-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 31 22:41:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+
+### os
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
+### kernel cmdline
+BOOT_IMAGE=/vmlinuz-6.8.0-138-generic root=UUID=d4ed8f2b-e2ab-4b0b-9a0d-4863e1cde160 ro nomodeset iommu=pt console=tty0 console=ttyS0,115200n8
+
+### cpu
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           48 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  16
+On-line CPU(s) list:                     0-15
+Vendor ID:                               AuthenticAMD
+Model name:                              AMD EPYC 4344P 8-Core Processor
+CPU family:                              25
+Model:                                   97
+Thread(s) per core:                      2
+Core(s) per socket:                      8
+Socket(s):                               1
+Stepping:                                2
+CPU(s) scaling MHz:                      61%
+CPU max MHz:                             5389.0000
+CPU min MHz:                             545.0000
+BogoMIPS:                                7585.85
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc amd_ibpb_ret arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca fsrm flush_l1d ibpb_exit_to_user
+Virtualization:                          AMD-V
+L1d cache:                               256 KiB (8 instances)
+L1i cache:                               256 KiB (8 instances)
+L2 cache:                                8 MiB (8 instances)
+L3 cache:                                32 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-15
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Mitigation; Safe RET
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Mitigation; Clear CPU buffers
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Mitigation; IBPB before exit to userspace
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE    MAXMHZ   MINMHZ       MHZ
+  0    0      0    0 0:0:0:0          yes 5389.0000 545.0000  545.0000
+  1    0      0    1 1:1:1:0          yes 5389.0000 545.0000 4271.3481
+  2    0      0    2 2:2:2:0          yes 5389.0000 545.0000 4264.3369
+  3    0      0    3 3:3:3:0          yes 5389.0000 545.0000 5342.6650
+  4    0      0    4 4:4:4:0          yes 5389.0000 545.0000  545.0000
+  5    0      0    5 5:5:5:0          yes 5389.0000 545.0000  545.0000
+  6    0      0    6 6:6:6:0          yes 5389.0000 545.0000 4260.4268
+  7    0      0    7 7:7:7:0          yes 5389.0000 545.0000  545.0000
+  8    0      0    0 0:0:0:0          yes 5389.0000 545.0000 4257.6021
+  9    0      0    1 1:1:1:0          yes 5389.0000 545.0000  545.0000
+ 10    0      0    2 2:2:2:0          yes 5389.0000 545.0000 4263.0708
+ 11    0      0    3 3:3:3:0          yes 5389.0000 545.0000 4227.0352
+ 12    0      0    4 4:4:4:0          yes 5389.0000 545.0000 4272.7378
+ 13    0      0    5 5:5:5:0          yes 5389.0000 545.0000 4273.6572
+ 14    0      0    6 6:6:6:0          yes 5389.0000 545.0000  545.0000
+ 15    0      0    7 7:7:7:0          yes 5389.0000 545.0000 4192.4971
+
+### cpu flags (cpu0)
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc amd_ibpb_ret arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca fsrm flush_l1d ibpb_exit_to_user
+
+### microcode
+microcode	: 0xa60120a
+
+### frequency policy
+scaling_governor: powersave
+energy_performance_preference: performance
+scaling_driver: amd-pstate-epp
+scaling_min_freq: 545000
+scaling_max_freq: 5389000
+boost: 
+amd_pstate: active
+
+### smt / numa / thp
+smt: on
+available: 1 nodes (0)
+node 0 cpus: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+node 0 size: 63907 MB
+node 0 free: 23518 MB
+node distances:
+node   0 
+  0:  10 
+thp: always [madvise] never defrag: always defer defer+madvise [madvise] never
+
+### memory
+               total        used        free      shared  buff/cache   available
+Mem:     67012124672 27213398016 24660557824     2576384 15894310912 39798726656
+Swap:     1073733632  1072582656     1150976
+# dmidecode 3.5
+Getting SMBIOS data from sysfs.
+SMBIOS 3.7.0 present.
+# SMBIOS implementations newer than version 3.5.0 are not
+# fully supported by this version of dmidecode.
+
+Handle 0x0016, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: None
+	Maximum Capacity: 128 GB
+	Error Information Handle: 0x0015
+	Number Of Devices: 4
+
+Handle 0x0019, DMI type 17, 100 bytes
+Memory Device
+	Array Handle: 0x0016
+	Error Information Handle: 0x0018
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: DIMM 0
+	Bank Locator: P0 CHANNEL A
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x001B, DMI type 17, 100 bytes
+Memory Device
+	Array Handle: 0x0016
+	Error Information Handle: 0x001A
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 32 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM 1
+	Bank Locator: P0 CHANNEL A
+	Type: DDR5
+	Type Detail: Synchronous Unbuffered (Unregistered)
+	Speed: 5600 MT/s
+	Manufacturer: Samsung
+	Serial Number: 062960E8
+	Asset Tag: Not Specified
+	Part Number: M323R4GA3PB0-CWMOD            
+	Rank: 2
+	Configured Memory Speed: 5200 MT/s
+	Minimum Voltage: 1.1 V
+	Maximum Voltage: 1.1 V
+	Configured Voltage: 1.1 V
+	Memory Technology: DRAM
+	Memory Operating Mode Capability: Volatile memory
+	Firmware Version: Unknown
+	Module Manufacturer ID: Bank 1, Hex 0xCE
+	Module Product ID: Unknown
+	Memory Subsystem Controller Manufacturer ID: Unknown
+	Memory Subsystem Controller Product ID: Unknown
+	Non-Volatile Size: None
+	Volatile Size: 32 GB
+	Cache Size: None
+	Logical Size: None
+
+Handle 0x001E, DMI type 17, 100 bytes
+Memory Device
+	Array Handle: 0x0016
+	Error Information Handle: 0x001D
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: DIMM 0
+	Bank Locator: P0 CHANNEL B
+	Type: Unknown
+	Type Detail: Unknown
+
+Handle 0x0020, DMI type 17, 100 bytes
+Memory Device
+	Array Handle: 0x0016
+	Error Information Handle: 0x001F
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 32 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM 1
+	Bank Locator: P0 CHANNEL B
+	Type: DDR5
+	Type Detail: Synchronous Unbuffered (Unregistered)
+	Speed: 5600 MT/s
+	Manufacturer: Samsung
+	Serial Number: 062969EF
+	Asset Tag: Not Specified
+	Part Number: M323R4GA3PB0-CWMOD            
+	Rank: 2
+	Configured Memory Speed: 5200 MT/s
+	Minimum Voltage: 1.1 V
+	Maximum Voltage: 1.1 V
+	Configured Voltage: 1.1 V
+	Memory Technology: DRAM
+	Memory Operating Mode Capability: Volatile memory
+	Firmware Version: Unknown
+	Module Manufacturer ID: Bank 1, Hex 0xCE
+	Module Product ID: Unknown
+	Memory Subsystem Controller Manufacturer ID: Unknown
+	Memory Subsystem Controller Product ID: Unknown
+	Non-Volatile Size: None
+	Volatile Size: 32 GB
+	Cache Size: None
+	Logical Size: None
+
+# dmidecode 3.5
+Getting SMBIOS data from sysfs.
+SMBIOS 3.7.0 present.
+# SMBIOS implementations newer than version 3.5.0 are not
+# fully supported by this version of dmidecode.
+
+Handle 0x0000, DMI type 0, 26 bytes
+BIOS Information
+	Vendor: American Megatrends International, LLC.
+	Version: ES366AOC.10K
+	Release Date: 01/15/2025
+	Address: 0xF0000
+	Runtime Size: 64 kB
+	ROM Size: 32 MB
+	Characteristics:
+		PCI is supported
+		PNP is supported
+		BIOS is upgradeable
+		BIOS shadowing is allowed
+		Boot from CD is supported
+		Selectable boot is supported
+		BIOS ROM is socketed
+		EDD is supported
+		Print screen service is supported (int 5h)
+		Serial services are supported (int 14h)
+		Printer services are supported (int 17h)
+		ACPI is supported
+		USB legacy is supported
+		BIOS boot specification is supported
+		Targeted content distribution is supported
+		UEFI is supported
+	BIOS Revision: 5.35
+
+Handle 0x0007, DMI type 13, 22 bytes
+BIOS Language Information
+	Language Description Format: Long
+	Installable Languages: 1
+		en|US|iso8859-1
+	Currently Installed Language: en|US|iso8859-1
+
+# dmidecode 3.5
+Getting SMBIOS data from sysfs.
+SMBIOS 3.7.0 present.
+# SMBIOS implementations newer than version 3.5.0 are not
+# fully supported by this version of dmidecode.
+
+Handle 0x0002, DMI type 2, 15 bytes
+Base Board Information
+	Manufacturer: MSI
+	Product Name: S3661
+	Version: To be filled by O.E.M.
+	Serial Number: N/A
+	Asset Tag: To be filled by O.E.M.
+	Features:
+		Board is a hosting board
+		Board is replaceable
+	Location In Chassis: Default string
+	Chassis Handle: 0x0003
+	Type: Motherboard
+	Contained Object Handles: 0
+
+Handle 0x0004, DMI type 10, 6 bytes
+On Board Device Information
+	Type: Unknown
+	Status: Enabled
+	Description: Device 1
+
+
+### load / top
+ 07:00:01 up 23 days,  8:36,  1 user,  load average: 3.04, 5.27, 4.99
+    PID %CPU %MEM     ELAPSED COMMAND
+ 449909  6.5 29.6       42:26 herbert-server
+ 460430  0.1  0.0       10:01 fail2ban-server
+ 453792  0.0  0.0       10:43 fwupd
+ 447223  0.0  0.0       49:35 kworker/u32:14-events_power_efficient
+    138  0.0  0.0 23-08:36:44 kswapd0
+    119  0.0  0.0 23-08:36:46 kcompactd0
+ 452455  0.0  0.0       23:00 kworker/u32:0-flush-9:3
+ 454063  0.0  0.0       10:25 kworker/u32:2-events_power_efficient
+    389  0.0  0.0 23-08:36:41 md3_raid1
+ 453075  0.0  0.0       16:40 kworker/u32:1-events_power_efficient
+ 440662  0.0  0.0    10:14:16 kworker/1:1-events
+ 460413  0.0  0.0       10:01 ModemManager
+ 460399  0.0  0.0       10:01 polkitd
+ 250548  0.0  0.0 14-00:01:18 multipathd
+
+### toolchains
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Python 3.12.3
+ldd (Ubuntu GLIBC 2.39-0ubuntu8.9) 2.39
+
+### herbert
+53bc98c18cb8ffa7542098d3b87d9b0eaf97dcecf24006b49fd3ba82ab9df1b8  /home/ubuntu/herbert-zen6/herbert-bf16-chat
+
+### probes
+b8690353810be289a5ebe852cdf1221fd31fa6a3cdfd9c7766e570732609c59b  /home/ubuntu/bench-engines/probe-bw
+
+### llama.cpp
+1ab7e5ad2d4e7295c94c3b966a3e0b70fa365865 2026-09-25 08:22:43 +0300 CUDA: fuse RMS_NORM + SCALE into one kernel (#29393)
+CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
+CMAKE_C_FLAGS:STRING=
+GGML_AVX:BOOL=OFF
+GGML_AVX2:BOOL=OFF
+GGML_AVX512:BOOL=OFF
+GGML_AVX512_BF16:BOOL=OFF
+GGML_AVX512_VBMI:BOOL=OFF
+GGML_AVX512_VNNI:BOOL=OFF
+GGML_AVX_VNNI:BOOL=OFF
+GGML_LLAMAFILE:BOOL=ON
+GGML_NATIVE:BOOL=ON
+Available devices:
+  (none)
+942ea58f188db7c5e9d66a52fcc6e4e0804e1e879229ce28052205a2c77f1862  /home/ubuntu/bench-engines/llama.cpp/build/bin/llama-bench
+
+### gguf
+aa17c369420d8a1d92fd453dd43b6865999c3fae33c284db4ac7a427326ca6c5  /home/ubuntu/bench-engines/gguf/Qwen3.5-0.8B-bf16.gguf
+0683eb7f42555ea971ac17d00a8c934bf663826dd3e7432b8b52a43412738ba6  /home/ubuntu/bench-engines/gguf/Qwen3.5-2B-bf16.gguf
+954f269ee0be3e2b0819862f9ed2784b3aee88b806febf30c59400e69723c100  /home/ubuntu/bench-engines/gguf/Qwen3.5-4B-bf16.gguf
+
+### venv-vllm (pip freeze)
+agent-detector==2.0.0
+aiohappyeyeballs==2.7.1
+aiohttp==3.14.3
+aiosignal==1.4.0
+annotated-doc==0.0.5
+annotated-types==0.8.0
+anthropic==1.8.0
+anyio==4.15.1
+apache-tvm-ffi==0.1.14.post1
+astor==0.8.1
+attrs==26.1.0
+blake3==1.0.9
+cachetools==7.2.0
+cbor2==6.1.4
+certifi==2026.7.22
+cffi==2.1.1
+charset-normalizer==3.5.1
+click==8.5.0
+cloudpickle==3.1.2
+compressed-tensors==0.17.0
+cryptography==50.0.1
+depyf==0.20.0
+detect-installer==0.2.1
+dill==0.4.1
+dnspython==2.8.0
+docstring-parser==0.18.0
+einops==0.8.2
+email-validator==2.3.0
+fastapi==0.136.3
+fastapi-cli==0.0.32
+fastapi-cloud-cli==0.26.0
+fastar==0.12.0
+filelock==4.0.3
+frozenlist==1.8.0
+fsspec==2026.9.0
+googleapis-common-protos==1.75.4
+grpcio==1.84.0
+h11==0.16.0
+hf-xet==1.6.0
+httpcore==1.0.9
+httpcore2==2.13.1
+httptools==0.8.0
+httpx==0.28.1
+httpx2==2.13.1
+huggingface-hub==1.33.0
+idna==3.20
+ijson==3.5.1
+intel-cmplr-lib-ur==2024.2.1
+intel-openmp==2024.2.1
+interegular==0.3.3
+jinja2==3.1.6
+jiter==0.17.0
+jmespath==1.1.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+lark==1.2.2
+llguidance==1.7.6
+llvmlite==0.47.0
+lm-format-enforcer==0.11.3
+loguru==0.7.3
+markdown-it-py==4.2.0
+markupsafe==3.0.3
+mcp==2.2.0
+mcp-types==2.2.0
+mdurl==0.1.2
+mistral-common==1.12.0
+model-hosting-container-standards==0.1.16
+mpmath==1.3.0
+msgspec==0.21.1
+multidict==6.9.1
+networkx==3.7
+ninja==1.13.2
+numba==0.65.0
+numpy==2.3.5
+openai==3.19.2
+openai-harmony==0.0.8
+opencv-python-headless==5.0.0.93
+opentelemetry-api==1.44.0
+opentelemetry-exporter-otlp==1.44.0
+opentelemetry-exporter-otlp-proto-common==1.44.0
+opentelemetry-exporter-otlp-proto-grpc==1.44.0
+opentelemetry-exporter-otlp-proto-http==1.44.0
+opentelemetry-proto==1.44.0
+opentelemetry-sdk==1.44.0
+opentelemetry-semantic-conventions==0.65b0
+opentelemetry-semantic-conventions-ai==0.5.1
+outlines-core==0.2.14
+packaging==26.3
+partial-json-parser==0.2.1.1.post7
+pillow==12.3.0
+prometheus-client==0.26.0
+prometheus-fastapi-instrumentator==8.1.0
+propcache==0.5.4
+protobuf==7.36.2
+psutil==7.2.2
+py-cpuinfo==9.0.0
+pybase64==1.5.0
+pycountry==26.2.16
+pycparser==3.0
+pydantic==2.13.5
+pydantic-core==2.46.5
+pydantic-extra-types==2.11.1
+pydantic-settings==2.15.0
+pygments==2.21.0
+pyjwt==2.15.0
+python-dotenv==1.2.3
+python-json-logger==4.2.0
+python-multipart==0.0.32
+pyyaml==6.0.3
+pyzmq==27.2.0
+referencing==0.37.0
+regex==2026.9.10
+requests==2.34.2
+rich==15.0.0
+rich-toolkit==0.20.5
+rignore==0.8.1
+rpds-py==2026.6.3
+safetensors==0.8.0
+sentencepiece==0.2.2
+sentry-sdk==2.70.0
+setproctitle==1.3.7
+setuptools==77.0.3
+shellingham==1.5.4
+six==1.17.0
+sniffio==1.3.1
+sse-starlette==3.4.11
+starlette==1.7.0
+supervisor==4.3.0
+sympy==1.14.0
+tiktoken==0.14.0
+tokenizers==0.23.2
+torch==2.13.0+cpu
+torchaudio==2.11.0+cpu
+torchcodec==0.16.0+cpu
+torchvision==0.28.0+cpu
+tqdm==4.70.1
+transformers==5.17.0
+triton==3.8.0
+truststore==0.10.4
+typer==0.27.2
+typing-extensions==4.16.0
+typing-inspection==0.4.4
+urllib3==2.8.0
+uvicorn==0.53.0
+uvloop==0.22.1
+vllm @ https://github.com/vllm-project/vllm/releases/download/v0.30.0/vllm-0.30.0+cpu-cp38-abi3-manylinux_2_39_x86_64.whl
+watchfiles==1.3.0
+websockets==17.1
+xgrammar==0.2.8
+yarl==1.25.1
+
+### venv-convert (pip freeze)
+certifi==2026.7.22
+charset-normalizer==3.5.1
+cmake==4.4.3
+filelock==4.0.3
+fsspec==2026.9.0
+gguf==0.19.0
+hf-xet==1.6.0
+huggingface-hub==0.36.2
+idna==3.20
+jinja2==3.1.6
+markupsafe==3.0.3
+mpmath==1.3.0
+networkx==3.7
+numpy==2.2.6
+packaging==26.3
+protobuf==4.25.9
+pyyaml==6.0.3
+regex==2026.9.10
+requests==2.34.2
+safetensors==0.8.0
+sentencepiece==0.2.2
+setuptools==81.0.0
+sympy==1.14.0
+tokenizers==0.22.2
+torch==2.11.0+cpu
+tqdm==4.70.1
+transformers==4.57.6
+typing-extensions==4.16.0
+urllib3==2.8.0
+
+### venv-openvino (pip freeze)
+
+### models (/home/ubuntu/models/qwen)
+b90b86f35c8e6925ef74ee04d0e758f0a845c83a42089ad82bbaa948de9b4204  config.json
+d8a08838a613b025eb7952ed9db11696213e57e76a375661ef5c12f9dd5dcf4e  model.safetensors.index.json
+27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516  preprocessor_config.json
+5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42  tokenizer.json
+49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c  tokenizer_config.json
+7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13  video_preprocessor_config.json
+ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003  vocab.json
+273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80  chat_template.jinja
+a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d  merges.txt
+04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696  model.safetensors-00001-of-00001.safetensors
+ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4  config.json
+aca8afed9da75b0f050b408d270766fd77627f1af401e240f61c3b47d0db02f9  model.safetensors.index.json
+27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516  preprocessor_config.json
+5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42  tokenizer.json
+49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c  tokenizer_config.json
+7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13  video_preprocessor_config.json
+ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003  vocab.json
+273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80  chat_template.jinja
+a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d  merges.txt
+aa33250c4fc64891ddfaba3a314fd9542ea371843c387178b425fbcc5ed680b1  model.safetensors-00001-of-00001.safetensors
+ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670  config.json
+cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d  model.safetensors.index.json
+27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516  preprocessor_config.json
+5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42  tokenizer.json
+316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8  tokenizer_config.json
+7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13  video_preprocessor_config.json
+ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003  vocab.json
+a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715  chat_template.jinja
+a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d  merges.txt
+26a93f066e1916adb13453dae5a0c707c0fbc71299ed98779571a907b8e74c61  model.safetensors-00001-of-00002.safetensors
+cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188  model.safetensors-00002-of-00002.safetensors
+
+### end
+2026-09-25T07:00:20Z

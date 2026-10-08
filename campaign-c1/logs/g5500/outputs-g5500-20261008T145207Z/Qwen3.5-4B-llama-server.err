@@ -1,0 +1,15 @@
+0.00.001.219 I srv  llama_server: initializing ...
+0.00.100.015 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.153.995 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.214.591 I srv    load_model: loading model 'C:\Users\zexig\bench-engines\gguf\Qwen3.5-4B-bf16.gguf'
+0.19.446.328 I cmn          init: llama threadpool init, n_threads = 6
+0.20.945.663 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 1024, kv_unified = 'false'
+0.20.981.245 I srv  llama_server: model loaded
+0.20.981.490 I srv  llama_server: listening on http://127.0.0.1:18080
+0.21.586.421 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+0.21.606.294 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+0.33.944.486 I slot print_timing: id  0 | task 0 | prompt eval time =    3170.10 ms /   148 tokens (   21.42 ms per token,    46.69 tokens per second)
+0.33.944.493 I slot print_timing: id  0 | task 0 |        eval time =    9168.05 ms /    32 tokens (  295.74 ms per token,     3.38 tokens per second)
+0.33.944.494 I slot print_timing: id  0 | task 0 |       total time =   12338.15 ms /   180 tokens
+0.33.944.495 I slot print_timing: id  0 | task 0 |    graphs reused =         31
+0.33.944.554 I slot      release: id  0 | task 0 | stop processing: n_tokens = 179, truncated = 0

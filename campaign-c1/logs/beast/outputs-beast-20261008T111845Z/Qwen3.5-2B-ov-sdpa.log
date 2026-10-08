@@ -1,0 +1,6 @@
+[ov] openvino 2026.4.1-22982-e213a147257-releases/2026/4 genai 2026.4.1.0-3408-ab01d1771e4 props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'SDPA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 2.1 s, maxrss 7.59 GB
+[ids] [22969, 74593, 9056, 224731, 401, 184743, 4755, 3424, 181349, 401, 208257, 3493, 13450, 12197, 2486, 416, 401, 628, 11640, 11, 8226, 448, 468, 909, 13067, 1778, 51790, 47080, 5229, 4755, 1668, 1588]
+[decoded] 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon'
+[reference] 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon'
+[agreement] compared 32 first_divergence none

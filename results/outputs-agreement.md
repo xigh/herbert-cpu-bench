@@ -1,0 +1,26 @@
+| machine | modèle | prompt | moteur | jetons comparés | premier écart (index) | texte |
+|---|---|---|---|---|---|---|
+| beast | Qwen3.5-0.8B | 148 | référence fp32 | 32 | — | "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour" |
+| beast | Qwen3.5-0.8B | 148 | Herbert | 31 | aucun | "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands" |
+| beast | Qwen3.5-0.8B | 148 | llama.cpp | 32 | 13 | 'Les architectures récentes ont multiplié les canaux mémoire, empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser' |
+| beast | Qwen3.5-0.8B | 148 | vLLM | 32 | aucun | "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour" |
+| beast | Qwen3.5-2B | 148 | référence fp32 | 32 | — | 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon' |
+| beast | Qwen3.5-2B | 148 | Herbert | 31 | aucun | 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour sur' |
+| beast | Qwen3.5-2B | 148 | llama.cpp | 32 | aucun | 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon' |
+| beast | Qwen3.5-2B | 148 | vLLM | 32 | aucun | 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon' |
+| beast | Qwen3.5-4B | 148 | référence fp32 | 32 | — | 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire' |
+| beast | Qwen3.5-4B | 148 | Herbert | 31 | aucun | 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la' |
+| beast | Qwen3.5-4B | 148 | llama.cpp | 32 | aucun | 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire' |
+| beast | Qwen3.5-4B | 148 | vLLM | 32 | aucun | 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire' |
+| maistrow | Qwen3.5-0.8B | 148 | référence fp32 | 32 | — | "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour" |
+| maistrow | Qwen3.5-0.8B | 148 | Herbert | 31 | aucun | "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands" |
+| maistrow | Qwen3.5-0.8B | 148 | llama.cpp | 32 | 13 | 'Les architectures récentes ont multiplié les canaux mémoire, empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour compenser' |
+| maistrow | Qwen3.5-0.8B | 148 | vLLM | 32 | aucun | "Les architectures récentes ont multiplié les canaux mémoire, l'empilé la mémoire au plus près des cœurs et ajouté des caches plus grands pour" |
+| maistrow | Qwen3.5-2B | 148 | référence fp32 | 32 | — | 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon' |
+| maistrow | Qwen3.5-2B | 148 | Herbert | 31 | aucun | 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour sur' |
+| maistrow | Qwen3.5-2B | 148 | llama.cpp | 32 | aucun | 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon' |
+| maistrow | Qwen3.5-2B | 148 | vLLM | 32 | aucun | 'Les architectures récentes de mémoire pour les modèles de langage combinent multiplexage de canaux, empilement des modules et caches augmentés pour surmon' |
+| maistrow | Qwen3.5-4B | 148 | référence fp32 | 32 | — | 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire' |
+| maistrow | Qwen3.5-4B | 148 | Herbert | 31 | aucun | 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la' |
+| maistrow | Qwen3.5-4B | 148 | llama.cpp | 32 | aucun | 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire' |
+| maistrow | Qwen3.5-4B | 148 | vLLM | 32 | aucun | 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire' |

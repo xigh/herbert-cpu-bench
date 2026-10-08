@@ -1,0 +1,19 @@
+[  2%] Provisioning UI assets
+[  6%] Built target vendor-hash
+[  6%] Built target llama-common-base
+[  6%] Built target cpp-httplib
+-- UI: HF stamp matches 'ggml-org/llama-ui|b11177', skipping HF fetch
+[ 10%] Built target ggml-base
+[ 18%] Built target ggml-cpu
+[ 20%] Built target ggml
+-- UI: assets unchanged, skipping embedding
+[ 20%] Built target llama-ui-assets
+[ 20%] Built target llama-ui
+[ 40%] Built target llama
+[ 67%] Built target llama-common
+[ 91%] Built target mtmd
+[ 97%] Built target server-context
+[100%] Built target llama-server-impl
+[100%] Building CXX object tools/server/CMakeFiles/llama-server.dir/main.cpp.o
+[100%] Linking CXX executable ../../bin/llama-server
+[100%] Built target llama-server

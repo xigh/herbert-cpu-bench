@@ -1,0 +1,6 @@
+[ov] openvino 2026.4.1-22982-e213a147257-releases/2026/4 genai 2026.4.1.0-3408-ab01d1771e4 props {'INFERENCE_PRECISION_HINT': 'bf16', 'KV_CACHE_PRECISION': 'bf16', 'DYNAMIC_QUANTIZATION_GROUP_SIZE': 0, 'ATTENTION_BACKEND': 'PA', 'INFERENCE_NUM_THREADS': 12}
+[ov] pipeline ready in 1.1 s, maxrss 16.67 GB
+[ids] [40781, 1668, 1588, 455, 501, 73372, 401, 1147, 184743, 1298, 37102, 9750, 27375, 323, 1663, 11, 3424, 74593, 9056, 224731, 401, 181349, 401, 208257, 7072, 490, 1128, 3424, 628, 11640, 11, 208701]
+[decoded] 'Pour surmonter le retard de la mémoire par rapport aux processeurs, les architectures récentes de modèles de langage multiplient les canaux, rappro'
+[reference] 'Pour accélérer la génération des modèles de langage, les architectures récentes optimisent la bande passante mémoire en multipliant les canaux, rapprochant la mémoire'
+[agreement] compared 32 first_divergence 1
